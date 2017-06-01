@@ -118,9 +118,6 @@
       <DependentUpon>LocalModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Commands\ImportCommand.cs" />
-    <Compile Include="Models\Commands\OpenHomeCommand.cs" />
-    <Compile Include="Models\Commands\OpenCustomersCommand.cs" />
-    <Compile Include="Models\Commands\OpenImportForm.cs" />
     <Compile Include="Models\Commands\SaveCommand.cs" />
     <Compile Include="Models\Commands\SelectFileCommand.cs" />
     <Compile Include="Models\Commands\ShowXml.cs" />

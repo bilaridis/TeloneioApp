@@ -16,15 +16,15 @@ namespace TeloneioApp.StaticResources
     /// </summary> 
     public static class XmlExtension
     {
-        public static ID15A XmlReaderForID15A(string path)
+        public static Models.ID15A.ID15A XmlReaderForID15A(string path)
         {
-            ID15A result = null;
+            Models.ID15A.ID15A result = null;
             StreamReader reader2 = null;
             try
             {
-                XmlSerializer xs = new XmlSerializer(typeof(ID15A));
+                XmlSerializer xs = new XmlSerializer(typeof(Models.ID15A.ID15A));
                 reader2 = new StreamReader(path);
-                result = (ID15A)xs.Deserialize(reader2);
+                result = (Models.ID15A.ID15A)xs.Deserialize(reader2);
 
             }
             catch (Exception ex)

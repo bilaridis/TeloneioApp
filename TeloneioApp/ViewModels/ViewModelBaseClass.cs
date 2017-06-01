@@ -12,46 +12,6 @@ namespace TeloneioApp.ViewModels
 {
     public class ViewModelBaseClass : INotifyPropertyChanged
     {
-        public ViewModelBaseClass()
-        {
-            OpenImportForm = new OpenImportForm(this);
-
-            OpenCustomersCommand = new OpenCustomersCommand(this);
-
-            OpenHomeCommand = new OpenHomeCommand(this);
-            _displayPage = new Page();
-        }
-        public OpenCustomersCommand OpenCustomersCommand { get; set; }
-
-        public OpenImportForm OpenImportForm { get; set; }
-
-        public OpenHomeCommand OpenHomeCommand { get; set; }
-
-        private Page _displayPage;
-        public Page DisplayPage
-        {
-            get
-            {
-                return _displayPage;
-            }
-            set
-            {
-                if (Equals(_displayPage, value))
-                {
-                    return;
-                }
-
-                this._displayPage = value;
-                RaisePropertyChanged("DisplayPage");
-            }
-        }
-
-
-        public void ProcessNavRequest(Page page)
-        {
-            this.DisplayPage = page;
-        }
-
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         public void RaisePropertyChanged(string property)
         { PropertyChanged(this, new PropertyChangedEventArgs(property)); }
