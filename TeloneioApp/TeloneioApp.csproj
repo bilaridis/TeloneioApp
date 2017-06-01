@@ -81,9 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Customer.cs">
-      <DependentUpon>LocalModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Customer.cs" />
     <Compile Include="ID15A\CALTAXGOD.cs" />
     <Compile Include="ID15A\COMCODGODITM.cs" />
     <Compile Include="ID15A\CONNR2.cs" />
@@ -102,30 +100,14 @@
     <Compile Include="ID15A\TRACONCO1.cs" />
     <Compile Include="ID15A\TRADAT.cs" />
     <Compile Include="ID15A\TRAREP.cs" />
-    <Compile Include="LocalModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LocalModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LocalModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LocalModel.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="LocalModel.cs" />
     <Compile Include="Models\Commands\ImportCommand.cs" />
     <Compile Include="Models\Commands\SaveCommand.cs" />
     <Compile Include="Models\Commands\SelectFileCommand.cs" />
     <Compile Include="Models\Commands\ShowXml.cs" />
     <Compile Include="Models\ImportFormModel.cs" />
     <Compile Include="Models\MainModel.cs" />
-    <Compile Include="Tax.cs">
-      <DependentUpon>LocalModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Tax.cs" />
     <Compile Include="ViewModels\Converters\BoolToHiddenConverter.cs" />
     <Compile Include="Models\ID15A\CALTAXGOD.cs" />
     <Compile Include="Models\ID15A\COMCODGODITM.cs" />
@@ -163,8 +145,8 @@
     <Compile Include="Views\ItemForId15A.xaml.cs">
       <DependentUpon>ItemForId15A.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Views\Customers.xaml.cs">
+      <DependentUpon>Customers.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\StartScreen.xaml.cs">
@@ -177,6 +159,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles\DataGridResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -189,7 +175,7 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Views\MainWindow.xaml">
+    <Page Include="Views\Customers.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
@@ -220,13 +206,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="LocalModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LocalModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="LocalModel.edmx.diagram">
-      <DependentUpon>LocalModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -267,16 +246,6 @@
     <Content Include="LocalDB_log.ldf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>LocalDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="LocalModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LocalModel.edmx</DependentUpon>
-      <LastGenOutput>LocalModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="LocalModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LocalModel.edmx</DependentUpon>
-      <LastGenOutput>LocalModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />

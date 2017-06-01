@@ -8,12 +8,21 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="Teloneio App" 
-        Height="300" Width="300">
+        d:DesignHeight="300" 
+        d:DesignWidth="300">
     <Window.Resources>
-        <viewModel:StartScreenViewModel x:Key="ViewModel"/>
+
     </Window.Resources>
-    <StackPanel DataContext="{Binding Source={StaticResource ViewModel}}">
-        <Menu HorizontalAlignment="Stretch" Height="25" VerticalAlignment="Top">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" ></RowDefinition>
+            <RowDefinition Height="*" ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" ></ColumnDefinition>
+            <ColumnDefinition Width="0"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" HorizontalAlignment="Stretch" Height="25" VerticalAlignment="Top">
             <MenuItem Header="_Home" Click="HomeWindow_Click"/>
             <MenuItem Header="Actions">
                 <MenuItem Header="_Customers" Click="CutomersPage_Click">
@@ -21,10 +30,17 @@
                 <MenuItem Header="_Import Form" Click="ImportFormPage_Click">
                 </MenuItem>
             </MenuItem>
+            <MenuItem Header="TestPage" Click="MenuItem_OnClick">
+
+            </MenuItem>
         </Menu>
-        <Frame x:Name="NavigationFrame"
-               Margin="0"
-               NavigationUIVisibility="Hidden" >
-        </Frame>
-    </StackPanel>
+        <DockPanel Grid.Row="1">
+            <Frame x:Name="NavigationFrame"
+                   Background="Beige"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"
+                   NavigationUIVisibility="Hidden" >
+            </Frame>
+        </DockPanel>
+    </Grid>
 </Window>

@@ -30,7 +30,6 @@ namespace TeloneioApp.StaticResources
             catch (Exception ex)
             {
                 throw ex;
-                return result;
                 //ignored
             }
             finally

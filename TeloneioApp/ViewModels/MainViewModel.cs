@@ -24,7 +24,7 @@ namespace TeloneioApp.ViewModels
         public MainModel Model { get; set; }
         
 
-        public LocalDBEntities LocalDBEntities { get; set; }
+        public LocalModel LocalModel { get; set; }
 
         public ObservableCollection<Customer> Customers
         {
@@ -58,7 +58,7 @@ namespace TeloneioApp.ViewModels
         {
             Model = new MainModel();
             Customers = new ObservableCollection<Customer>();
-            LocalDBEntities = new LocalDBEntities();
+            LocalModel = new LocalModel();
             _commands = new CommandMap();
 
             _commands.AddCommand("Add", x => Add(), x => !CanSave());
@@ -73,7 +73,7 @@ namespace TeloneioApp.ViewModels
         private void LoadData()
         {
             Customers.Clear();
-            var query = LocalDBEntities.Customers.ToList();
+            var query = LocalModel.Customers.ToList();
             foreach (var item in query)
             {
                 Customers.Add(item);
@@ -84,9 +84,9 @@ namespace TeloneioApp.ViewModels
         {
             Customer customer = new Customer();
             Customers.Add(customer);
-            LocalDBEntities.Entry(customer).State = EntityState.Added;
+            LocalModel.Entry(customer).State = EntityState.Added;
             //LocalDBEntities.Customers.Add(customer);
-            LocalDBEntities.SaveChanges();
+            LocalModel.SaveChanges();
             SelectedCustomer = customer;
         }
 
@@ -97,9 +97,9 @@ namespace TeloneioApp.ViewModels
                     "Not undoable", MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                LocalDBEntities.Entry(SelectedCustomer).State = EntityState.Deleted;
+                LocalModel.Entry(SelectedCustomer).State = EntityState.Deleted;
                 //LocalDBEntities.Customers.Remove(SelectedCustomer);
-                LocalDBEntities.SaveChanges();
+                LocalModel.SaveChanges();
                 Customers.Remove(SelectedCustomer);
                 SelectedCustomer = Customers[0];
             }
@@ -108,15 +108,15 @@ namespace TeloneioApp.ViewModels
         void Save()
         {
 
-            LocalDBEntities.SaveChanges();
+            LocalModel.SaveChanges();
         }
 
         bool CanSave()
-        { return LocalDBEntities.ChangeTracker.HasChanges(); }
+        { return LocalModel.ChangeTracker.HasChanges(); }
 
         void Cancel()
         {
-            foreach (DbEntityEntry entry in LocalDBEntities.ChangeTracker.Entries())
+            foreach (DbEntityEntry entry in LocalModel.ChangeTracker.Entries())
             {
                 switch (entry.State)
                 {

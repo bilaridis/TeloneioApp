@@ -27,7 +27,7 @@ namespace TeloneioApp.Views
 
         private void CutomersPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationFrame.NavigationService.Navigate(new MainWindow());
+            NavigationFrame.NavigationService.Navigate(new Customers());
         }
 
         private void ImportFormPage_Click(object sender, RoutedEventArgs e)
@@ -37,6 +37,11 @@ namespace TeloneioApp.Views
         private void HomeWindow_Click(object sender, RoutedEventArgs e)
         {
             NavigationFrame.NavigationService.Navigate(new Home());
+        }
+
+        private void MenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationFrame.NavigationService.Navigate(new TestPage());
         }
     }
 }
