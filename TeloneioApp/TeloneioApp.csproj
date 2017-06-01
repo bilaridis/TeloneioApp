@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7AD84EB-AD15-4B75-8C1A-4A8B0E06ABF7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TeloneioApp</RootNamespace>
+    <AssemblyName>TeloneioApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Customer.cs">
+      <DependentUpon>LocalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ID15A\CALTAXGOD.cs" />
+    <Compile Include="ID15A\COMCODGODITM.cs" />
+    <Compile Include="ID15A\CONNR2.cs" />
+    <Compile Include="ID15A\DELTER.cs" />
+    <Compile Include="ID15A\ENTCUSOFF.cs" />
+    <Compile Include="ID15A\GOOITEGDS.cs" />
+    <Compile Include="ID15A\HEAHEA.cs" />
+    <Compile Include="ID15A\ID15A.cs" />
+    <Compile Include="ID15A\IMPCUSOFF.cs" />
+    <Compile Include="ID15A\PACGS2.cs" />
+    <Compile Include="ID15A\PREADMREFAR2.cs" />
+    <Compile Include="ID15A\PRODOCDC2.cs" />
+    <Compile Include="ID15A\STATREP385.cs" />
+    <Compile Include="ID15A\TAXADDELE100.cs" />
+    <Compile Include="ID15A\TRACONCE1.cs" />
+    <Compile Include="ID15A\TRACONCO1.cs" />
+    <Compile Include="ID15A\TRADAT.cs" />
+    <Compile Include="ID15A\TRAREP.cs" />
+    <Compile Include="LocalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Commands\ImportCommand.cs" />
+    <Compile Include="Models\Commands\OpenHomeCommand.cs" />
+    <Compile Include="Models\Commands\OpenCustomersCommand.cs" />
+    <Compile Include="Models\Commands\OpenImportForm.cs" />
+    <Compile Include="Models\Commands\SaveCommand.cs" />
+    <Compile Include="Models\Commands\SelectFileCommand.cs" />
+    <Compile Include="Models\Commands\ShowXml.cs" />
+    <Compile Include="Models\ImportFormModel.cs" />
+    <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Tax.cs">
+      <DependentUpon>LocalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Converters\BoolToHiddenConverter.cs" />
+    <Compile Include="Models\ID15A\CALTAXGOD.cs" />
+    <Compile Include="Models\ID15A\COMCODGODITM.cs" />
+    <Compile Include="Models\ID15A\CONNR2.cs" />
+    <Compile Include="Models\ID15A\DELTER.cs" />
+    <Compile Include="Models\ID15A\ENTCUSOFF.cs" />
+    <Compile Include="Models\ID15A\GOOITEGDS.cs" />
+    <Compile Include="Models\ID15A\HEAHEA.cs" />
+    <Compile Include="Models\ID15A\ID15A.cs" />
+    <Compile Include="Models\ID15A\IMPCUSOFF.cs" />
+    <Compile Include="Models\ID15A\PACGS2.cs" />
+    <Compile Include="Models\ID15A\PREADMREFAR2.cs" />
+    <Compile Include="Models\ID15A\PRODOCDC2.cs" />
+    <Compile Include="Models\ID15A\STATREP385.cs" />
+    <Compile Include="Models\ID15A\TAXADDELE100.cs" />
+    <Compile Include="Models\ID15A\TRACONCE1.cs" />
+    <Compile Include="Models\ID15A\TRACONCO1.cs" />
+    <Compile Include="Models\ID15A\TRADAT.cs" />
+    <Compile Include="Models\ID15A\TRAREP.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="StaticResources\MyStringWriter.cs" />
+    <Compile Include="StaticResources\XmlExtension.cs" />
+    <Compile Include="ViewModels\FileInfoEDE.cs" />
+    <Compile Include="ViewModels\ImportFormViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="ViewModels\StartScreenViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBaseClass.cs" />
+    <Compile Include="Views\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImportForm.xaml.cs">
+      <DependentUpon>ImportForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemForId15A.xaml.cs">
+      <DependentUpon>ItemForId15A.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\StartScreen.xaml.cs">
+      <DependentUpon>StartScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImportForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\ItemForId15A.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\StartScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="LocalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LocalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LocalModel.edmx.diagram">
+      <DependentUpon>LocalModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Examples\ED000988.xml" />
+    <Resource Include="Examples\ED000989.xml" />
+    <Resource Include="Examples\ED000991.xml" />
+    <Resource Include="Examples\ED000992.xml" />
+    <Resource Include="Examples\ED000999.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LocalDB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LocalDB_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>LocalDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="LocalModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocalModel.edmx</DependentUpon>
+      <LastGenOutput>LocalModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="LocalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LocalModel.edmx</DependentUpon>
+      <LastGenOutput>LocalModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
