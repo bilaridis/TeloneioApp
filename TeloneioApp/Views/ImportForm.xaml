@@ -139,160 +139,6 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0">
-                            <WrapPanel Margin="0">
-                                <GroupBox>
-                                    <GroupBox.Header>Μηνυμα</GroupBox.Header>
-                                    <GroupBox.Content>
-                                        <WrapPanel>
-                                            <StackPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Αποστολεας :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=MesSenMES3, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-
-                                                <WrapPanel>
-                                                    <Label Content="Παραλήπτης :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=MesRecMES6, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ημ/νία προπαρ. :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=DatOfPreMES9, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ώρα Προπαρ. :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TimOfPreMES10, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="------ :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TesIndMES18, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ταυτότητα :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=MesIdeMES19, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Τύπος :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=MesTypMES20, Mode=TwoWay}" Width="150"></TextBox>
-                                                </WrapPanel>
-                                            </StackPanel>
-                                            <StackPanel HorizontalAlignment="Left">
-                                            </StackPanel>
-                                        </WrapPanel>
-                                    </GroupBox.Content>
-                                </GroupBox>
-                                <GroupBox>
-                                    <GroupBox.Header>Βασικά Στοιχεια</GroupBox.Header>
-                                    <GroupBox.Content>
-                                        <WrapPanel>
-                                            <StackPanel>
-                                                <WrapPanel>
-                                                    <Label Content="LRN :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.RefNumHEA4, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Τυπος Διασαφ. :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.TypOfDecHEA24, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-
-                                                    <Label Content="Κωδ. Χωρας Προορ. :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.CouOfDesCodHEA30, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Κωδ. Συμφ.Τοπ. Εμπ. :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.AgrLocOfGooCodHEA38, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Συμφων. Τοποθεσια :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.AgrLocOfGooHEA39, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Γλωσσα :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.AgrLocOfGooHEA39LNG, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Κωδ. Χωρας Αποστ. :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.CouOfDisCodHEA55, Mode=TwoWay}" Width="190"></TextBox>
-                                                </WrapPanel>
-                                            </StackPanel>
-                                            <StackPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Τροπος μετ. στα Συν. :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.TraModAtBorHEA76, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ταυτότητα :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.IdeOfMeaOfTraCroHEA85, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Γλωσσα :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.IdeOfMeaOfTraCroHEA85LNG, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Εθνικότητα :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.NatOfMeaOfTraCroHEA87, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ενδειξη Εμπ/ματοκιβωτιο:" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.ConIndHEA96, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Είδη :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.TotNumOfIteHEA305, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Συνολο δεμάτων :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.TotNumOfPacHEA306, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                            </StackPanel>
-                                            <StackPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Συν. Μεικτή Μάζα :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.TotGroMasHEA307, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ημ/νία καταχωρησης :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.DecDatHEA383, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Τοπος Διασαφησης :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.DecPlaHEA394, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Γλώσσα :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.DecPlaHEA394LNG, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Θέση 1β :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.TypOfDecBx12HEA651, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Οικον. και Τραπεζ. Δεδ. :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.FinBanInfHEA1027, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Ταυτοτητα :" Width="150"></Label>
-                                                    <TextBox Text="{Binding Path=Head.IdeMeaTraArr4004, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                            </StackPanel>
-                                            <StackPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Γλωσσα :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.IdeMeaTraArr4005LNG, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Εθνικοτητα :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.NatOfMeaOfTraAtArrHEA54, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Τροπος Πληρωμης :" Width="130"></Label>
-                                                    <TextBox Text="{Binding Path=Head.MetOfPayHEA590, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                            </StackPanel>
-                                        </WrapPanel>
-                                    </GroupBox.Content>
-                                </GroupBox>
-                            </WrapPanel>
                             <WrapPanel>
                                 <GroupBox>
                                     <GroupBox.Header>Αποστολεας</GroupBox.Header>
@@ -301,8 +147,19 @@
                                             <StackPanel>
                                                 <WrapPanel>
                                                     <Label Content="Επωνυμία :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TRACONCO1.NamCO17, Mode=TwoWay}" Width="200"></TextBox>
-
+                                                    <ComboBox
+                                                        Width="200"
+                                                        IsEditable="True"
+                                                        IsTextSearchEnabled="True"
+                                                        IsSynchronizedWithCurrentItem="True"
+                                                        SelectedItem="{Binding Apostoleas, Mode=TwoWay, Source={StaticResource ViewModel}}"
+                                                        DisplayMemberPath="Name"
+                                                        SelectedValuePath="Id"
+                                                        ItemsSource="{Binding Customers, Source={StaticResource ViewModel}}">
+                                                        <ComboBox.InputBindings>
+                                                            <KeyBinding  Key="Enter" Command="{Binding NotImplementedCommand}"/>
+                                                        </ComboBox.InputBindings>
+                                                    </ComboBox>
                                                 </WrapPanel>
 
                                                 <WrapPanel>
@@ -371,6 +228,184 @@
                                     </GroupBox.Content>
                                 </GroupBox>
                                 <GroupBox>
+                                    <GroupBox.Header>Διασαφιστής/Αντιπροσωπος</GroupBox.Header>
+                                    <GroupBox.Content>
+                                        <WrapPanel>
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Επωνυμια :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=TRAREP.NamTRE1, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Χώρα :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=TRAREP.CouCodTRE1, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Γλώσσα :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=TRAREP.TRAREPLNG, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="EORI/TIN :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=TRAREP.TINTRE1, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                        </WrapPanel>
+                                    </GroupBox.Content>
+                                </GroupBox>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <GroupBox>
+                                    <GroupBox.Header>Βασικά Στοιχεια</GroupBox.Header>
+                                    <GroupBox.Content>
+                                        <WrapPanel>
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Label Content="LRN :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.RefNumHEA4, Mode=TwoWay}" Width="180"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Τυπος Διασαφ. :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.TypOfDecHEA24, Mode=TwoWay}" Width="130"></TextBox>
+                                                    <TextBox Text="{Binding Path=Head.TypOfDecBx12HEA651, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+
+                                                    <Label Content="Κωδ. Χωρας Προορ. :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.CouOfDesCodHEA30, Mode=TwoWay}" Width="180"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Κωδ. Συμφ.Τοπ. Εμπ. :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.AgrLocOfGooCodHEA38, Mode=TwoWay}" Width="180"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Συμφων. Τοποθεσια :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.AgrLocOfGooHEA39, Mode=TwoWay}" Width="180"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Γλωσσα :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.AgrLocOfGooHEA39LNG, Mode=TwoWay}" Width="180"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Κωδ. Χωρας Αποστ. :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.CouOfDisCodHEA55, Mode=TwoWay}" Width="180"></TextBox>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Τροπος μετ. στα Συν. :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.TraModAtBorHEA76, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ταυτότητα :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.IdeOfMeaOfTraCroHEA85, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Γλωσσα :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.IdeOfMeaOfTraCroHEA85LNG, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Εθνικότητα :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.NatOfMeaOfTraCroHEA87, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ενδειξη Εμπ/ματοκιβωτιο:" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.ConIndHEA96, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Είδη :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.TotNumOfIteHEA305, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Συνολο δεμάτων :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.TotNumOfPacHEA306, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Συν. Μεικτή Μάζα :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.TotGroMasHEA307, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ημ/νία καταχωρησης :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.DecDatHEA383, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Τοπος Διασαφησης :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.DecPlaHEA394, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Γλώσσα :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.DecPlaHEA394LNG, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Οικον. και Τραπεζ. Δεδ. :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.FinBanInfHEA1027, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ταυτοτητα :" Width="150"></Label>
+                                                    <TextBox Text="{Binding Path=Head.IdeMeaTraArr4004, Mode=TwoWay}" Width="200"></TextBox>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Γλωσσα :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.IdeMeaTraArr4005LNG, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Εθνικοτητα :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.NatOfMeaOfTraAtArrHEA54, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Τροπος Πληρωμης :" Width="130"></Label>
+                                                    <TextBox Text="{Binding Path=Head.MetOfPayHEA590, Mode=TwoWay}" Width="50"></TextBox>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                        </WrapPanel>
+                                    </GroupBox.Content>
+                                </GroupBox>
+                            </WrapPanel>
+                            <WrapPanel Margin="0">
+                                <GroupBox>
+                                    <GroupBox.Header>Μηνυμα</GroupBox.Header>
+                                    <GroupBox.Content>
+                                        <WrapPanel>
+                                            <StackPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Αποστολεας :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=MesSenMES3, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+
+                                                <WrapPanel>
+                                                    <Label Content="Παραλήπτης :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=MesRecMES6, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ημ/νία προπαρ. :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=DatOfPreMES9, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ώρα Προπαρ. :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=TimOfPreMES10, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="------ :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=TesIndMES18, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Ταυτότητα :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=MesIdeMES19, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+                                                <WrapPanel>
+                                                    <Label Content="Τύπος :" Width="100"></Label>
+                                                    <TextBox Text="{Binding Path=MesTypMES20, Mode=TwoWay}" Width="150"></TextBox>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                            <StackPanel HorizontalAlignment="Left">
+                                            </StackPanel>
+                                        </WrapPanel>
+                                    </GroupBox.Content>
+                                </GroupBox>
+                                <GroupBox>
                                     <GroupBox.Header>Οροι Παραδοσης</GroupBox.Header>
                                     <GroupBox.Content>
                                         <WrapPanel>
@@ -416,31 +451,6 @@
                                         </WrapPanel>
                                     </GroupBox.Content>
                                 </GroupBox>
-                                <GroupBox>
-                                    <GroupBox.Header>Διασαφιστής/Αντιπροσωπος</GroupBox.Header>
-                                    <GroupBox.Content>
-                                        <WrapPanel>
-                                            <StackPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Επωνυμια :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TRAREP.NamTRE1, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Χώρα :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TRAREP.CouCodTRE1, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="Γλώσσα :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TRAREP.TRAREPLNG, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                                <WrapPanel>
-                                                    <Label Content="EORI/TIN :" Width="100"></Label>
-                                                    <TextBox Text="{Binding Path=TRAREP.TINTRE1, Mode=TwoWay}" Width="200"></TextBox>
-                                                </WrapPanel>
-                                            </StackPanel>
-                                        </WrapPanel>
-                                    </GroupBox.Content>
-                                </GroupBox>
                             </WrapPanel>
                             <Grid DataContext="{Binding GOOITEGDS}" Margin="0">
                                 <ListView ItemsSource="{Binding}">
@@ -451,180 +461,185 @@
                                                     <Label Content="{Binding Path=IteNumGDS7, Mode=TwoWay}"></Label>
                                                 </GroupBox.Header>
                                                 <GroupBox.Content>
-                                                    <WrapPanel Margin="0" >
-                                                        <StackPanel>
-                                                            <WrapPanel>
-                                                                <Label Content="Class Code :" Width="100"></Label>
-                                                                <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="100"></TextBox>
-                                                                <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="25" MaxLength="2"></TextBox>
-                                                                <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
-                                                                <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
-                                                                <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
-                                                            </WrapPanel>
-                                                            <WrapPanel>
-                                                                <Label Content="Description :" Width="100"></Label>
-                                                                <TextBox Text="{Binding Path=GooDesGDS23, Mode=TwoWay}" Width="275" Height="250" TextWrapping="Wrap"></TextBox>
-                                                            </WrapPanel>
-                                                            <GroupBox>
-                                                                <GroupBox.Content>
-                                                                    <WrapPanel>
-                                                                        <StackPanel>
-                                                                            <Label Content="Κωδ. Συμπληρωματικης Μοναδας" Width="190"></Label>
-                                                                            <TextBox Text="{Binding Path=TAXADDELE100.AmoOfSupUniTAXADDELE100, Mode=TwoWay}" Width="190"></TextBox>
-                                                                        </StackPanel>
-                                                                        <StackPanel>
-                                                                            <Label Content="Τιμη Συμπληρωματικης Μοναδας" Width="190"></Label>
-                                                                            <TextBox Text="{Binding Path=TAXADDELE100.SupUniCodTAXADDELE101, Mode=TwoWay}" Width="190"></TextBox>
-                                                                        </StackPanel>
-                                                                    </WrapPanel>
-                                                                </GroupBox.Content>
-                                                            </GroupBox>
-                                                        </StackPanel>
-                                                        <GroupBox>
-                                                            <GroupBox.Header>Στοιχεία</GroupBox.Header>
-                                                            <GroupBox.Content>
+                                                    <StackPanel>
+                                                        <WrapPanel>
+                                                            <StackPanel>
                                                                 <WrapPanel>
-                                                                    <StackPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Γλωσσα :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=GooDesGDS23LNG, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Μεικτη Μαζα :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=GroMasGDS46, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Καθαρη Μαζα :" Width="110">
-                                                                            </Label>
-                                                                            <TextBox Text="{Binding Path=NetMasGDS48, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Καθεστώς :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=ProReqGDI1, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Προηγ. Καθεστ.:" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=PreProGDI1, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Κοιν./Εθνικη Διαδ.:" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=ComNatProGIM1, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Νομ. Στατ. Αξιας:" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=StaValCurGDI1, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Χωρα Καταγωγης:" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=CouOfOriGDI1, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Προτιμηση :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=Pre4046, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Τιμη Προϊοντος :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=ProPri4002, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Εκτιμηση Αξιας :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=EstOfValGDS14, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                        <WrapPanel>
-                                                                            <Label Content="Στατιστικη Αξια :" Width="110"></Label>
-                                                                            <TextBox Text="{Binding Path=StaValAmoGDI1, Mode=TwoWay}" Width="100"></TextBox>
-                                                                        </WrapPanel>
-                                                                    </StackPanel>
+                                                                    <Label Content="Class Code :" Width="100"></Label>
+                                                                    <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="100"></TextBox>
+                                                                    <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="25" MaxLength="2"></TextBox>
+                                                                    <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
+                                                                    <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
+                                                                    <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
                                                                 </WrapPanel>
-                                                            </GroupBox.Content>
-                                                        </GroupBox>
-                                                        <StackPanel>
+                                                                <WrapPanel>
+                                                                    <Label Content="Description :" Width="100"></Label>
+                                                                    <TextBox Text="{Binding Path=GooDesGDS23, Mode=TwoWay}" Width="275" Height="250" TextWrapping="Wrap"></TextBox>
+                                                                </WrapPanel>
+                                                                <GroupBox>
+                                                                    <GroupBox.Content>
+                                                                        <WrapPanel>
+                                                                            <StackPanel>
+                                                                                <Label Content="Κωδ. Συμπληρωματικης Μοναδας" Width="190"></Label>
+                                                                                <TextBox Text="{Binding Path=TAXADDELE100.AmoOfSupUniTAXADDELE100, Mode=TwoWay}" Width="190"></TextBox>
+                                                                            </StackPanel>
+                                                                            <StackPanel>
+                                                                                <Label Content="Τιμη Συμπληρωματικης Μοναδας" Width="190"></Label>
+                                                                                <TextBox Text="{Binding Path=TAXADDELE100.SupUniCodTAXADDELE101, Mode=TwoWay}" Width="190"></TextBox>
+                                                                            </StackPanel>
+                                                                        </WrapPanel>
+                                                                    </GroupBox.Content>
+                                                                </GroupBox>
+                                                            </StackPanel>
                                                             <GroupBox>
-                                                                <GroupBox.Header>Υπολογισμος Επιβαρυνσης</GroupBox.Header>
-                                                                <GroupBox.Content>
-                                                                    <WrapPanel>
-                                                                        <Grid DataContext="{Binding CALTAXGOD}" Margin="0">
-                                                                            <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
-                                                                                <DataGrid.Columns>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Είδος" Binding="{Binding TypOfTaxCTX1}"/>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Φορ/γικη Βάση" Binding="{Binding TaxBasCTX1}"/>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Συντελεστης" Binding="{Binding RatOfTaxCTX1}"/>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Ποσο" Binding="{Binding AmoOfTaxTCL1}"/>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Τροπος Πλ/μης" Binding="{Binding MetOfPayCTX1}"/>
-                                                                                </DataGrid.Columns>
-                                                                            </DataGrid>
-                                                                        </Grid>
-                                                                    </WrapPanel>
-                                                                </GroupBox.Content>
-                                                            </GroupBox>
-                                                            <GroupBox>
-                                                                <GroupBox.Header>Συσκευασιες</GroupBox.Header>
+                                                                <GroupBox.Header>Στοιχεία</GroupBox.Header>
                                                                 <GroupBox.Content>
                                                                     <WrapPanel>
                                                                         <StackPanel>
                                                                             <WrapPanel>
-                                                                                <Label Content="Σημεια/Αριθμοι:" Width="100"></Label>
-                                                                                <TextBox Text="{Binding Path=PACGS2.MarNumOfPacGS21, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                <Label Content="Γλωσσα :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=GooDesGDS23LNG, Mode=TwoWay}" Width="100"></TextBox>
                                                                             </WrapPanel>
                                                                             <WrapPanel>
-                                                                                <Label Content="Γλωσσα :" Width="100"></Label>
-                                                                                <TextBox Text="{Binding Path=PACGS2.MarNumOfPacGS21LNG, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                <Label Content="Μεικτη Μαζα :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=GroMasGDS46, Mode=TwoWay}" Width="100"></TextBox>
                                                                             </WrapPanel>
                                                                             <WrapPanel>
-                                                                                <Label Content="Συσκευασια:" Width="100"></Label>
-                                                                                <TextBox Text="{Binding Path=PACGS2.KinOfPacGS23, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                <Label Content="Καθαρη Μαζα :" Width="110">
+                                                                                </Label>
+                                                                                <TextBox Text="{Binding Path=NetMasGDS48, Mode=TwoWay}" Width="100"></TextBox>
                                                                             </WrapPanel>
                                                                             <WrapPanel>
-                                                                                <Label Content="Αρ. Δεμάτων:" Width="100"></Label>
-                                                                                <TextBox Text="{Binding Path=PACGS2.NumOfPacGS24, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                <Label Content="Καθεστώς :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=ProReqGDI1, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Προηγ. Καθεστ.:" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=PreProGDI1, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Κοιν./Εθνικη Διαδ.:" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=ComNatProGIM1, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Νομ. Στατ. Αξιας:" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=StaValCurGDI1, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Χωρα Καταγωγης:" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=CouOfOriGDI1, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Προτιμηση :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=Pre4046, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Τιμη Προϊοντος :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=ProPri4002, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Εκτιμηση Αξιας :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=EstOfValGDS14, Mode=TwoWay}" Width="100"></TextBox>
+                                                                            </WrapPanel>
+                                                                            <WrapPanel>
+                                                                                <Label Content="Στατιστικη Αξια :" Width="110"></Label>
+                                                                                <TextBox Text="{Binding Path=StaValAmoGDI1, Mode=TwoWay}" Width="100"></TextBox>
                                                                             </WrapPanel>
                                                                         </StackPanel>
                                                                     </WrapPanel>
                                                                 </GroupBox.Content>
                                                             </GroupBox>
-                                                        </StackPanel>
-                                                        <GroupBox>
-                                                            <GroupBox.Header>Προηγούμενα Παραστατικα</GroupBox.Header>
-                                                            <GroupBox.Content>
-                                                                <Grid DataContext="{Binding PREADMREFAR2}" Margin="0">
-                                                                    <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
-                                                                        <DataGrid.Columns>
-                                                                            <DataGridTextColumn Width="Auto" Header="Κωδικος 1" Binding="{Binding PreDocTypAR21}"/>
-                                                                            <DataGridTextColumn Width="Auto" Header="Περιγραφή" Binding="{Binding PreDocRefAR26}"/>
-                                                                            <DataGridTextColumn Width="Auto" Header="Γλωσσα" Binding="{Binding PreDocRefLNG}"/>
-                                                                            <DataGridTextColumn Width="Auto" Header="Κωδικος 2" Binding="{Binding PreDocCatPREADMREF21}"/>
-                                                                        </DataGrid.Columns>
-                                                                    </DataGrid>
-                                                                </Grid>
-                                                            </GroupBox.Content>
-                                                        </GroupBox>
-                                                        <GroupBox>
-                                                            <GroupBox.Header>Πιστοποιητικα Εγγραφα</GroupBox.Header>
-                                                            <GroupBox.Content>
-                                                                <Grid DataContext="{Binding PRODOCDC2}" Margin="0">
-                                                                    <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
-                                                                        <DataGrid.Columns>
-                                                                            <DataGridTextColumn Width="Auto" Header="Εγγραφο" Binding="{Binding DocTypDC21}"/>
-                                                                            <DataGridTextColumn Width="Auto" Header="Αριθμος" Binding="{Binding DocRefDC23}"/>
-                                                                            <DataGridTextColumn Width="Auto" Header="Γλωσσα" Binding="{Binding DocRefDCLNG}"/>
-                                                                        </DataGrid.Columns>
-                                                                    </DataGrid>
-                                                                </Grid>
-                                                            </GroupBox.Content>
-                                                        </GroupBox>
-                                                        <GroupBox>
-                                                            <GroupBox.Header>Εμπορευματοκιβωτια</GroupBox.Header>
-                                                            <GroupBox.Content>
-                                                                <Grid DataContext="{Binding CONNR2}" Margin="0">
-                                                                    <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False" >
-                                                                        <DataGrid.Columns>
-                                                                            <DataGridTextColumn Width="110" Header="Αριθμος" Binding="{Binding ConNumNR21}"/>
-                                                                        </DataGrid.Columns>
-                                                                    </DataGrid>
-                                                                </Grid>
-                                                            </GroupBox.Content>
-                                                        </GroupBox>
-                                                    </WrapPanel>
+                                                            <StackPanel>
+                                                                <GroupBox>
+                                                                    <GroupBox.Header>Υπολογισμος Επιβαρυνσης</GroupBox.Header>
+                                                                    <GroupBox.Content>
+                                                                        <WrapPanel>
+                                                                            <Grid DataContext="{Binding CALTAXGOD}" Margin="0">
+                                                                                <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
+                                                                                    <DataGrid.Columns>
+                                                                                        <DataGridTextColumn Width="Auto" Header="Είδος" Binding="{Binding TypOfTaxCTX1}"/>
+                                                                                        <DataGridTextColumn Width="Auto" Header="Φορ/γικη Βάση" Binding="{Binding TaxBasCTX1}"/>
+                                                                                        <DataGridTextColumn Width="Auto" Header="Συντελεστης" Binding="{Binding RatOfTaxCTX1}"/>
+                                                                                        <DataGridTextColumn Width="Auto" Header="Ποσο" Binding="{Binding AmoOfTaxTCL1}"/>
+                                                                                        <DataGridTextColumn Width="Auto" Header="Τροπος Πλ/μης" Binding="{Binding MetOfPayCTX1}"/>
+                                                                                    </DataGrid.Columns>
+                                                                                </DataGrid>
+                                                                            </Grid>
+                                                                        </WrapPanel>
+                                                                    </GroupBox.Content>
+                                                                </GroupBox>
+                                                                <GroupBox>
+                                                                    <GroupBox.Header>Συσκευασιες</GroupBox.Header>
+                                                                    <GroupBox.Content>
+                                                                        <WrapPanel>
+                                                                            <StackPanel>
+                                                                                <WrapPanel>
+                                                                                    <Label Content="Σημεια/Αριθμοι:" Width="100"></Label>
+                                                                                    <TextBox Text="{Binding Path=PACGS2.MarNumOfPacGS21, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                </WrapPanel>
+                                                                                <WrapPanel>
+                                                                                    <Label Content="Γλωσσα :" Width="100"></Label>
+                                                                                    <TextBox Text="{Binding Path=PACGS2.MarNumOfPacGS21LNG, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                </WrapPanel>
+                                                                                <WrapPanel>
+                                                                                    <Label Content="Συσκευασια:" Width="100"></Label>
+                                                                                    <TextBox Text="{Binding Path=PACGS2.KinOfPacGS23, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                </WrapPanel>
+                                                                                <WrapPanel>
+                                                                                    <Label Content="Αρ. Δεμάτων:" Width="100"></Label>
+                                                                                    <TextBox Text="{Binding Path=PACGS2.NumOfPacGS24, Mode=TwoWay}" Width="100"></TextBox>
+                                                                                </WrapPanel>
+                                                                            </StackPanel>
+                                                                        </WrapPanel>
+                                                                    </GroupBox.Content>
+                                                                </GroupBox>
+                                                            </StackPanel>
+                                                        </WrapPanel>
+                                                        <WrapPanel>
+                                                            <GroupBox>
+                                                                <GroupBox.Header>Προηγούμενα Παραστατικα</GroupBox.Header>
+                                                                <GroupBox.Content>
+                                                                    <Grid DataContext="{Binding PREADMREFAR2}" Margin="0">
+                                                                        <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
+                                                                            <DataGrid.Columns>
+                                                                                <DataGridTextColumn Width="Auto" Header="Κωδικος 1" Binding="{Binding PreDocTypAR21}"/>
+                                                                                <DataGridTextColumn Width="Auto" Header="Περιγραφή" Binding="{Binding PreDocRefAR26}"/>
+                                                                                <DataGridTextColumn Width="Auto" Header="Γλωσσα" Binding="{Binding PreDocRefLNG}"/>
+                                                                                <DataGridTextColumn Width="Auto" Header="Κωδικος 2" Binding="{Binding PreDocCatPREADMREF21}"/>
+                                                                            </DataGrid.Columns>
+                                                                        </DataGrid>
+                                                                    </Grid>
+                                                                </GroupBox.Content>
+                                                            </GroupBox>
+                                                            <GroupBox>
+                                                                <GroupBox.Header>Πιστοποιητικα Εγγραφα</GroupBox.Header>
+                                                                <GroupBox.Content>
+                                                                    <Grid DataContext="{Binding PRODOCDC2}" Margin="0">
+                                                                        <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
+                                                                            <DataGrid.Columns>
+                                                                                <DataGridTextColumn Width="Auto" Header="Εγγραφο" Binding="{Binding DocTypDC21}"/>
+                                                                                <DataGridTextColumn Width="Auto" Header="Αριθμος" Binding="{Binding DocRefDC23}"/>
+                                                                                <DataGridTextColumn Width="Auto" Header="Γλωσσα" Binding="{Binding DocRefDCLNG}"/>
+                                                                            </DataGrid.Columns>
+                                                                        </DataGrid>
+                                                                    </Grid>
+                                                                </GroupBox.Content>
+                                                            </GroupBox>
+                                                            <GroupBox>
+                                                                <GroupBox.Header>Εμπορευματοκιβωτια</GroupBox.Header>
+                                                                <GroupBox.Content>
+                                                                    <Grid DataContext="{Binding CONNR2}" Margin="0">
+                                                                        <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False" >
+                                                                            <DataGrid.Columns>
+                                                                                <DataGridTextColumn Width="110" Header="Αριθμος" Binding="{Binding ConNumNR21}"/>
+                                                                            </DataGrid.Columns>
+                                                                        </DataGrid>
+                                                                    </Grid>
+                                                                </GroupBox.Content>
+                                                            </GroupBox>
+                                                        </WrapPanel>
+                                                    </StackPanel>
+
                                                 </GroupBox.Content>
                                             </GroupBox>
                                         </DataTemplate>

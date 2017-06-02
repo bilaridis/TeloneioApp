@@ -25,5 +25,10 @@ namespace TeloneioApp
 
         [StringLength(50)]
         public string EORI_TIN { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format("{0}", Name);
+        }
     }
 }

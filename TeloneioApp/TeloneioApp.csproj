@@ -102,6 +102,7 @@
     <Compile Include="ID15A\TRAREP.cs" />
     <Compile Include="LocalModel.cs" />
     <Compile Include="Models\Commands\ImportCommand.cs" />
+    <Compile Include="Models\Commands\NotImplementedCommand.cs" />
     <Compile Include="Models\Commands\SaveCommand.cs" />
     <Compile Include="Models\Commands\SelectFileCommand.cs" />
     <Compile Include="Models\Commands\ShowXml.cs" />
