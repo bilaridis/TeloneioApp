@@ -13,7 +13,12 @@
         d:DesignHeight="300" 
         d:DesignWidth="300">
     <Window.Resources>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/DataGridResources.xaml"/>
+                <ResourceDictionary Source="/Styles/MetroStyleResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -38,7 +43,7 @@
         </Menu>
         <DockPanel Grid.Row="1">
             <Frame x:Name="NavigationFrame"
-                   Background="Beige"
+                   Background="#FF3E4854"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch"
                    NavigationUIVisibility="Hidden" >

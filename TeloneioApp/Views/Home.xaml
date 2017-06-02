@@ -11,7 +11,7 @@
     <Page.Resources>
         <viewModels:StartScreenViewModel x:Key="ViewModel"/>
     </Page.Resources>
-    <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}" Background="Black">
+    <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}" Background="#FF3E4854">
 
     </Grid>
 </Page>

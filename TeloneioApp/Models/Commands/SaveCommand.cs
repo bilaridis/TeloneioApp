@@ -28,7 +28,10 @@ namespace TeloneioApp.Models.Commands
             {
                 var firstOrDefault = MainViewModel.FirstOrDefault();
                 if (firstOrDefault != null)
+                {
+                    firstOrDefault.RefreshXmlString();
                     File.WriteAllText(saveFileDialog.FileName, firstOrDefault.XmlStringBuilder);
+                }
             }
         }
 

@@ -18,7 +18,9 @@ namespace TeloneioApp.ViewModels
         private bool _showForm;
         private bool _showOriginal;
         private ObservableCollection<Customer> _customers;
+        private ObservableCollection<Customer> _customers2;
         private Customer _apostoleas;
+        private Customer _paraliptis;
 
         public ImportFormViewModel()
         {
@@ -37,13 +39,14 @@ namespace TeloneioApp.ViewModels
             //ID15AFolder = "C:\\Users\\billi\\Documents\\Visual Studio 2017\\Projects\\TeloneioApp\\TeloneioApp\\Examples\\"; //AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\", "\\") + "\\Examples\\";
             Selectfolders(ID15AFolder);
             Customers = new ObservableCollection<Customer>();
+            Customers2 = new ObservableCollection<Customer>();
             using (var model = new LocalModel())
             {
                 foreach (var modelCustomer in model.Customers)
                 {
                     Customers.Add(modelCustomer);
+                    Customers2.Add(modelCustomer);
                 }
-             
             }
 
             CollectionChanged += TonnageListViewModel_CollectionChanged;
@@ -51,10 +54,16 @@ namespace TeloneioApp.ViewModels
             //Add(new MainModel());
         }
 
+
         public ObservableCollection<Customer> Customers
         {
             get { return _customers; }
             set { _customers = value; }
+        }
+        public ObservableCollection<Customer> Customers2
+        {
+            get { return _customers2; }
+            set { _customers2 = value; }
         }
 
         public Customer Apostoleas
@@ -64,15 +73,27 @@ namespace TeloneioApp.ViewModels
             {
                 _apostoleas = value;
                 this.Items.FirstOrDefault().TRACONCO1.NamCO17 = _apostoleas.Name;
-                NotifyPropertyChanged("TRACONCO1.NamCO17");
                 this.Items.FirstOrDefault().TRACONCO1.StrAndNumCO122 = _apostoleas.Street;
-                NotifyPropertyChanged("TRACONCO1.StrAndNumCO122");
                 this.Items.FirstOrDefault().TRACONCO1.PosCodCO123 = _apostoleas.PostalCode;
-                NotifyPropertyChanged("TRACONCO1.PosCodCO123");
                 this.Items.FirstOrDefault().TRACONCO1.CitCO124 = _apostoleas.City;
-                NotifyPropertyChanged("TRACONCO1.CitCO124");
                 this.Items.FirstOrDefault().TRACONCO1.CouCO125 = _apostoleas.Country;
-                NotifyPropertyChanged("TRACONCO1.CouCO125");
+                this.Items.FirstOrDefault().TRACONCO1.NADLNGCO = _apostoleas.Language;
+            }
+        }
+
+        public Customer Paraliptis
+        {
+            get { return _paraliptis; }
+            set
+            {
+                _paraliptis = value;
+                this.Items.FirstOrDefault().TRACONCE1.NamCE17 = _paraliptis.Name;
+                this.Items.FirstOrDefault().TRACONCE1.StrAndNumCE122 = _paraliptis.Street;
+                this.Items.FirstOrDefault().TRACONCE1.PosCodCE123 = _paraliptis.PostalCode;
+                this.Items.FirstOrDefault().TRACONCE1.CitCE124 = _paraliptis.City;
+                this.Items.FirstOrDefault().TRACONCE1.CouCE125 = _paraliptis.Country;
+                this.Items.FirstOrDefault().TRACONCE1.NADLNGCE = _paraliptis.Language;
+                this.Items.FirstOrDefault().TRACONCE1.TINCE159 = _paraliptis.EORI_TIN;
             }
         }
 
@@ -91,6 +112,8 @@ namespace TeloneioApp.ViewModels
             get => _showOriginal;
             set
             {
+                var importFormModel = Items.FirstOrDefault();
+                if (importFormModel != null) importFormModel.RefreshXmlString();
                 _showOriginal = value;
                 NotifyPropertyChanged("IsVisibleOriginal");
             }
@@ -101,6 +124,8 @@ namespace TeloneioApp.ViewModels
             get => _showForm;
             set
             {
+                var importFormModel = Items.FirstOrDefault();
+                if (importFormModel != null) importFormModel.RefreshXmlString();
                 _showForm = value;
                 NotifyPropertyChanged("IsVisibleForm");
             }
@@ -124,6 +149,53 @@ namespace TeloneioApp.ViewModels
             var obj = XmlExtension.XmlReaderForID15A(fileInfoEde.FullName);
             var mainModel = new ImportFormModel(obj);
             Add(mainModel);
+
+            InitPredefinedEntries();
+        }
+
+        private void InitPredefinedEntries()
+        {
+            var apostoleas = Customers.FirstOrDefault(x =>
+            {
+                var importFormModel = this.Items.FirstOrDefault();
+                return importFormModel != null && x.Name == importFormModel.TRACONCO1.NamCO17;
+            });
+            Apostoleas = CheckIfCustomerIsInDatabase(apostoleas);
+            var paraliptis  = Customers2.FirstOrDefault(x =>
+            {
+                var importFormModel = this.Items.FirstOrDefault();
+                return importFormModel != null && x.Name == importFormModel.TRACONCE1.NamCE17;
+            });
+            Paraliptis = CheckIfCustomerIsInDatabase(paraliptis);
+        }
+
+        private Customer CheckIfCustomerIsInDatabase(Customer tempCustomer)
+        {
+            if (tempCustomer == null)
+            {
+                using (var model = new LocalModel())
+                {
+                    var newCustom = new Customer
+                    {
+                        Name = Items.FirstOrDefault().TRACONCE1.NamCE17,
+                        Street = Items.FirstOrDefault().TRACONCE1.StrAndNumCE122,
+                        PostalCode = Items.FirstOrDefault().TRACONCE1.PosCodCE123,
+                        City = Items.FirstOrDefault().TRACONCE1.CitCE124,
+                        Country = Items.FirstOrDefault().TRACONCE1.CouCE125,
+                        Language = Items.FirstOrDefault().TRACONCE1.NADLNGCE,
+                        EORI_TIN = Items.FirstOrDefault().TRACONCE1.TINCE159
+                    };
+                    model.Customers.Add(newCustom);
+
+                    model.SaveChanges();
+                    Customers2.Add(newCustom);
+                   return newCustom;
+                }
+            }
+            else
+            {
+                return tempCustomer;
+            }
         }
 
         private void TonnageListViewModel_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)

@@ -24,7 +24,7 @@ namespace TeloneioApp.Models
             XmlStringBuilder = XmlExtension.PrintXML(XmlExtension.Serialize(XmlObjectId15A));
         }
 
-        private void RefreshXmlString()
+        public void RefreshXmlString()
         {
             XmlStringBuilder = XmlExtension.PrintXML(XmlExtension.Serialize(XmlObjectId15A));
         }

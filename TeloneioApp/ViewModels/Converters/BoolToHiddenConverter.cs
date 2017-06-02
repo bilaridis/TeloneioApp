@@ -20,7 +20,7 @@ namespace TeloneioApp.ViewModels.Converters
         {
             // set defaults
             TrueValue = Visibility.Visible;
-            FalseValue = Visibility.Collapsed;
+            FalseValue = Visibility.Hidden;
         }
 
         public object Convert(object value, Type targetType,

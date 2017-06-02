@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Input;
 using TeloneioApp.ViewModels;
 
@@ -20,8 +21,8 @@ namespace TeloneioApp.Models.Commands
         {
             //var mainViewModel = parameter as MainViewModel;
             //if (mainViewModel != null)
-            //{
-                if (!MainViewModel.IsVisibleOriginal)
+            //{ 
+            if (!MainViewModel.IsVisibleOriginal)
                 {
                     MainViewModel.IsVisibleOriginal = true;
                     MainViewModel.IsVisibleForm = false;
