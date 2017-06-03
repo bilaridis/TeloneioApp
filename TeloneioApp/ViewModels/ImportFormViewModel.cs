@@ -5,6 +5,8 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Windows;
 using TeloneioApp.Models;
 using TeloneioApp.Models.Commands;
 using TeloneioApp.StaticResources;
@@ -79,6 +81,13 @@ namespace TeloneioApp.ViewModels
                 this.Items.FirstOrDefault().TRACONCO1.CouCO125 = _apostoleas.Country;
                 this.Items.FirstOrDefault().TRACONCO1.NADLNGCO = _apostoleas.Language;
             }
+        }
+
+        public static bool FoundGreekLetters(string text)
+        {
+            const string pattern = @"[\s\p{IsGreekandCoptic}]";
+
+            return Regex.IsMatch(text, pattern);
         }
 
         public Customer Paraliptis
@@ -161,7 +170,7 @@ namespace TeloneioApp.ViewModels
                 return importFormModel != null && x.Name == importFormModel.TRACONCO1.NamCO17;
             });
             Apostoleas = CheckIfCustomerIsInDatabase(apostoleas);
-            var paraliptis  = Customers2.FirstOrDefault(x =>
+            var paraliptis = Customers2.FirstOrDefault(x =>
             {
                 var importFormModel = this.Items.FirstOrDefault();
                 return importFormModel != null && x.Name == importFormModel.TRACONCE1.NamCE17;
@@ -189,7 +198,7 @@ namespace TeloneioApp.ViewModels
 
                     model.SaveChanges();
                     Customers2.Add(newCustom);
-                   return newCustom;
+                    return newCustom;
                 }
             }
             else
