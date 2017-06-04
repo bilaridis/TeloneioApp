@@ -81,26 +81,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Customer.cs" />
-    <Compile Include="ID15A\CALTAXGOD.cs" />
-    <Compile Include="ID15A\COMCODGODITM.cs" />
-    <Compile Include="ID15A\CONNR2.cs" />
-    <Compile Include="ID15A\DELTER.cs" />
-    <Compile Include="ID15A\ENTCUSOFF.cs" />
-    <Compile Include="ID15A\GOOITEGDS.cs" />
-    <Compile Include="ID15A\HEAHEA.cs" />
-    <Compile Include="ID15A\ID15A.cs" />
-    <Compile Include="ID15A\IMPCUSOFF.cs" />
-    <Compile Include="ID15A\PACGS2.cs" />
-    <Compile Include="ID15A\PREADMREFAR2.cs" />
-    <Compile Include="ID15A\PRODOCDC2.cs" />
-    <Compile Include="ID15A\STATREP385.cs" />
-    <Compile Include="ID15A\TAXADDELE100.cs" />
-    <Compile Include="ID15A\TRACONCE1.cs" />
-    <Compile Include="ID15A\TRACONCO1.cs" />
-    <Compile Include="ID15A\TRADAT.cs" />
-    <Compile Include="ID15A\TRAREP.cs" />
-    <Compile Include="LocalModel.cs" />
     <Compile Include="Models\Commands\ImportCommand.cs" />
     <Compile Include="Models\Commands\NotImplementedCommand.cs" />
     <Compile Include="Models\Commands\SaveCommand.cs" />
@@ -108,7 +88,6 @@
     <Compile Include="Models\Commands\ShowXml.cs" />
     <Compile Include="Models\ImportFormModel.cs" />
     <Compile Include="Models\MainModel.cs" />
-    <Compile Include="Tax.cs" />
     <Compile Include="ViewModels\Converters\BoolToHiddenConverter.cs" />
     <Compile Include="Models\ID15A\CALTAXGOD.cs" />
     <Compile Include="Models\ID15A\COMCODGODITM.cs" />
@@ -117,7 +96,6 @@
     <Compile Include="Models\ID15A\ENTCUSOFF.cs" />
     <Compile Include="Models\ID15A\GOOITEGDS.cs" />
     <Compile Include="Models\ID15A\HEAHEA.cs" />
-    <Compile Include="Models\ID15A\ID15A.cs" />
     <Compile Include="Models\ID15A\IMPCUSOFF.cs" />
     <Compile Include="Models\ID15A\PACGS2.cs" />
     <Compile Include="Models\ID15A\PREADMREFAR2.cs" />
@@ -245,14 +223,23 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{532ef908-4697-4c90-af91-a155edafb698}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XmlLibrary\XmlLibrary.csproj">
+      <Project>{c4bb0e6d-9bf5-4236-88cf-311cc922591b}</Project>
+      <Name>XmlLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="LocalDB.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LocalDB_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>LocalDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

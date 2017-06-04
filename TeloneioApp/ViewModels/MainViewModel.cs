@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using Repository;
 using TeloneioApp.Annotations;
 using TeloneioApp.Models;
 using TeloneioApp.Models.Commands;
