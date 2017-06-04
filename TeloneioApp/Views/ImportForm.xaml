@@ -426,11 +426,13 @@
                                                                 <StackPanel>
                                                                     <WrapPanel>
                                                                         <Label Content="Class Code :" Width="100"></Label>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="100"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="60"></TextBox>
                                                                         <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="25" MaxLength="2"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="50" MaxLength="4"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="35" MaxLength="4"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="35" MaxLength="4"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="35" MaxLength="4"></TextBox>
+                                                                        <Label Content="Γλώσσα: :" Width="60"></Label>
+                                                                        <TextBox Text="{Binding Path=GooDesGDS23LNG, Mode=TwoWay}" Width="25"></TextBox>
                                                                     </WrapPanel>
                                                                     <WrapPanel>
                                                                         <Label Content="Description :" Width="100"></Label>
@@ -456,10 +458,6 @@
                                                                     <GroupBox.Content>
                                                                         <WrapPanel>
                                                                             <StackPanel>
-                                                                                <WrapPanel>
-                                                                                    <Label Content="Γλωσσα :" Width="110"></Label>
-                                                                                    <TextBox Text="{Binding Path=GooDesGDS23LNG, Mode=TwoWay}" Width="100"></TextBox>
-                                                                                </WrapPanel>
                                                                                 <WrapPanel>
                                                                                     <Label Content="Μεικτη Μαζα :" Width="110"></Label>
                                                                                     <TextBox Text="{Binding Path=GroMasGDS46, Mode=TwoWay}" Width="100"></TextBox>
