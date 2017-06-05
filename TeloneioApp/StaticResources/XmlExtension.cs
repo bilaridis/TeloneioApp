@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using TeloneioApp.Models;
-using TeloneioApp.Models.ID15A;
 
 namespace TeloneioApp.StaticResources
 {

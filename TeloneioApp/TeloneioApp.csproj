@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Extensions\ID15AExtensions.cs" />
     <Compile Include="Models\Commands\ImportCommand.cs" />
     <Compile Include="Models\Commands\NotImplementedCommand.cs" />
     <Compile Include="Models\Commands\SaveCommand.cs" />
@@ -89,23 +90,6 @@
     <Compile Include="Models\ImportFormModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="ViewModels\Converters\BoolToHiddenConverter.cs" />
-    <Compile Include="Models\ID15A\CALTAXGOD.cs" />
-    <Compile Include="Models\ID15A\COMCODGODITM.cs" />
-    <Compile Include="Models\ID15A\CONNR2.cs" />
-    <Compile Include="Models\ID15A\DELTER.cs" />
-    <Compile Include="Models\ID15A\ENTCUSOFF.cs" />
-    <Compile Include="Models\ID15A\GOOITEGDS.cs" />
-    <Compile Include="Models\ID15A\HEAHEA.cs" />
-    <Compile Include="Models\ID15A\IMPCUSOFF.cs" />
-    <Compile Include="Models\ID15A\PACGS2.cs" />
-    <Compile Include="Models\ID15A\PREADMREFAR2.cs" />
-    <Compile Include="Models\ID15A\PRODOCDC2.cs" />
-    <Compile Include="Models\ID15A\STATREP385.cs" />
-    <Compile Include="Models\ID15A\TAXADDELE100.cs" />
-    <Compile Include="Models\ID15A\TRACONCE1.cs" />
-    <Compile Include="Models\ID15A\TRACONCO1.cs" />
-    <Compile Include="Models\ID15A\TRADAT.cs" />
-    <Compile Include="Models\ID15A\TRAREP.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="StaticResources\MyStringWriter.cs" />
     <Compile Include="StaticResources\XmlExtension.cs" />

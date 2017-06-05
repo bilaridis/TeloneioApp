@@ -240,83 +240,83 @@
                                                 <StackPanel>
                                                     <WrapPanel>
                                                         <Label Content="LRN :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.RefNumHEA4, Mode=TwoWay}" Width="180"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.RefNumHEA4, Mode=TwoWay}" Width="180"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Τυπος Διασαφ. :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.TypOfDecHEA24, Mode=TwoWay}" Width="130"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.TypOfDecBx12HEA651, Mode=TwoWay}" Width="50"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.TypOfDecHEA24, Mode=TwoWay}" Width="130"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.TypOfDecBx12HEA651, Mode=TwoWay}" Width="50"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
 
                                                         <Label Content="Κωδ. Χωρας Προορ. :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.CouOfDesCodHEA30, Mode=TwoWay}" Width="180"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.CouOfDesCodHEA30, Mode=TwoWay}" Width="180"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Κωδ. Συμφ.Τοπ. Εμπ. :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.AgrLocOfGooCodHEA38, Mode=TwoWay}" Width="180"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.AgrLocOfGooCodHEA38, Mode=TwoWay}" Width="180"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Συμφων. Τοποθεσια :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.AgrLocOfGooHEA39, Mode=TwoWay}" Width="155"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.AgrLocOfGooHEA39LNG, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.AgrLocOfGooHEA39, Mode=TwoWay}" Width="155"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.AgrLocOfGooHEA39LNG, Mode=TwoWay}" Width="25"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Κωδ. Χωρας Αποστ. :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.CouOfDisCodHEA55, Mode=TwoWay}" Width="180"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.CouOfDisCodHEA55, Mode=TwoWay}" Width="180"></TextBox>
                                                     </WrapPanel>
                                                 </StackPanel>
                                                 <StackPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ταυ/τα για την αφιξη :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.IdeOfMeaOfTraCroHEA85, Mode=TwoWay}" Width="150"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.IdeOfMeaOfTraCroHEA85LNG, Mode=TwoWay}" Width="25"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.NatOfMeaOfTraCroHEA87, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.IdeOfMeaOfTraCroHEA85, Mode=TwoWay}" Width="150"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.IdeOfMeaOfTraCroHEA85LNG, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.NatOfMeaOfTraCroHEA87, Mode=TwoWay}" Width="25"></TextBox>
 
 
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ταυ/τα για τα συνορα :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.IdeMeaTraArr4004, Mode=TwoWay}" Width="150"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.IdeMeaTraArr4005LNG, Mode=TwoWay}" Width="25"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.NatOfMeaOfTraAtArrHEA54, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.IdeMeaTraArr4004, Mode=TwoWay}" Width="150"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.IdeMeaTraArr4005LNG, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.NatOfMeaOfTraAtArrHEA54, Mode=TwoWay}" Width="25"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Τροπος Μεταφοράς :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.TraModAtBorHEA76, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.TraModAtBorHEA76, Mode=TwoWay}" Width="25"></TextBox>
                                                         <Label Content="Ενδειξη Εμπορ. :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.ConIndHEA96, Mode=TwoWay}" Width="25" Background="LightGray"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.ConIndHEA96, Mode=TwoWay}" Width="25" Background="LightGray"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ημ/νία καταχωρησης :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.DecDatHEA383, Mode=TwoWay}" Width="200"  Background="LightGreen"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.DecDatHEA383, Mode=TwoWay}" Width="200"  Background="LightGreen"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Τοπος Διασαφησης :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.DecPlaHEA394, Mode=TwoWay}" Width="175"></TextBox>
-                                                        <TextBox Text="{Binding Path=Head.DecPlaHEA394LNG, Mode=TwoWay}" Width="25"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.DecPlaHEA394, Mode=TwoWay}" Width="175"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.DecPlaHEA394LNG, Mode=TwoWay}" Width="25"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Οικον. και Τραπεζ. Δεδ. :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=Head.FinBanInfHEA1027, Mode=TwoWay}" Width="200"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.FinBanInfHEA1027, Mode=TwoWay}" Width="200"></TextBox>
                                                     </WrapPanel>
                                                 </StackPanel>
                                                 <StackPanel>
                                                     <WrapPanel>
                                                         <Label Content="Τροπος Πληρωμης :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.MetOfPayHEA590, Mode=TwoWay}" Width="50"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.MetOfPayHEA590, Mode=TwoWay}" Width="50"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Είδη :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.TotNumOfIteHEA305, Mode=TwoWay}" Width="50" Background="LightGray"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.TotNumOfIteHEA305, Mode=TwoWay}" Width="50" Background="LightGray"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Συνολο δεμάτων :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.TotNumOfPacHEA306, Mode=TwoWay}" Width="50" Background="LightGray"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.TotNumOfPacHEA306, Mode=TwoWay}" Width="50" Background="LightGray"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Συν. Μεικτή Μάζα :" Width="130"></Label>
-                                                        <TextBox Text="{Binding Path=Head.TotGroMasHEA307, Mode=TwoWay}" Width="50"  Background="LightGray"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.TotGroMasHEA307, Mode=TwoWay}" Width="50"  Background="LightGray"></TextBox>
                                                     </WrapPanel>
                                                 </StackPanel>
 

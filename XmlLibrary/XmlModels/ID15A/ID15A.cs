@@ -30,7 +30,7 @@ namespace XmlLibrary.XmlModels.ID15A
         public string MesTypMES20 { get; set; }
 
         [XmlElement("HEAHEA")]
-        public HEAHEA Head {get; set;}
+        public HEAHEA HEAHEA {get; set;}
 
         [XmlElement("TRACONCO1")]
         public TRACONCO1 TRACONCO1 { get; set; }
