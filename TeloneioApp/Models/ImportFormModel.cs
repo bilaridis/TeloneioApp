@@ -15,9 +15,18 @@ namespace TeloneioApp.Models
 
         public ImportFormModel()
         {
-            //ID15A.ID15A obj = XmlExtension.XmlReaderForID15A("C:\\Users\\billi\\Documents\\Visual Studio 2017\\Projects\\TeloneioApp\\TeloneioApp\\Examples\\ED000992.xml");
+            XmlObjectId15A = new ID15A();
+            GOOITEGDS = new List<GOOITEGDS>();
+            HEAHEA = new HEAHEA();
+            TRACONCE1 = new TRACONCE1();
+            TRACONCO1 = new TRACONCO1();
+            DELTER = new DELTER();
+            TRADAT = new TRADAT();
+            TRAREP = new TRAREP();
+            STATREP385 = new STATREP385();
+            ENTCUSOFF = new ENTCUSOFF();
+            IMPCUSOFF = new IMPCUSOFF();
 
-            //XmlObjectId15A = obj;
         }
         public ImportFormModel(ID15A modelId15A)
         {
@@ -126,6 +135,7 @@ namespace TeloneioApp.Models
             set
             {
                 XmlObjectId15A.TRACONCO1 = value;
+                OnPropertyChanged("TRACONCO1");
                 RefreshXmlString();
             }
         }
@@ -136,6 +146,7 @@ namespace TeloneioApp.Models
             set
             {
                 XmlObjectId15A.TRACONCE1 = value;
+                OnPropertyChanged("TRACONCE1");
                 RefreshXmlString();
             }
         }

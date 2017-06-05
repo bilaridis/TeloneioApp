@@ -82,6 +82,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Extensions\ID15AExtensions.cs" />
+    <Compile Include="Models\Commands\AddNewFormCommand.cs" />
     <Compile Include="Models\Commands\ImportCommand.cs" />
     <Compile Include="Models\Commands\NotImplementedCommand.cs" />
     <Compile Include="Models\Commands\SaveCommand.cs" />

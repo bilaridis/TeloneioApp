@@ -33,6 +33,7 @@ namespace TeloneioApp.ViewModels
             SelectFileCommand = new SelectFileCommand(this);
             ShowXml = new ShowXml(this);
             NotImplementedCommand = new NotImplementedCommand();
+            AddNewFormCommand = new AddNewFormCommand(this);
 
             IsVisibleForm = true;
             IsVisibleOriginal = false;
@@ -75,12 +76,16 @@ namespace TeloneioApp.ViewModels
             set
             {
                 _apostoleas = value;
-                this.Items.FirstOrDefault().TRACONCO1.NamCO17 = _apostoleas.Name;
-                this.Items.FirstOrDefault().TRACONCO1.StrAndNumCO122 = _apostoleas.Street;
-                this.Items.FirstOrDefault().TRACONCO1.PosCodCO123 = _apostoleas.PostalCode;
-                this.Items.FirstOrDefault().TRACONCO1.CitCO124 = _apostoleas.City;
-                this.Items.FirstOrDefault().TRACONCO1.CouCO125 = _apostoleas.Country;
-                this.Items.FirstOrDefault().TRACONCO1.NADLNGCO = _apostoleas.Language;
+                var importFormModel = Items.FirstOrDefault();
+                if (importFormModel != null)
+                {
+                    importFormModel.TRACONCO1.NamCO17 = _apostoleas.Name;
+                    importFormModel.TRACONCO1.StrAndNumCO122 = _apostoleas.Street;
+                    importFormModel.TRACONCO1.PosCodCO123 = _apostoleas.PostalCode;
+                    importFormModel.TRACONCO1.CitCO124 = _apostoleas.City;
+                    importFormModel.TRACONCO1.CouCO125 = _apostoleas.Country;
+                    importFormModel.TRACONCO1.NADLNGCO = _apostoleas.Language;
+                }
             }
         }
 
@@ -97,13 +102,17 @@ namespace TeloneioApp.ViewModels
             set
             {
                 _paraliptis = value;
-                this.Items.FirstOrDefault().TRACONCE1.NamCE17 = _paraliptis.Name;
-                this.Items.FirstOrDefault().TRACONCE1.StrAndNumCE122 = _paraliptis.Street;
-                this.Items.FirstOrDefault().TRACONCE1.PosCodCE123 = _paraliptis.PostalCode;
-                this.Items.FirstOrDefault().TRACONCE1.CitCE124 = _paraliptis.City;
-                this.Items.FirstOrDefault().TRACONCE1.CouCE125 = _paraliptis.Country;
-                this.Items.FirstOrDefault().TRACONCE1.NADLNGCE = _paraliptis.Language;
-                this.Items.FirstOrDefault().TRACONCE1.TINCE159 = _paraliptis.EORI_TIN;
+                var importFormModel = Items.FirstOrDefault();
+                if (importFormModel != null)
+                {
+                    importFormModel.TRACONCE1.NamCE17 = _paraliptis.Name;
+                    importFormModel.TRACONCE1.StrAndNumCE122 = _paraliptis.Street;
+                    importFormModel.TRACONCE1.PosCodCE123 = _paraliptis.PostalCode;
+                    importFormModel.TRACONCE1.CitCE124 = _paraliptis.City;
+                    importFormModel.TRACONCE1.CouCE125 = _paraliptis.Country;
+                    importFormModel.TRACONCE1.NADLNGCE = _paraliptis.Language;
+                    importFormModel.TRACONCE1.TINCE159 = _paraliptis.EORI_TIN;
+                }
             }
         }
 
@@ -116,6 +125,8 @@ namespace TeloneioApp.ViewModels
         public SelectFileCommand SelectFileCommand { get; set; }
 
         public ShowXml ShowXml { get; set; }
+
+        public AddNewFormCommand AddNewFormCommand { get; set; }
 
         public bool IsVisibleOriginal
         {
@@ -163,43 +174,70 @@ namespace TeloneioApp.ViewModels
             InitPredefinedEntries();
         }
 
-        private void InitPredefinedEntries()
+        public void AddNewForm()
         {
-            var apostoleas = Customers.FirstOrDefault(x =>
-            {
-                var importFormModel = this.Items.FirstOrDefault();
-                return importFormModel != null && x.Name == importFormModel.TRACONCO1.NamCO17;
-            });
-            Apostoleas = CheckIfCustomerIsInDatabase(apostoleas);
-            var paraliptis = Customers2.FirstOrDefault(x =>
-            {
-                var importFormModel = this.Items.FirstOrDefault();
-                return importFormModel != null && x.Name == importFormModel.TRACONCE1.NamCE17;
-            });
-            Paraliptis = CheckIfCustomerIsInDatabase(paraliptis);
+            Clear();
+            Add(new ImportFormModel());
         }
 
-        private Customer CheckIfCustomerIsInDatabase(Customer tempCustomer)
+        private void InitPredefinedEntries()
+        {
+            var importFormModel = this.Items.FirstOrDefault();
+            var apostoleas = Customers.FirstOrDefault(x =>
+            {
+                return importFormModel != null && x.Name == importFormModel.TRACONCO1.NamCO17;
+            });
+            Apostoleas = CheckIfCustomerIsInDatabase(apostoleas, "1");
+            var paraliptis = Customers2.FirstOrDefault(x =>
+            {
+                return importFormModel != null && x.Name == importFormModel.TRACONCE1.NamCE17;
+            });
+            Paraliptis = CheckIfCustomerIsInDatabase(paraliptis, "2");
+        }
+
+        private Customer CheckIfCustomerIsInDatabase(Customer tempCustomer, string switcher)
         {
             if (tempCustomer == null)
             {
                 using (var model = new LocalModel())
                 {
-                    var newCustom = new Customer
+                    if (switcher == "1")
                     {
-                        Name = Items.FirstOrDefault().TRACONCE1.NamCE17,
-                        Street = Items.FirstOrDefault().TRACONCE1.StrAndNumCE122,
-                        PostalCode = Items.FirstOrDefault().TRACONCE1.PosCodCE123,
-                        City = Items.FirstOrDefault().TRACONCE1.CitCE124,
-                        Country = Items.FirstOrDefault().TRACONCE1.CouCE125,
-                        Language = Items.FirstOrDefault().TRACONCE1.NADLNGCE,
-                        EORI_TIN = Items.FirstOrDefault().TRACONCE1.TINCE159
-                    };
-                    model.Customers.Add(newCustom);
+                        var newCustom = new Customer
+                        {
+                            Name = Items.FirstOrDefault().TRACONCO1.NamCO17,
+                            Street = Items.FirstOrDefault().TRACONCO1.StrAndNumCO122,
+                            PostalCode = Items.FirstOrDefault().TRACONCO1.PosCodCO123,
+                            City = Items.FirstOrDefault().TRACONCO1.CitCO124,
+                            Country = Items.FirstOrDefault().TRACONCO1.CouCO125,
+                            Language = Items.FirstOrDefault().TRACONCO1.NADLNGCO
+                        };
+                        model.Customers.Add(newCustom);
 
-                    model.SaveChanges();
-                    Customers2.Add(newCustom);
-                    return newCustom;
+                        model.SaveChanges();
+                        Customers2.Add(newCustom);
+                        return newCustom;
+                    }
+                    else
+                    {
+                        var newCustom = new Customer
+                        {
+                            Name = Items.FirstOrDefault().TRACONCE1.NamCE17,
+                            Street = Items.FirstOrDefault().TRACONCE1.StrAndNumCE122,
+                            PostalCode = Items.FirstOrDefault().TRACONCE1.PosCodCE123,
+                            City = Items.FirstOrDefault().TRACONCE1.CitCE124,
+                            Country = Items.FirstOrDefault().TRACONCE1.CouCE125,
+                            Language = Items.FirstOrDefault().TRACONCE1.NADLNGCE,
+                            EORI_TIN = Items.FirstOrDefault().TRACONCE1.TINCE159
+                        };
+                        model.Customers.Add(newCustom);
+
+                        model.SaveChanges();
+                        Customers2.Add(newCustom);
+                        return newCustom;
+                    }
+
+
                 }
             }
             else

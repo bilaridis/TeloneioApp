@@ -27,6 +27,12 @@ namespace XmlLibrary.XmlModels.ID15A
         private PACGS2 _pacgs2;
         private TAXADDELE100 _taxaddele100;
 
+        public GOOITEGDS()
+        {
+            CALTAXGOD = new List<CALTAXGOD>();
+            PREADMREFAR2 = new List<PREADMREFAR2>();
+            PRODOCDC2 = new List<PRODOCDC2>();
+        }
 
         [XmlElement("IteNumGDS7")]
         public decimal IteNumGDS7

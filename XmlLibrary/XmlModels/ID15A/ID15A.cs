@@ -5,9 +5,24 @@ using System.Xml.Serialization;
 namespace XmlLibrary.XmlModels.ID15A
 {
     [Serializable]
-    [XmlRoot(DataType = null,ElementName = "ID15A", IsNullable = true , Namespace = null)]
+    [XmlRoot(DataType = null, ElementName = "ID15A", IsNullable = true, Namespace = null)]
     public class ID15A
     {
+        public ID15A()
+        {
+            GOOITEGDS = new List<GOOITEGDS>();
+            HEAHEA = new HEAHEA();
+            TRACONCE1 = new TRACONCE1();
+            TRACONCO1 = new TRACONCO1();
+            DELTER = new DELTER();
+            TRADAT = new TRADAT();
+            TRAREP = new TRAREP();
+            STATREP385 = new STATREP385();
+            ENTCUSOFF = new ENTCUSOFF();
+            IMPCUSOFF = new IMPCUSOFF();
+        }
+
+
         [XmlElement("MesSenMES3")]
         public string MesSenMES3 { get; set; }
 
@@ -30,7 +45,7 @@ namespace XmlLibrary.XmlModels.ID15A
         public string MesTypMES20 { get; set; }
 
         [XmlElement("HEAHEA")]
-        public HEAHEA HEAHEA {get; set;}
+        public HEAHEA HEAHEA { get; set; }
 
         [XmlElement("TRACONCO1")]
         public TRACONCO1 TRACONCO1 { get; set; }
@@ -39,7 +54,7 @@ namespace XmlLibrary.XmlModels.ID15A
         public TRACONCE1 TRACONCE1 { get; set; }
 
         [XmlElement("GOOITEGDS")]
-        public  List<GOOITEGDS> GOOITEGDS { get; set; }
+        public List<GOOITEGDS> GOOITEGDS { get; set; }
 
         [XmlElement("DELTER")]
         public DELTER DELTER { get; set; }
