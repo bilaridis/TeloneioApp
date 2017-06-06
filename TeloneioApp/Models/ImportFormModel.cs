@@ -163,26 +163,12 @@ namespace TeloneioApp.Models
         public void AddToGoods(GOOITEGDS item)
         {
             _gooitegdss.Add(item);
+            XmlObjectId15A.GOOITEGDS = new List<GOOITEGDS>(_gooitegdss);
         }
 
         private ObservableCollection<GOOITEGDS> _gooitegdss;
 
-        public ObservableCollection<GOOITEGDS> GOOITEGDS
-        {
-            get
-            {
-               // _gooitegdss = XmlObjectId15A.GOOITEGDS.ToObservableCollection();
-                return _gooitegdss;
-            }
-           
-            //set
-            //{
-            //    _gooitegdss = value;
-            //    XmlObjectId15A.GOOITEGDS = new List<GOOITEGDS>((IEnumerable<GOOITEGDS>) value.GetEnumerator());
-            //    OnPropertyChanged("GOOITEGDS");
-            //    RefreshXmlString();
-            //}
-        }
+        public ObservableCollection<GOOITEGDS> GOOITEGDS => _gooitegdss;
 
         public DELTER DELTER
         {
