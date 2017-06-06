@@ -208,13 +208,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DomainModel\DomainModel.csproj">
+      <Project>{b85b0e05-eee3-49a2-bd36-1b96bbd88080}</Project>
+      <Name>DomainModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{532ef908-4697-4c90-af91-a155edafb698}</Project>
       <Name>Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XmlLibrary\XmlLibrary.csproj">
-      <Project>{c4bb0e6d-9bf5-4236-88cf-311cc922591b}</Project>
-      <Name>XmlLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using TeloneioApp.Annotations;
 using TeloneioApp.Extensions;
-using XmlLibrary.XmlModels.ID15A;
+using DomainModel.XmlModels.ID15A;
 using TeloneioApp.StaticResources;
 
 namespace TeloneioApp.Models

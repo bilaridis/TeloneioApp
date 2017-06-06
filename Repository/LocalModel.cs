@@ -12,6 +12,8 @@ namespace Repository
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Tax> Taxes { get; set; }
 
+        public virtual DbSet<Package> Packages { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tax>()

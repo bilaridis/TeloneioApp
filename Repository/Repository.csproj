@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="LocalModel.cs" />
+    <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tax.cs" />
   </ItemGroup>
