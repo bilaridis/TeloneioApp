@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
+using DomainModel.XmlModels.ID15A;
 using Repository;
 using TeloneioApp.Models;
 using TeloneioApp.Models.Commands;
@@ -34,6 +35,8 @@ namespace TeloneioApp.ViewModels
             ShowXml = new ShowXml(this);
             NotImplementedCommand = new NotImplementedCommand();
             AddNewFormCommand = new AddNewFormCommand(this);
+            AddNewClassCommand = new AddNewClassCommand(this);
+
 
             IsVisibleForm = true;
             IsVisibleOriginal = false;
@@ -128,6 +131,8 @@ namespace TeloneioApp.ViewModels
 
         public AddNewFormCommand AddNewFormCommand { get; set; }
 
+        public AddNewClassCommand AddNewClassCommand { get; set; }
+
         public bool IsVisibleOriginal
         {
             get => _showOriginal;
@@ -178,6 +183,17 @@ namespace TeloneioApp.ViewModels
         {
             Clear();
             Add(new ImportFormModel());
+        }
+        public void AddNewClass()
+        {
+            var importFormModel = Items.FirstOrDefault();
+            var newClassId = importFormModel.GOOITEGDS.Count + 1;
+            if (importFormModel != null)
+            {
+                var newClass = new GOOITEGDS(newClassId);
+                importFormModel.AddToGoods(newClass);
+            }
+            //NotifyPropertyChanged("GOOITEGDS");
         }
 
         private void InitPredefinedEntries()

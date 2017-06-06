@@ -83,15 +83,15 @@
             <WrapPanel
                 Visibility="{Binding IsVisibleForm, Converter={StaticResource BoolToHiddenConverter}}">
                 <Button Content="Add Class" 
-                        Command="{Binding ImportCommand, Source={StaticResource ViewModel}}"
+                        Command="{Binding AddNewClassCommand, Source={StaticResource ViewModel}}"
                         CommandParameter="{Binding}" 
                         FontSize="16" Width="157"
                         Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>
-                <Button Content="Add Ateleies" 
+                <!--<Button Content="Add Ateleies" 
                         Command="{Binding SaveCommand, Source={StaticResource ViewModel}}"
                         CommandParameter="{Binding}" 
                         FontSize="16" Width="157"
-                        Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>
+                        Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>-->
             </WrapPanel>
             <ScrollViewer Grid.Column="0"
                           Grid.Row="1"
