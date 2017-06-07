@@ -284,6 +284,14 @@ namespace DomainModel.XmlModels.ID15A
             }
         }
 
+        public bool ShouldSerializePACGS2()
+        {
+            return PACGS2.KinOfPacGS23 != null &&
+                   PACGS2.MarNumOfPacGS21 != null &&
+                   PACGS2.MarNumOfPacGS21LNG != null &&
+                   PACGS2.NumOfPacGS24 != null;
+        }
+
 
         [XmlElement("TAXADDELE100")]
         public TAXADDELE100 TAXADDELE100
@@ -294,6 +302,12 @@ namespace DomainModel.XmlModels.ID15A
                 _taxaddele100 = value;
                 OnPropertyChanged("TAXADDELE100");
             }
+        }
+
+        public bool ShouldSerializeTAXADDELE100()
+        {
+            return TAXADDELE100.AmoOfSupUniTAXADDELE100 != null &&
+                   TAXADDELE100.SupUniCodTAXADDELE101 != null;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

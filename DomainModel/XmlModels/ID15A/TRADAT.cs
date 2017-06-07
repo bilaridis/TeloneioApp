@@ -7,8 +7,8 @@ namespace DomainModel.XmlModels.ID15A
         [XmlElement("CurTRD1")]
         public string CurTRD1 { get; set; }
         [XmlElement("TotAmoInvTRD1")]
-        public decimal TotAmoInvTRD1 { get; set; }
+        public decimal? TotAmoInvTRD1 { get; set; }
         [XmlElement("ExcRatTRD1")]
-        public decimal ExcRatTRD1 { get; set; }
+        public decimal? ExcRatTRD1 { get; set; }
     }
 }

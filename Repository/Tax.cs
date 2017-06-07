@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Repository
 {
-    public partial class Tax
+    public class Tax
     {
         public int Id { get; set; }
 

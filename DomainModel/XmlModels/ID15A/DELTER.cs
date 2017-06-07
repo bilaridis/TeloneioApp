@@ -7,7 +7,7 @@ namespace DomainModel.XmlModels.ID15A
         [XmlElement("IncCodTDL1")]
         public string IncCodTDL1 { get; set; }
         [XmlElement("ComCodTDL1")]
-        public int ComCodTDL1 { get; set; }
+        public string ComCodTDL1 { get; set; }
         [XmlElement("ComInfDELTER387")]
         public string ComInfDELTER387 { get; set; }
         [XmlElement("ComInfDELTER387LNG")]

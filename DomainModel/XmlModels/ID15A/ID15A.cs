@@ -58,20 +58,53 @@ namespace DomainModel.XmlModels.ID15A
 
         [XmlElement("DELTER")]
         public DELTER DELTER { get; set; }
+        public bool ShouldSerializeDELTER()
+        {
+            return DELTER.ComInfDELTER387 != null &&
+                   DELTER.ComInfDELTER387LNG != null &&
+                   DELTER.IncCodTDL1 != null &&
+                   DELTER.ComCodTDL1 != null;
+        }
 
         [XmlElement("TRADAT")]
         public TRADAT TRADAT { get; set; }
+        public bool ShouldSerializeTRADAT()
+        {
+            return TRADAT.CurTRD1 != null &&
+                   TRADAT.ExcRatTRD1 != null &&
+                   TRADAT.TotAmoInvTRD1 != null;
+        }
 
         [XmlElement("TRAREP")]
         public TRAREP TRAREP { get; set; }
+        public bool ShouldSerializeTRAREP()
+        {
+            return TRAREP.CouCodTRE1 != null &&
+                   TRAREP.NamTRE1 != null &&
+                   TRAREP.TINTRE1 != null &&
+                   TRAREP.TRAREPLNG != null;
+        }
 
         [XmlElement("STATREP385")]
         public STATREP385 STATREP385 { get; set; }
+        public bool ShouldSerializeSTATREP385()
+        {
+            return STATREP385.RepStatCodSTATREP386 != null;
+        }
 
         [XmlElement("ENTCUSOFF")]
         public ENTCUSOFF ENTCUSOFF { get; set; }
+        public bool ShouldSerializeENTCUSOFF()
+        {
+            return ENTCUSOFF.EnCusOffRefNum01 != null;
+        }
 
         [XmlElement("IMPCUSOFF")]
         public IMPCUSOFF IMPCUSOFF { get; set; }
+
+        public bool ShouldSerializeIMPCUSOFF()
+        {
+            return IMPCUSOFF.RefNumIMPCUSOFF != null;
+        }
     }
 }

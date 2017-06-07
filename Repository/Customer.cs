@@ -1,9 +1,8 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Repository
 {
-    public partial class Customer
+    public class Customer
     {
         public int Id { get; set; }
 
@@ -25,7 +24,7 @@ namespace Repository
 
         public override string ToString()
         {
-            return String.Format("{0}", Name);
+            return string.Format("{0}", Name);
         }
     }
 }

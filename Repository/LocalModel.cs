@@ -2,7 +2,7 @@ using System.Data.Entity;
 
 namespace Repository
 {
-    public partial class LocalModel : DbContext
+    public class LocalModel : DbContext
     {
         public LocalModel()
             : base("name=LocalModel")
@@ -17,16 +17,16 @@ namespace Repository
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Tax>()
-                .Property(e => e.TaxCode)
-                .IsUnicode(false);
+                        .Property(e => e.TaxCode)
+                        .IsUnicode(false);
 
             modelBuilder.Entity<Tax>()
-                .Property(e => e.TaxDescr)
-                .IsUnicode(false);
+                        .Property(e => e.TaxDescr)
+                        .IsUnicode(false);
 
             modelBuilder.Entity<Tax>()
-                .Property(e => e.TaxDescr2)
-                .IsUnicode(false);
+                        .Property(e => e.TaxDescr2)
+                        .IsUnicode(false);
         }
     }
 }

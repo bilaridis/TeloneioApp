@@ -5,6 +5,6 @@ namespace DomainModel.XmlModels.ID15A
     public class STATREP385
     {
         [XmlElement("RepStatCodSTATREP386")]
-        public int RepStatCodSTATREP386 { get; set; }
+        public string RepStatCodSTATREP386 { get; set; }
     }
 }
