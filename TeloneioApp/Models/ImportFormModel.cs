@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using DomainModel.XmlModels.ID15A;
@@ -29,6 +30,20 @@ namespace TeloneioApp.Models
             STATREP385 = new STATREP385();
             ENTCUSOFF = new ENTCUSOFF();
             IMPCUSOFF = new IMPCUSOFF();
+
+            HEAHEA.PropertyChanged += HEAHEA_PropertyChanged;
+        }
+
+        private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            //if (e.PropertyName == "TotNumOfPacHEA306")
+            //{
+
+            //}
+            //if (e.PropertyName == "TotGroMasHEA307")
+            //{
+
+            //}
         }
 
         public ImportFormModel(ID15A modelId15A)
@@ -162,8 +177,32 @@ namespace TeloneioApp.Models
 
         public void AddToGoods(GOOITEGDS item)
         {
+            item.PropertyChanged += Item_PropertyChanged;
             _gooitegdss.Add(item);
+            HEAHEA.TotNumOfIteHEA305++;
             XmlObjectId15A.GOOITEGDS = new List<GOOITEGDS>(_gooitegdss);
+        }
+
+        private void Item_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "GroMasGDS46")
+            {
+                HEAHEA.TotGroMasHEA307 = 0;
+
+                foreach (var item in _gooitegdss)
+                {
+                    HEAHEA.TotGroMasHEA307 += item.GroMasGDS46;
+                }
+            }
+            if (e.PropertyName == "Packets")
+            {
+                HEAHEA.TotNumOfPacHEA306 = 0;
+
+                foreach (var item in _gooitegdss)
+                {
+                    HEAHEA.TotNumOfPacHEA306 += item.PACGS2.NumOfPacGS24;
+                }
+            }
         }
 
         private ObservableCollection<GOOITEGDS> _gooitegdss;

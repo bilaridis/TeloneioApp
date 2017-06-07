@@ -51,6 +51,13 @@ namespace DomainModel.XmlModels.ID15A
             PACGS2 = new PACGS2();
             TAXADDELE100 = new TAXADDELE100();
 
+            PACGS2.PropertyChanged += PACGS2_PropertyChanged;
+
+        }
+
+        private void PACGS2_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged("Packets");
         }
 
         [XmlElement("IteNumGDS7")]

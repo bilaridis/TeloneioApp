@@ -18,8 +18,8 @@ namespace DomainModel.XmlModels.ID15A
         private string _ideOfMeaOfTraCroHea85Lng;
         private string _natOfMeaOfTraCroHea87;
         private decimal _conIndHea96;
-        private decimal _totNumOfIteHea305;
-        private decimal _totNumOfPacHea306;
+        private int _totNumOfIteHea305;
+        private int _totNumOfPacHea306;
         private decimal _totGroMasHea307;
         private decimal _decDatHea383;
         private string _decPlaHea394Lng;
@@ -164,7 +164,7 @@ namespace DomainModel.XmlModels.ID15A
         }
 
         [XmlElement("TotNumOfIteHEA305")]
-        public decimal TotNumOfIteHEA305
+        public int TotNumOfIteHEA305
         {
             get { return _totNumOfIteHea305; }
             set
@@ -175,7 +175,7 @@ namespace DomainModel.XmlModels.ID15A
         }
 
         [XmlElement("TotNumOfPacHEA306")]
-        public decimal TotNumOfPacHEA306
+        public int TotNumOfPacHEA306
         {
             get { return _totNumOfPacHea306; }
             set
