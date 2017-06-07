@@ -102,7 +102,7 @@
                           DataContext="{Binding Source={StaticResource ViewModel}}" 
                           Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"
                           CanContentScroll="True">
-                <ListView  ItemsSource="{Binding}" Background="Azure" Margin="0">
+                <ListView  ItemsSource="{Binding}" Background="#FFEEEEEE" Margin="0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0">
@@ -631,8 +631,10 @@
                                     </GroupBox>
                                 </WrapPanel>
                             </StackPanel>
+
                         </DataTemplate>
                     </ListView.ItemTemplate>
+
                 </ListView>
             </ScrollViewer>
         </Grid>
