@@ -76,7 +76,8 @@
                       Margin="0"
                       DataContext="{Binding Source={StaticResource ViewModel}}" 
                       Visibility="{Binding IsVisibleOriginal, Converter={StaticResource BoolToHiddenConverter}}"
-                      CanContentScroll="True">
+                      CanContentScroll="True"
+                      PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
             <ListView  ItemsSource="{Binding}" 
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch">
@@ -134,8 +135,9 @@
                           HorizontalScrollBarVisibility="Visible"
                           DataContext="{Binding Source={StaticResource ViewModel}}" 
                           Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"
-                          CanContentScroll="True">
-                <ListView  ItemsSource="{Binding}" Margin="0">
+                          CanContentScroll="True"
+                          PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
+                <ListView   ItemsSource="{Binding}" Margin="0" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0">
@@ -590,10 +592,11 @@
                                                                         <Grid DataContext="{Binding PREADMREFAR2}" Margin="0">
                                                                             <DataGrid ItemsSource="{Binding}"  AutoGenerateColumns="False">
                                                                                 <DataGrid.Columns>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Κωδικος 1" Binding="{Binding PreDocTypAR21}"/>
+                                                                                    <DataGridTextColumn Width="Auto" Header="Κωδ. Γραμμα" Binding="{Binding PreDocCatPREADMREF21}"/>
+                                                                                    <DataGridTextColumn Width="Auto" Header="Κωδ. Τύπος" Binding="{Binding PreDocTypAR21}"/>
                                                                                     <DataGridTextColumn Width="Auto" Header="Περιγραφή" Binding="{Binding PreDocRefAR26}"/>
                                                                                     <DataGridTextColumn Width="Auto" Header="Γλωσσα" Binding="{Binding PreDocRefLNG}"/>
-                                                                                    <DataGridTextColumn Width="Auto" Header="Κωδικος 2" Binding="{Binding PreDocCatPREADMREF21}"/>
+                                                                                    
                                                                                 </DataGrid.Columns>
                                                                             </DataGrid>
                                                                         </Grid>
@@ -672,7 +675,12 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid Grid.Column="2" Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}">
+        
+        <ScrollViewer Grid.Column="2" 
+                      Margin="0" 
+                      DataContext="{Binding Source={StaticResource ViewModel}}"
+                      CanContentScroll="True"
+                      PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
             <ListView  ItemsSource="{Binding Files}" Margin="0" BorderThickness="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -683,6 +691,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

@@ -38,6 +38,8 @@ namespace DomainModel.XmlModels.ID15A
             COMCODGODITM = new COMCODGODITM();
             PACGS2 = new PACGS2();
             TAXADDELE100 = new TAXADDELE100();
+
+            PACGS2.PropertyChanged += PACGS2_PropertyChanged;
         }
 
         public GOOITEGDS(int classCounter)

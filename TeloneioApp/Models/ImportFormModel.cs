@@ -53,6 +53,17 @@ namespace TeloneioApp.Models
             XmlObjectId15A = modelId15A;
             XmlStringBuilder = XmlExtension.PrintXML(XmlObjectId15A.Serialize());
             _gooitegdss = XmlObjectId15A.GOOITEGDS.ToObservableCollection();
+            _gooitegdss = new ObservableCollection<GOOITEGDS>();
+            HEAHEA.TotNumOfIteHEA305 = 0;
+            foreach (var item in XmlObjectId15A.GOOITEGDS)
+            {
+                item.PropertyChanged += Item_PropertyChanged;
+                _gooitegdss.Add(item);
+                HEAHEA.TotNumOfIteHEA305++;
+            }
+       
+
+            HEAHEA.PropertyChanged += HEAHEA_PropertyChanged;
         }
 
         public ID15A XmlObjectId15A { get; set; }
