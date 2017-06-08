@@ -32,6 +32,8 @@ namespace TeloneioApp.Models
             IMPCUSOFF = new IMPCUSOFF();
 
             HEAHEA.PropertyChanged += HEAHEA_PropertyChanged;
+
+            MesTypMES20 = "ID15A";
         }
 
         private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -192,6 +194,16 @@ namespace TeloneioApp.Models
                 foreach (var item in _gooitegdss)
                 {
                     HEAHEA.TotGroMasHEA307 += item.GroMasGDS46;
+                }
+            }
+            //
+            if (e.PropertyName == "ProPri4002")
+            {
+                TRADAT.TotAmoInvTRD1 = 0;
+
+                foreach (var item in _gooitegdss)
+                {
+                    TRADAT.TotAmoInvTRD1 += item.ProPri4002;
                 }
             }
             if (e.PropertyName == "Packets")

@@ -11,13 +11,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using MahApps.Metro.Controls;
 namespace TeloneioApp.Views
 {
     /// <summary>
     /// Interaction logic for StartScreen.xaml
     /// </summary>
-    public partial class StartScreen : Window
+    public partial class StartScreen : MetroWindow
     {
         public StartScreen()
         {

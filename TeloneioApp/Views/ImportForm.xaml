@@ -6,17 +6,38 @@
       xmlns:models="clr-namespace:TeloneioApp.Models"
       xmlns:viewModel="clr-namespace:TeloneioApp.ViewModels"
       xmlns:converter="clr-namespace:TeloneioApp.ViewModels.Converters"
-      xmlns:local="clr-namespace:TeloneioApp"
-      d:DesignHeight="800"
-      d:DesignWidth="800"
+      xmlns:local="clr-namespace:TeloneioApp" 
+      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+      d:DesignHeight="768"
+      d:DesignWidth="1024"
       mc:Ignorable="d"
       Title="MainWindow">
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Styles/DataGridResources.xaml"/>
-                <ResourceDictionary Source="/Styles/MetroStyleResources.xaml"/>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/controls.calendar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/teal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/baselight.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="DataGridColumnHeaderDataGridCellStyle"
+                   TargetType="{x:Type DataGridCell}" 
+                   BasedOn="{StaticResource {x:Type DataGridCell}}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Grid Background="Transparent">
+                                <ContentPresenter HorizontalAlignment="Center" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
             <models:ImportFormModel x:Key="Model"/>
             <viewModel:ImportFormViewModel x:Key="ViewModel"/>
             <converter:BoolToHiddenConverter x:Key="BoolToHiddenConverter"></converter:BoolToHiddenConverter>
@@ -31,7 +52,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ListView Grid.Column="0"  Margin="0" Padding="0" BorderThickness="0" Background="#FF3E4854" DataContext="{Binding ViewModel}" >
+        <ListView Grid.Column="0"  Margin="0" Padding="0" BorderThickness="0" DataContext="{Binding ViewModel}" >
             <ListView.Items>
                 <Button Content="New Form" 
                         Command="{Binding AddNewFormCommand, Source={StaticResource ViewModel}}"
@@ -51,8 +72,7 @@
                         FontSize="16" Width="157"></Button>
             </ListView.Items>
         </ListView>
-        <ScrollViewer x:Name="OriginalXML" 
-                      Grid.Column="1" 
+        <ScrollViewer Grid.Column="1" 
                       Margin="0"
                       DataContext="{Binding Source={StaticResource ViewModel}}" 
                       Visibility="{Binding IsVisibleOriginal, Converter={StaticResource BoolToHiddenConverter}}"
@@ -77,22 +97,35 @@
               Grid.Column="1"  
               Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"></RowDefinition>
+                <RowDefinition Height="110"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <WrapPanel
-                Visibility="{Binding IsVisibleForm, Converter={StaticResource BoolToHiddenConverter}}">
-                <Button Content="Add Class" 
-                        Command="{Binding AddNewClassCommand, Source={StaticResource ViewModel}}"
-                        CommandParameter="{Binding}" 
-                        FontSize="16" Width="157"
-                        Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>
-                <!--<Button Content="Add Ateleies" 
+            <GroupBox>
+                <GroupBox.Header>Ενέργειες για τη φόρμα</GroupBox.Header>
+                <WrapPanel Visibility="{Binding IsVisibleForm, Converter={StaticResource BoolToHiddenConverter}}">
+                    <Button Content="Add Class" 
+                            Margin="5"
+                            Command="{Binding AddNewClassCommand, Source={StaticResource ViewModel}}"
+                            CommandParameter="{Binding}" 
+                            FontSize="16" Width="157"
+                            Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>
+                    <controls:DateTimePicker Orientation="Vertical">
+
+                    </controls:DateTimePicker>
+                    <controls:TimePicker>
+                        
+                    </controls:TimePicker>
+                    <controls:ToggleSwitchButton>
+                        <controls:ToggleButtonHelper.ContentDirection>RightToLeft</controls:ToggleButtonHelper.ContentDirection>
+                    </controls:ToggleSwitchButton>
+
+                    <!--<Button Content="Add Ateleies" 
                         Command="{Binding SaveCommand, Source={StaticResource ViewModel}}"
                         CommandParameter="{Binding}" 
                         FontSize="16" Width="157"
                         Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>-->
-            </WrapPanel>
+                </WrapPanel>
+            </GroupBox>
             <ScrollViewer Grid.Column="0"
                           Grid.Row="1"
                           BorderThickness="0"
@@ -102,7 +135,7 @@
                           DataContext="{Binding Source={StaticResource ViewModel}}" 
                           Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"
                           CanContentScroll="True">
-                <ListView  ItemsSource="{Binding}" Background="#FFEEEEEE" Margin="0">
+                <ListView  ItemsSource="{Binding}" Margin="0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0">
@@ -426,12 +459,12 @@
                                                                 <StackPanel>
                                                                     <WrapPanel>
                                                                         <Label Content="Class Code :" Width="100"></Label>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="60"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="25" MaxLength="2"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="35" MaxLength="4"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="35" MaxLength="4"></TextBox>
-                                                                        <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="35" MaxLength="4"></TextBox>
-                                                                        <Label Content="Γλώσσα: :" Width="60"></Label>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="70"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="30" MaxLength="2"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
+                                                                        <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
+                                                                        <Label Content="Γλ/σα: :" Width="60"></Label>
                                                                         <TextBox Text="{Binding Path=GooDesGDS23LNG, Mode=TwoWay}" Width="25"></TextBox>
                                                                     </WrapPanel>
                                                                     <WrapPanel>
@@ -639,8 +672,8 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid Grid.Column="2" Margin="0" Background="RoyalBlue" DataContext="{Binding Source={StaticResource ViewModel}}">
-            <ListView  ItemsSource="{Binding Files}" Background="#FF3E4854" Margin="0" BorderThickness="0">
+        <Grid Grid.Column="2" Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}">
+            <ListView  ItemsSource="{Binding Files}" Margin="0" BorderThickness="0">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>

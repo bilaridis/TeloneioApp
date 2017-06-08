@@ -9,9 +9,21 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Home">
     <Page.Resources>
-        <viewModels:StartScreenViewModel x:Key="ViewModel"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/teal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <viewModels:StartScreenViewModel x:Key="ViewModel"/>
+        </ResourceDictionary>
+        
     </Page.Resources>
-    <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}" Background="#FF3E4854">
+    <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}">
 
     </Grid>
 </Page>
