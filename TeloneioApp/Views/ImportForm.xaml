@@ -271,7 +271,7 @@
                                     <GroupBox>
                                         <GroupBox.Header>Βασικά Στοιχεια</GroupBox.Header>
                                         <GroupBox.Content>
-                                            <WrapPanel>
+                                            <WrapPanel Width="945">
                                                 <StackPanel>
                                                     <WrapPanel>
                                                         <Label Content="LRN :" Width="130"></Label>
