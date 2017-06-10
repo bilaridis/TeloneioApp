@@ -10,10 +10,10 @@ namespace TeloneioApp.Views
     /// <summary>
     ///     Interaction logic for ItemForId15A.xaml
     /// </summary>
-    public partial class ItemForId15A : UserControl
+    public partial class ucClass : UserControl
     {
 
-        public ItemForId15A()
+        public ucClass()
         {
             InitializeComponent();
         }
@@ -26,11 +26,11 @@ namespace TeloneioApp.Views
 
         // Using a DependencyProperty as the backing store for WorkItems.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty WorkItemsProperty =
-            DependencyProperty.Register("WorkItems", typeof(ObservableCollection<GOOITEGDS>), typeof(ItemForId15A), new FrameworkPropertyMetadata(null, OnWorkItemsChanged));
+            DependencyProperty.Register("WorkItems", typeof(ObservableCollection<GOOITEGDS>), typeof(ucClass), new FrameworkPropertyMetadata(null, OnWorkItemsChanged));
 
         private static void OnWorkItemsChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            ItemForId15A me = sender as ItemForId15A;
+            ucClass me = sender as ucClass;
             if (me != null)
             {
                 var old = e.OldValue as ObservableCollection<GOOITEGDS>;

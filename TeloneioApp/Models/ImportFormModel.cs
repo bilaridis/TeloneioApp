@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -34,6 +35,9 @@ namespace TeloneioApp.Models
             HEAHEA.PropertyChanged += HEAHEA_PropertyChanged;
 
             MesTypMES20 = "ID15A";
+            DatOfPreMES9 = (DateTime.Now.Year - 2000) + DateTime.Now.ToString("MM") + DateTime.Now.Day;
+            HEAHEA.DecDatHEA383 = (DateTime.Now.Year) + DateTime.Now.ToString("MM") + DateTime.Now.Day;
+            TimOfPreMES10 = DateTime.Now.ToString("HHmm");
         }
 
         private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -61,7 +65,7 @@ namespace TeloneioApp.Models
                 _gooitegdss.Add(item);
                 HEAHEA.TotNumOfIteHEA305++;
             }
-       
+
 
             HEAHEA.PropertyChanged += HEAHEA_PropertyChanged;
         }
@@ -100,7 +104,7 @@ namespace TeloneioApp.Models
             }
         }
 
-        public int DatOfPreMES9
+        public string DatOfPreMES9
         {
             get => XmlObjectId15A.DatOfPreMES9;
             set
@@ -111,7 +115,7 @@ namespace TeloneioApp.Models
             }
         }
 
-        public int TimOfPreMES10
+        public string TimOfPreMES10
         {
             get => XmlObjectId15A.TimOfPreMES10;
             set

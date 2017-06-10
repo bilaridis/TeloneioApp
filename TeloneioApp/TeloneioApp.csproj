@@ -124,8 +124,8 @@
     <Compile Include="Views\ImportForm.xaml.cs">
       <DependentUpon>ImportForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ItemForId15A.xaml.cs">
-      <DependentUpon>ItemForId15A.xaml</DependentUpon>
+    <Compile Include="Views\ucClass.xaml.cs">
+      <DependentUpon>ucClass.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Customers.xaml.cs">
       <DependentUpon>Customers.xaml</DependentUpon>
@@ -157,7 +157,7 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
-    <Page Include="Views\ItemForId15A.xaml">
+    <Page Include="Views\ucClass.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>

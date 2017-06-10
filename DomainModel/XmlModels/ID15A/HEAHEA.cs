@@ -21,7 +21,7 @@ namespace DomainModel.XmlModels.ID15A
         private int _totNumOfIteHea305;
         private int _totNumOfPacHea306;
         private decimal _totGroMasHea307;
-        private decimal _decDatHea383;
+        private string _decDatHea383;
         private string _decPlaHea394Lng;
         private string _typOfDecBx12Hea651;
         private string _finBanInfHea1027;
@@ -197,7 +197,7 @@ namespace DomainModel.XmlModels.ID15A
         }
 
         [XmlElement("DecDatHEA383")]
-        public decimal DecDatHEA383
+        public string DecDatHEA383
         {
             get { return _decDatHea383; }
             set

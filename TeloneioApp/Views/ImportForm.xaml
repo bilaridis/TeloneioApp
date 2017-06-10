@@ -324,7 +324,7 @@
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ημ/νία καταχωρησης :" Width="150"></Label>
-                                                        <TextBox Text="{Binding Path=HEAHEA.DecDatHEA383, Mode=TwoWay}" Width="200"  Background="LightGreen"></TextBox>
+                                                        <TextBox Text="{Binding Path=HEAHEA.DecDatHEA383, Mode=TwoWay}" Width="200"  Background="Aquamarine"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Τοπος Διασαφησης :" Width="150"></Label>
@@ -379,11 +379,11 @@
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ημ/νία προπαρ. :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=DatOfPreMES9, Mode=TwoWay}" Width="150" Background="LightGreen"></TextBox>
+                                                        <TextBox Text="{Binding Path=DatOfPreMES9, Mode=TwoWay}" Width="150" Background="Aquamarine"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ώρα Προπαρ. :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TimOfPreMES10, Mode=TwoWay}" Width="150" Background="LightGreen"></TextBox>
+                                                        <TextBox Text="{Binding Path=TimOfPreMES10, Mode=TwoWay}" Width="150" Background="Aquamarine"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="------ :" Width="100"></Label>
@@ -448,7 +448,7 @@
                                     </GroupBox>
                                 </WrapPanel>
 
-                                <local:ItemForId15A WorkItems="{Binding GOOITEGDS}"></local:ItemForId15A>
+                                <local:ucClass WorkItems="{Binding GOOITEGDS}"></local:ucClass>
 
                                 <WrapPanel>
                                     <GroupBox>

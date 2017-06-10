@@ -30,10 +30,10 @@ namespace DomainModel.XmlModels.ID15A
         public int MesRecMES6 { get; set; }
 
         [XmlElement("DatOfPreMES9")]
-        public int DatOfPreMES9 { get; set; }
+        public string DatOfPreMES9 { get; set; }
 
         [XmlElement("TimOfPreMES10")]
-        public int TimOfPreMES10 { get; set; }
+        public string TimOfPreMES10 { get; set; }
 
         [XmlElement("TesIndMES18")]
         public int TesIndMES18 { get; set; }
