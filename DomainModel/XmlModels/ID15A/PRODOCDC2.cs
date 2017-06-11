@@ -1,8 +1,10 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace DomainModel.XmlModels.ID15A
 {
-    public class PRODOCDC2
+    public class PRODOCDC2 : INotifyPropertyChanged
     {
         private string _docTypDc21;
         private string _docRefDc23;
@@ -36,7 +38,18 @@ namespace DomainModel.XmlModels.ID15A
         public string DocRefDCLNG
         {
             get { return _docRefDclng; }
-            set { _docRefDclng = value; }
+            set
+            {
+                _docRefDclng = value;
+                OnPropertyChanged("DocRefDCLNG");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

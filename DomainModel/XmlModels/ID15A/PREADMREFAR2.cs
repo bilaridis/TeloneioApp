@@ -1,8 +1,10 @@
-﻿using System.Xml.Serialization;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 namespace DomainModel.XmlModels.ID15A
 {
-    public class PREADMREFAR2
+    public class PREADMREFAR2 : INotifyPropertyChanged
     {
         private string _preDocTypAr21;
         private string _preDocRefAr26;
@@ -49,9 +51,19 @@ namespace DomainModel.XmlModels.ID15A
         public string PreDocRefLNG
         {
             get { return _preDocRefLng; }
-            set { _preDocRefLng = value; }
+            set
+            {
+                _preDocRefLng = value;
+                OnPropertyChanged("PreDocRefLNG");
+            }
         }
 
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
