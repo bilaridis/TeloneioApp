@@ -38,6 +38,21 @@ namespace TeloneioApp.Models
             DatOfPreMES9 = (DateTime.Now.Year - 2000) + DateTime.Now.ToString("MM") + DateTime.Now.Day;
             HEAHEA.DecDatHEA383 = (DateTime.Now.Year) + DateTime.Now.ToString("MM") + DateTime.Now.Day;
             TimOfPreMES10 = DateTime.Now.ToString("HHmm");
+
+            HEAHEA.IdeOfMeaOfTraCroHEA85LNG = "EN";
+            HEAHEA.IdeMeaTraArr4005LNG = "EN";
+
+            //MainSettings.CustomerDetails
+            TRAREP.NamTRE1 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
+            TRAREP.CouCodTRE1 = MainSettings.CustomerDetails.Country;
+            TRAREP.TRAREPLNG = MainSettings.CustomerDetails.Language;
+            TRAREP.TINTRE1 = MainSettings.CustomerDetails.Eoritin;
+            MesSenMES3 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
+
+            HEAHEA.AgrLocOfGooHEA39 = "AMSTERDAM";
+            HEAHEA.AgrLocOfGooHEA39LNG = Repository.MainSettings.FoundGreekLetters(HEAHEA.AgrLocOfGooHEA39) ? "EL" : "EN";
+
+
         }
 
         private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -93,7 +108,7 @@ namespace TeloneioApp.Models
             }
         }
 
-        public int MesRecMES6
+        public string MesRecMES6
         {
             get => XmlObjectId15A.MesRecMES6;
             set

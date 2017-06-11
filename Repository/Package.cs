@@ -1,4 +1,4 @@
-namespace Repository
+namespace DomainModel
 {
     public class Package
     {

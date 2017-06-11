@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeloneioApp", "TeloneioApp\TeloneioApp.csproj", "{F7AD84EB-AD15-4B75-8C1A-4A8B0E06ABF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{532EF908-4697-4C90-AF91-A155EDAFB698}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "Repository\DomainModel.csproj", "{532EF908-4697-4C90-AF91-A155EDAFB698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModel", "DomainModel\DomainModel.csproj", "{B85B0E05-EEE3-49A2-BD36-1B96BBD88080}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "DomainModel\Repository.csproj", "{B85B0E05-EEE3-49A2-BD36-1B96BBD88080}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

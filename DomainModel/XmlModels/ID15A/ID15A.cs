@@ -27,7 +27,7 @@ namespace DomainModel.XmlModels.ID15A
         public string MesSenMES3 { get; set; }
 
         [XmlElement("MesRecMES6")]
-        public int MesRecMES6 { get; set; }
+        public string MesRecMES6 { get; set; }
 
         [XmlElement("DatOfPreMES9")]
         public string DatOfPreMES9 { get; set; }

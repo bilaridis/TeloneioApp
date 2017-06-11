@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using DomainModel.XmlModels.Enums;
+using Repository;
 
 namespace DomainModel.XmlModels.ID15A
 {
@@ -28,7 +30,7 @@ namespace DomainModel.XmlModels.ID15A
         private string _ideMeaTraArr4004;
         private string _ideMeaTraArr4005Lng;
         private string _natOfMeaOfTraAtArrHea54;
-        private string _metOfPayHea590;
+        private TypeOfPayments _metOfPayHea590;
         private string _decPlaHea394;
 
         [XmlElement("RefNumHEA4")]
@@ -82,6 +84,7 @@ namespace DomainModel.XmlModels.ID15A
             set
             {
                 _agrLocOfGooHea39 = value;
+                AgrLocOfGooHEA39LNG = MainSettings.FoundGreekLetters(value) ? "EL" : "EN";
                 OnPropertyChanged("AgrLocOfGooHEA39");
             }
         }
@@ -214,6 +217,7 @@ namespace DomainModel.XmlModels.ID15A
             set
             {
                 _decPlaHea394 = value;
+                DecPlaHEA394LNG = MainSettings.FoundGreekLetters(value) ? "EL" : "EN";
                 OnPropertyChanged("DecPlaHEA394");
             }
         }
@@ -285,7 +289,7 @@ namespace DomainModel.XmlModels.ID15A
         }
 
         [XmlElement("MetOfPayHEA590")]
-        public string MetOfPayHEA590
+        public TypeOfPayments MetOfPayHEA590
         {
             get { return _metOfPayHea590; }
             set

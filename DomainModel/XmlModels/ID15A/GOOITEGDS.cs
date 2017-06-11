@@ -81,6 +81,8 @@ namespace DomainModel.XmlModels.ID15A
             set
             {
                 _gooDesGds23 = value;
+                var stringForCheck = value;
+                GooDesGDS23LNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
                 OnPropertyChanged("GooDesGDS23");
             }
         }

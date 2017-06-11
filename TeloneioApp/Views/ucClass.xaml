@@ -4,9 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeloneioApp.Views"
+             xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
              xmlns:models="clr-namespace:TeloneioApp.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="1000" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <col:ArrayList x:Key="PaymentsList">
+                <col:DictionaryEntry Key="A" Value="A"/>
+                <col:DictionaryEntry Key="H" Value="H"/>
+            </col:ArrayList>
+
+            <col:ArrayList x:Key="PreferenceList">
+                <col:DictionaryEntry Key="100" Value="100"/>
+                <col:DictionaryEntry Key="200" Value="200"/>
+                <col:DictionaryEntry Key="300" Value="300"/>
+                <col:DictionaryEntry Key="400" Value="400"/>
+            </col:ArrayList>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid Margin="0">
         <ListView ItemsSource="{Binding Path=WorkItems, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:ucClass}}}">
             <ListView.ItemTemplate>
@@ -21,8 +38,8 @@
                                     <StackPanel>
                                         <WrapPanel>
                                             <Label Content="Class Code :" Width="75"></Label>
-                                            <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay }" Width="70"></TextBox>
-                                            <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0000000#}}" Width="30" MaxLength="2"></TextBox>
+                                            <TextBox Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay,StringFormat={}{0:0000000#} }" Width="70"></TextBox>
+                                            <TextBox Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="30" MaxLength="2"></TextBox>
                                             <TextBox Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
                                             <TextBox Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
                                             <TextBox Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
@@ -54,6 +71,10 @@
                                             <WrapPanel >
                                                 <StackPanel>
                                                     <WrapPanel>
+                                                        <Label Content="Χωρα Καταγωγης:" Width="110"></Label>
+                                                        <TextBox Text="{Binding Path=CouOfOriGDI1, Mode=TwoWay}" Width="110"></TextBox>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
                                                         <Label Content="Μεικτη Μαζα :" Width="110"></Label>
                                                         <TextBox Text="{Binding Path=GroMasGDS46, Mode=TwoWay}" Width="110"></TextBox>
                                                     </WrapPanel>
@@ -61,6 +82,14 @@
                                                         <Label Content="Καθαρη Μαζα :" Width="110">
                                                         </Label>
                                                         <TextBox Text="{Binding Path=NetMasGDS48, Mode=TwoWay}" Width="110"></TextBox>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
+                                                        <Label Content="Προτιμηση :" Width="110"></Label>
+                                                        <ComboBox Width="110" 
+                                                                  DisplayMemberPath="Key" 
+                                                                  SelectedValuePath="Value"
+                                                                  ItemsSource="{StaticResource PreferenceList}"
+                                                                  SelectedItem="{Binding Pre4046 , Mode=TwoWay}"/>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Καθεστώς :" Width="110"></Label>
@@ -75,18 +104,6 @@
                                                         <TextBox Text="{Binding Path=ComNatProGIM1, Mode=TwoWay}" Width="110"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
-                                                        <Label Content="Νομ. Στατ. Αξιας:" Width="110"></Label>
-                                                        <TextBox Text="{Binding Path=StaValCurGDI1, Mode=TwoWay}" Width="110"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="Χωρα Καταγωγης:" Width="110"></Label>
-                                                        <TextBox Text="{Binding Path=CouOfOriGDI1, Mode=TwoWay}" Width="110"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="Προτιμηση :" Width="110"></Label>
-                                                        <TextBox Text="{Binding Path=Pre4046, Mode=TwoWay}" Width="110"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
                                                         <Label Content="Τιμη Προϊοντος :" Width="110"></Label>
                                                         <TextBox Text="{Binding Path=ProPri4002, Mode=TwoWay}" Width="110"></TextBox>
                                                     </WrapPanel>
@@ -97,6 +114,10 @@
                                                     <WrapPanel>
                                                         <Label Content="Στατιστικη Αξια :" Width="110"></Label>
                                                         <TextBox Text="{Binding Path=StaValAmoGDI1, Mode=TwoWay}" Width="110"></TextBox>
+                                                    </WrapPanel>
+                                                    <WrapPanel>
+                                                        <Label Content="Νομ. Στατ. Αξιας:" Width="110"></Label>
+                                                        <TextBox Text="{Binding Path=StaValCurGDI1, Mode=TwoWay}" Width="110"></TextBox>
                                                     </WrapPanel>
                                                 </StackPanel>
                                             </WrapPanel>
@@ -114,7 +135,11 @@
                                                                 <DataGridTextColumn Width="Auto" Header="Φορ/γικη Βάση" Binding="{Binding TaxBasCTX1}"/>
                                                                 <DataGridTextColumn Width="Auto" Header="Συντελεστης" Binding="{Binding RatOfTaxCTX1}"/>
                                                                 <DataGridTextColumn Width="Auto" Header="Ποσο" Binding="{Binding AmoOfTaxTCL1}"/>
-                                                                <DataGridTextColumn Width="Auto" Header="Τρ. Πλ/μης" Binding="{Binding MetOfPayCTX1}"/>
+                                                                <DataGridComboBoxColumn Width="Auto" Header="Τρ. Πλ/μης"
+                                                                                        DisplayMemberPath="Key" 
+                                                                                        SelectedValuePath="Value"
+                                                                                        ItemsSource="{StaticResource PaymentsList}"
+                                                                                        SelectedValueBinding="{Binding MetOfPayCTX1}"/>
                                                             </DataGrid.Columns>
                                                         </DataGrid>
                                                     </Grid>

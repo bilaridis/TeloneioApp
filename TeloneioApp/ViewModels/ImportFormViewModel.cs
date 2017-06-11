@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using DomainModel.XmlModels.ID15A;
-using Repository;
+using DomainModel;
 using TeloneioApp.Models;
 using TeloneioApp.Models.Commands;
 using TeloneioApp.StaticResources;
@@ -88,16 +88,12 @@ namespace TeloneioApp.ViewModels
                     importFormModel.TRACONCO1.CitCO124 = _apostoleas.City;
                     importFormModel.TRACONCO1.CouCO125 = _apostoleas.Country;
                     importFormModel.TRACONCO1.NADLNGCO = _apostoleas.Language;
+                    importFormModel.HEAHEA.CouOfDisCodHEA55 = _apostoleas.Country;
                 }
             }
         }
 
-        public static bool FoundGreekLetters(string text)
-        {
-            const string pattern = @"[\s\p{IsGreekandCoptic}]";
 
-            return Regex.IsMatch(text, pattern);
-        }
 
         public Customer Paraliptis
         {
@@ -115,6 +111,7 @@ namespace TeloneioApp.ViewModels
                     importFormModel.TRACONCE1.CouCE125 = _paraliptis.Country;
                     importFormModel.TRACONCE1.NADLNGCE = _paraliptis.Language;
                     importFormModel.TRACONCE1.TINCE159 = _paraliptis.EORI_TIN;
+                    importFormModel.HEAHEA.CouOfDesCodHEA30 = _paraliptis.Country;
                 }
             }
         }

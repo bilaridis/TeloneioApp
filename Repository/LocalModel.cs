@@ -1,6 +1,6 @@
 using System.Data.Entity;
 
-namespace Repository
+namespace DomainModel
 {
     public class LocalModel : DbContext
     {

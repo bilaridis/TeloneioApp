@@ -1,4 +1,5 @@
 ﻿using System.Xml.Serialization;
+using DomainModel.XmlModels.Enums;
 
 namespace DomainModel.XmlModels.ID15A
 {
@@ -13,6 +14,6 @@ namespace DomainModel.XmlModels.ID15A
         [XmlElement("AmoOfTaxTCL1")]
         public decimal AmoOfTaxTCL1 { get; set; }
         [XmlElement("MetOfPayCTX1")]
-        public string MetOfPayCTX1 { get; set; }
+        public TypeOfPayments MetOfPayCTX1 { get; set; }
     }
 }
