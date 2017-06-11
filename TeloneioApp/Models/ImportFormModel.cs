@@ -20,6 +20,10 @@ namespace TeloneioApp.Models
 
         public ImportFormModel()
         {
+                
+        }
+        public ImportFormModel(DateTime createDateTime)
+        {
             XmlObjectId15A = new ID15A();
             _gooitegdss = new ObservableCollection<GOOITEGDS>();
             HEAHEA = new HEAHEA();
@@ -35,9 +39,9 @@ namespace TeloneioApp.Models
             HEAHEA.PropertyChanged += HEAHEA_PropertyChanged;
 
             MesTypMES20 = "ID15A";
-            DatOfPreMES9 = (DateTime.Now.Year - 2000) + DateTime.Now.ToString("MM") + DateTime.Now.Day;
-            HEAHEA.DecDatHEA383 = (DateTime.Now.Year) + DateTime.Now.ToString("MM") + DateTime.Now.Day;
-            TimOfPreMES10 = DateTime.Now.ToString("HHmm");
+            DatOfPreMES9 = (createDateTime.Year - 2000).ToString("D2") + createDateTime.ToString("MM") + createDateTime.Day.ToString("D2");
+            HEAHEA.DecDatHEA383 = (createDateTime.Year).ToString("D2") + createDateTime.ToString("MM") + createDateTime.Day.ToString("D2");
+            TimOfPreMES10 = createDateTime.ToString("HHmm");
 
             HEAHEA.IdeOfMeaOfTraCroHEA85LNG = "EN";
             HEAHEA.IdeMeaTraArr4005LNG = "EN";
@@ -48,11 +52,6 @@ namespace TeloneioApp.Models
             TRAREP.TRAREPLNG = MainSettings.CustomerDetails.Language;
             TRAREP.TINTRE1 = MainSettings.CustomerDetails.Eoritin;
             MesSenMES3 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
-
-            HEAHEA.AgrLocOfGooHEA39 = "AMSTERDAM";
-            HEAHEA.AgrLocOfGooHEA39LNG = Repository.MainSettings.FoundGreekLetters(HEAHEA.AgrLocOfGooHEA39) ? "EL" : "EN";
-
-
         }
 
         private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)

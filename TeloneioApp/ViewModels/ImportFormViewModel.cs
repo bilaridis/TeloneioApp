@@ -25,6 +25,7 @@ namespace TeloneioApp.ViewModels
         private ObservableCollection<Customer> _customers2;
         private Customer _apostoleas;
         private Customer _paraliptis;
+        private DateTime _createdDateTime;
 
         public ImportFormViewModel()
         {
@@ -59,6 +60,23 @@ namespace TeloneioApp.ViewModels
             CollectionChanged += TonnageListViewModel_CollectionChanged;
 
             //Add(new MainModel());
+        }
+
+        public DateTime CreatedDateTime
+        {
+            get { return _createdDateTime; }
+            set
+            {
+                _createdDateTime = value;
+                var importFormModel = Items.FirstOrDefault();
+                if (importFormModel != null)
+                {
+                    importFormModel.DatOfPreMES9 = (value.Year - 2000).ToString("D2") + value.ToString("MM") + value.Day.ToString("D2");
+                    importFormModel.HEAHEA.DecDatHEA383 = (value.Year).ToString("D2") + value.ToString("MM") + value.Day.ToString("D2");
+                    importFormModel.TimOfPreMES10 = value.ToString("HHmm");
+                }
+                NotifyPropertyChanged("CreatedDateTime");
+            }
         }
 
 
@@ -179,7 +197,8 @@ namespace TeloneioApp.ViewModels
         public void AddNewForm()
         {
             Clear();
-            Add(new ImportFormModel());
+            CreatedDateTime = DateTime.Now;
+            Add(new ImportFormModel(CreatedDateTime));
         }
         public void AddNewClass()
         {
