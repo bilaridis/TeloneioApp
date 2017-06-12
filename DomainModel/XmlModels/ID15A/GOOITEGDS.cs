@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
@@ -28,6 +31,7 @@ namespace DomainModel.XmlModels.ID15A
         private List<CONNR2> _connr2;
         private PACGS2 _pacgs2;
         private TAXADDELE100 _taxaddele100;
+        private const string descrTest = "My descriprtion Test";
 
         public GOOITEGDS()
         {
@@ -48,7 +52,7 @@ namespace DomainModel.XmlModels.ID15A
             CALTAXGOD = new List<CALTAXGOD>();
             PREADMREFAR2 = new List<PREADMREFAR2>();
             PRODOCDC2 = new List<PRODOCDC2>();
-            CONNR2 =  new List<CONNR2>();
+            CONNR2 = new List<CONNR2>();
             COMCODGODITM = new COMCODGODITM();
             PACGS2 = new PACGS2();
             TAXADDELE100 = new TAXADDELE100();
@@ -57,8 +61,29 @@ namespace DomainModel.XmlModels.ID15A
 
         }
 
+        private void CONNR2_ListChanged()
+        {
+            foreach (var item in CONNR2)
+            {
+                GooDesGDS23 = item.ConNumNR21.ToString() + " " + descrTest;
+            }
+        }
+
+
         private void PACGS2_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            if (e.PropertyName.Equals("MarNumOfPacGS21") || e.PropertyName.Equals("KinOfPacGS23") || e.PropertyName.Equals("NumOfPacGS24"))
+            {
+                var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
+                var msg2 = PACGS2.KinOfPacGS23 ?? "";
+                var msg3 = PACGS2.NumOfPacGS24.ToString();
+                var msg4 = "";
+                foreach (var item in CONNR2)
+                {
+                    msg4 += item.ConNumNR21.ToString() + ",";
+                }
+                GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + msg4.Substring(0, msg4.Length - 1) + " " + descrTest;
+            }
             OnPropertyChanged("Packets");
         }
 
