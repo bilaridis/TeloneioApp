@@ -26,6 +26,7 @@ namespace TeloneioApp.ViewModels
         private Customer _apostoleas;
         private Customer _paraliptis;
         private DateTime _createdDateTime;
+        private string _concatenationOfContainers;
 
         public ImportFormViewModel()
         {
@@ -76,6 +77,16 @@ namespace TeloneioApp.ViewModels
                     importFormModel.TimOfPreMES10 = value.ToString("HHmm");
                 }
                 NotifyPropertyChanged("CreatedDateTime");
+            }
+        }
+
+        public string ConcatenationOfContainers
+        {
+            get { return _concatenationOfContainers; }
+            set
+            {
+                _concatenationOfContainers = value; 
+
             }
         }
 

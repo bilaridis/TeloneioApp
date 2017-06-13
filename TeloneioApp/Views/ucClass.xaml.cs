@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows;
@@ -84,6 +85,19 @@ namespace TeloneioApp.Views
         private void OnWorkItemChanged(object sender, PropertyChangedEventArgs e)
         {
             // Modify existing item in internal collection
+        }
+
+        private void DataGrid_OnCurrentCellChanged(object sender, EventArgs e)
+        {
+            foreach (var item in WorkItems)
+            {
+                var msg = "Cnrs: ";
+                foreach (var conr in item.CONNR2)
+                {
+                    msg += conr.ConNumNR21 + ",";
+                }
+                item.ConcatenationOfContainers = msg.Substring(0, msg.Length - 1);
+            }
         }
     }
 }

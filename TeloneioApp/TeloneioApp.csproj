@@ -109,6 +109,9 @@
     <Compile Include="Models\Commands\ShowXml.cs" />
     <Compile Include="Models\ImportFormModel.cs" />
     <Compile Include="Models\MainModel.cs" />
+    <Compile Include="ViewModels\Behaviors\BringIntoViewBehavior.cs" />
+    <Compile Include="ViewModels\Behaviors\DigitsOnlyBehavior.cs" />
+    <Compile Include="ViewModels\Behaviors\RefreshDescriptionBehavior.cs" />
     <Compile Include="ViewModels\Converters\BoolToHiddenConverter.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="StaticResources\MyStringWriter.cs" />

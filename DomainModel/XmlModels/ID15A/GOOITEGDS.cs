@@ -31,6 +31,7 @@ namespace DomainModel.XmlModels.ID15A
         private List<CONNR2> _connr2;
         private PACGS2 _pacgs2;
         private TAXADDELE100 _taxaddele100;
+        private string _concatenationOfContainers;
         private const string descrTest = "My descriprtion Test";
 
         public GOOITEGDS()
@@ -295,6 +296,37 @@ namespace DomainModel.XmlModels.ID15A
                 _caltaxgod = value;
                 OnPropertyChanged("CALTAXGOD");
             }
+        }
+
+        public string ConcatenationOfContainers
+        {
+            get { return _concatenationOfContainers; }
+            set
+            {
+                _concatenationOfContainers = value;
+
+                var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
+                var msg2 = PACGS2.KinOfPacGS23 ?? "";
+                var msg3 = PACGS2.NumOfPacGS24.ToString();
+                var msg4 = "";
+                foreach (var item in CONNR2)
+                {
+                    msg4 += item.ConNumNR21 + ",";
+                }
+                if (msg4.Length >= 0)
+                {
+                    GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + msg4.Substring(0, msg4.Length) + " " + descrTest;
+
+                    OnPropertyChanged("Packets");
+                }
+
+            }
+        }
+
+        public bool ShouldSerializeConcatenationOfContainers()
+
+        {
+            return false;
         }
 
         [XmlElement("CONNR2")]
