@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
+using TeloneioApp.HttpClients;
+
 namespace TeloneioApp.Views
 {
     /// <summary>
@@ -24,6 +26,8 @@ namespace TeloneioApp.Views
             InitializeComponent();
             NavigationFrame.NavigationService.Navigate(new Home());
             MainSettings.InitializeStaticData();
+
+           
         }
 
         private void CutomersPage_Click(object sender, RoutedEventArgs e)
@@ -42,7 +46,7 @@ namespace TeloneioApp.Views
 
         private void MenuItem_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationFrame.NavigationService.Navigate(new TestPage());
+            NavigationFrame.NavigationService.Navigate(new TariffChapter());
         }
     }
 }

@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Extensions\ID15AExtensions.cs" />
+    <Compile Include="HttpClients\Chapter.cs" />
+    <Compile Include="HttpClients\Rule.cs" />
+    <Compile Include="HttpClients\SubChapter.cs" />
+    <Compile Include="HttpClients\TariffCodesHelper.cs" />
     <Compile Include="MainSettings.cs" />
     <Compile Include="Models\Commands\AddNewClassCommand.cs" />
     <Compile Include="Models\Commands\AddNewFormCommand.cs" />
@@ -121,12 +125,16 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\StartScreenViewModel.cs" />
+    <Compile Include="ViewModels\TariffChapterViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBaseClass.cs" />
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ImportForm.xaml.cs">
       <DependentUpon>ImportForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TariffChapter.xaml.cs">
+      <DependentUpon>TariffChapter.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ucClass.xaml.cs">
       <DependentUpon>ucClass.xaml</DependentUpon>
@@ -160,6 +168,10 @@
     <Page Include="Views\ImportForm.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\TariffChapter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ucClass.xaml">
       <SubType>Designer</SubType>
