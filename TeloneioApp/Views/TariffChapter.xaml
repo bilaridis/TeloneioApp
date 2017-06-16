@@ -15,7 +15,7 @@
     </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="400"></RowDefinition>
+            <RowDefinition Height="500"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
@@ -38,7 +38,7 @@
                                   DataContext="{Binding Source={StaticResource ViewModel}}" 
                                   CanContentScroll="True"
                                   PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
-                        <TextBlock Text="{Binding Path=ReturnTaricDescr, Source={StaticResource ViewModel}, Mode=TwoWay}" Width="350" Height="300" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{Binding Path=ReturnTaricDescr, Source={StaticResource ViewModel}, Mode=TwoWay}" Width="500" Height="400" TextWrapping="Wrap"></TextBlock>
                     </ScrollViewer>
                 </StackPanel>
             </WrapPanel>
