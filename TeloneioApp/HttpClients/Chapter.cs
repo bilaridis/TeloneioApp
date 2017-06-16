@@ -28,13 +28,13 @@ namespace TeloneioApp.HttpClients
             //    }
             //}
 
-            SubChapters = new List<SubChapter>();
+            SubChapters = new List<Chapter>();
             if (item[7].ToString() != "")
             {
                 foreach (JArray jItem in item[7].ToObject<List<JArray>>())
                 {
 
-                    SubChapters.Add(new SubChapter(jItem));
+                    SubChapters.Add(new Chapter(jItem));
                 }
             }
             //SecondBool = bool.Parse(item[8].ToString());
@@ -50,7 +50,7 @@ namespace TeloneioApp.HttpClients
         public string LevelNumKey { get; set; }
         public string Descr { get; set; }
         //public List<Rule> Rules { get; set; }
-        public List<SubChapter> SubChapters { get; set; }
+        public List<Chapter> SubChapters { get; set; }
         //public bool SecondBool { get; set; }
         //public dynamic Object1 { get; set; }
         //public dynamic Object2 { get; set; }

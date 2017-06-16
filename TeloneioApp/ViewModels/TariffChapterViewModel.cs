@@ -53,7 +53,7 @@ namespace TeloneioApp.ViewModels
 
         private void SearchTaricCode(string key)
         {
-            int lengthThatInserted = key.Length;
+            int keyLength = key.Length;
 
             while (key.Length < 10)
             {
@@ -63,84 +63,62 @@ namespace TeloneioApp.ViewModels
             var trCode = "";
             var trLevel = "";
             var trDescr = "";
-            var orDefault = Chapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 2)));
-            if (orDefault != null)
+            var HSChapter = Chapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 2)));
+            var HSHeading = new Chapter();
+            var HSSubHeading = new Chapter();
+            var CNSubHeading = new Chapter();
+            var TaricSubHeading = new Chapter();
+
+            if (HSChapter != null)
             {
-                trCode = orDefault.TariffKey;
-                trLevel = orDefault.Level;
-                trDescr = orDefault.Descr;
+                trCode = HSChapter.TariffKey;
+                trLevel = HSChapter.Level;
+                trDescr = HSChapter.Descr;
 
-                var subChapter = orDefault.SubChapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 4)));
-                if (subChapter != null)
-                {
-                    trCode = subChapter.TariffKey;
-                    trLevel = subChapter.Level;
-                    trDescr += subChapter.Descr;
-
-                    if (lengthThatInserted == 4)
-                    {
-                        ReturnTaricCode = trCode;
-                        ReturnTaricLevel = trLevel;
-                        ReturnTaricDescr = trDescr;
-                        return;
-                    }
-                    var subChapters = subChapter.Chapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 5))).ToList();
-                    if (subChapters.Count > 0 && subChapters.First().SubChapters.Count == 0)
-                    {
-                        trCode = subChapters.First().TariffKey;
-                        trLevel = subChapters.First().Level;
-                        trDescr += subChapters.First().Descr;
-                    }
-                    else
-                    {
-                        foreach (var items in subChapters)
-                        {
-                            trCode = items.TariffKey;
-                            trLevel = items.Level;
-                            trDescr += items.Descr;
-                            foreach (var firstItem in items.SubChapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 6))))
-                            {
-                                trCode = firstItem.TariffKey;
-                                trLevel = firstItem.Level;
-                                trDescr += firstItem.Descr;
-                                if (lengthThatInserted == 6) continue;
-                                foreach (var item in firstItem.Chapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 8))))
-                                {
-                                    trCode = item.TariffKey;
-                                    trLevel = item.Level;
-                                    trDescr += item.Descr;
-                                    if (lengthThatInserted == 8) continue;
-                                    foreach (var subItems in item.SubChapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 10)))
-                                    )
-                                    {
-                                        trCode = subItems.TariffKey;
-                                        trLevel = subItems.Level;
-                                        trDescr += subItems.Descr;
-                                        foreach (var subItem in subItems.Chapters.Where(x => x.TariffKey.StartsWith(key)))
-                                        {
-                                            trCode = subItem.TariffKey;
-                                            trLevel = subItem.Level;
-                                            trDescr += subItem.Descr;
-                                        }
-                                        ReturnTaricCode = trCode;
-                                        ReturnTaricLevel = trLevel;
-                                        ReturnTaricDescr = trDescr;
-                                        return;
-                                    }
-                                    ReturnTaricCode = trCode;
-                                    ReturnTaricLevel = trLevel;
-                                    ReturnTaricDescr = trDescr;
-                                    return;
-                                }
-                            }
-                        }
-                    }
-                }
+                HSHeading = CheckSubHeading(key, keyLength, 4, HSChapter, ref trCode, ref trLevel, ref trDescr);
+                HSSubHeading = CheckSubHeading(key, keyLength, 6, HSHeading, ref trCode, ref trLevel, ref trDescr);
+                CNSubHeading = CheckSubHeading(key, keyLength, 8, HSSubHeading, ref trCode, ref trLevel, ref trDescr);
+                TaricSubHeading = CheckSubHeading(key, keyLength, 10, CNSubHeading, ref trCode, ref trLevel, ref trDescr);
             }
 
             ReturnTaricCode = trCode;
             ReturnTaricLevel = trLevel;
             ReturnTaricDescr = trDescr;
+        }
+
+        private static Chapter CheckSubHeading(string key, int keyLength, int lengthToCHeck, Chapter fatherChapter,
+            ref string trCode, ref string trLevel, ref string trDescr)
+        {
+            Chapter tempChapter;
+            if (keyLength < lengthToCHeck) return null;
+            if (fatherChapter == null) return null;
+            var tempLisr = fatherChapter.SubChapters.Where(x => x.TariffKey.Substring(0, lengthToCHeck).Equals(key.Substring(0, lengthToCHeck)))
+                .ToList();
+            var tempLisr2 = fatherChapter.SubChapters.Where(x => x.TariffKey.Substring(0, lengthToCHeck - 1).Equals(key.Substring(0, 5)))
+                .ToList();
+            if (tempLisr.Count > 0)
+            {
+                tempChapter = tempLisr.FirstOrDefault();
+            }
+            else if (tempLisr2.Count > 0)
+            {
+                var lastChapter = tempLisr2.FirstOrDefault();
+                var tempList = lastChapter?.SubChapters
+                    .Where(x => x.TariffKey.Substring(0, lengthToCHeck).Equals(key.Substring(0, lengthToCHeck))).ToList();
+                tempChapter = tempList?.FirstOrDefault();
+            }
+            else
+            {
+                var lastChapter = fatherChapter.SubChapters.LastOrDefault();
+                var tempList = lastChapter?.SubChapters
+                    .Where(x => x.TariffKey.Substring(0, lengthToCHeck).Equals(key.Substring(0, lengthToCHeck))).ToList();
+                tempChapter = tempList?.FirstOrDefault();
+            }
+            if (tempChapter == null) return null;
+            trCode = tempChapter.TariffKey;
+            trLevel = tempChapter.Level;
+            trDescr += tempChapter.Descr;
+            return tempChapter;
         }
 
         public string ReturnTaricCode
