@@ -64,12 +64,15 @@ namespace TeloneioApp.ViewModels
             var orDefault = Chapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 2)));
             if (orDefault != null)
             {
+                trCode = orDefault.TariffKey;
+                trLevel = orDefault.Level;
                 trDescr = orDefault.Descr;
 
                 var subChapter = orDefault.SubChapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 4)));
                 if (subChapter != null)
                 {
-
+                    trCode = subChapter.TariffKey;
+                    trLevel = subChapter.Level;
                     trDescr += subChapter.Descr;
 
                     var subChapters = subChapter.Chapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 5))).ToList();
@@ -102,7 +105,6 @@ namespace TeloneioApp.ViewModels
                                         trCode = subItems.TariffKey;
                                         trLevel = subItems.Level;
                                         trDescr += subItems.Descr;
-
                                         foreach (var subItem in subItems.Chapters.Where(x => x.TariffKey.StartsWith(key)))
                                         {
                                             trCode = subItem.TariffKey;
