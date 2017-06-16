@@ -53,6 +53,8 @@ namespace TeloneioApp.ViewModels
 
         private void SearchTaricCode(string key)
         {
+            int lengthThatInserted = key.Length;
+
             while (key.Length < 10)
             {
                 key = key + "0";
@@ -75,6 +77,13 @@ namespace TeloneioApp.ViewModels
                     trLevel = subChapter.Level;
                     trDescr += subChapter.Descr;
 
+                    if (lengthThatInserted == 4)
+                    {
+                        ReturnTaricCode = trCode;
+                        ReturnTaricLevel = trLevel;
+                        ReturnTaricDescr = trDescr;
+                        return;
+                    }
                     var subChapters = subChapter.Chapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 5))).ToList();
                     if (subChapters.Count > 0 && subChapters.First().SubChapters.Count == 0)
                     {
@@ -89,17 +98,19 @@ namespace TeloneioApp.ViewModels
                             trCode = items.TariffKey;
                             trLevel = items.Level;
                             trDescr += items.Descr;
-                            foreach (var firstItem in items.SubChapters.Where( x => x.TariffKey.StartsWith(key.Substring(0, 6))))
+                            foreach (var firstItem in items.SubChapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 6))))
                             {
                                 trCode = firstItem.TariffKey;
                                 trLevel = firstItem.Level;
                                 trDescr += firstItem.Descr;
-                                foreach (var item in firstItem.Chapters.Where( x => x.TariffKey.StartsWith(key.Substring(0, 8))))
+                                if (lengthThatInserted == 6) continue;
+                                foreach (var item in firstItem.Chapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 8))))
                                 {
                                     trCode = item.TariffKey;
                                     trLevel = item.Level;
                                     trDescr += item.Descr;
-                                    foreach (var subItems in item.SubChapters.Where( x => x.TariffKey.StartsWith(key.Substring(0, 10)))
+                                    if (lengthThatInserted == 8) continue;
+                                    foreach (var subItems in item.SubChapters.Where(x => x.TariffKey.StartsWith(key.Substring(0, 10)))
                                     )
                                     {
                                         trCode = subItems.TariffKey;
@@ -116,6 +127,10 @@ namespace TeloneioApp.ViewModels
                                         ReturnTaricDescr = trDescr;
                                         return;
                                     }
+                                    ReturnTaricCode = trCode;
+                                    ReturnTaricLevel = trLevel;
+                                    ReturnTaricDescr = trDescr;
+                                    return;
                                 }
                             }
                         }
