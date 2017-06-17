@@ -98,6 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Extensions\ChapterExtension.cs" />
     <Compile Include="Extensions\ID15AExtensions.cs" />
     <Compile Include="HttpClients\Chapter.cs" />
     <Compile Include="HttpClients\Rule.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Models\Commands\ShowXml.cs" />
     <Compile Include="Models\ImportFormModel.cs" />
     <Compile Include="Models\MainModel.cs" />
+    <Compile Include="StaticResources\StaticResourcesPaymentsMethod.cs" />
     <Compile Include="ViewModels\Behaviors\BringIntoViewBehavior.cs" />
     <Compile Include="ViewModels\Behaviors\DigitsOnlyBehavior.cs" />
     <Compile Include="ViewModels\Behaviors\RefreshDescriptionBehavior.cs" />
@@ -120,6 +122,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="StaticResources\MyStringWriter.cs" />
     <Compile Include="StaticResources\XmlExtension.cs" />
+    <Compile Include="ViewModels\Converters\TypeOfPaymentsConverter.cs" />
     <Compile Include="ViewModels\FileInfoEDE.cs" />
     <Compile Include="ViewModels\ImportFormViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

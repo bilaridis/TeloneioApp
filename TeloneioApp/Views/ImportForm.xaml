@@ -8,7 +8,9 @@
       xmlns:converter="clr-namespace:TeloneioApp.ViewModels.Converters"
       xmlns:local="clr-namespace:TeloneioApp.Views" 
       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-      xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      xmlns:enums="clr-namespace:DomainModel.XmlModels.Enums;assembly=DomainModel"
+      xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
       d:DesignHeight="768"
       d:DesignWidth="1024"
       mc:Ignorable="d"
@@ -26,18 +28,19 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/teal.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/baselight.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <ObjectDataProvider x:Key="PaymentsList" MethodName="GetValues"
+                                ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="enums:TypeOfPayments"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
 
-            <col:ArrayList x:Key="PaymentsList">
-                <col:DictionaryEntry Key="A" Value="A"/>
-                <col:DictionaryEntry Key="H" Value="H"/>
-            </col:ArrayList>
-
-            <col:ArrayList x:Key="TransferList">
-                <col:DictionaryEntry Key="1" Value="1"/>
-                <col:DictionaryEntry Key="2" Value="2"/>
-                <col:DictionaryEntry Key="3" Value="3"/>
-                <col:DictionaryEntry Key="4" Value="4"/>
-            </col:ArrayList>
+            <collections:ArrayList x:Key="TransferList">
+                <collections:DictionaryEntry Key="1" Value="1"/>
+                <collections:DictionaryEntry Key="2" Value="2"/>
+                <collections:DictionaryEntry Key="3" Value="3"/>
+                <collections:DictionaryEntry Key="4" Value="4"/>
+            </collections:ArrayList>
 
             <Style x:Key="DataGridColumnHeaderDataGridCellStyle"
                    TargetType="{x:Type DataGridCell}" 
@@ -55,6 +58,7 @@
             <models:ImportFormModel x:Key="Model"/>
             <viewModel:ImportFormViewModel x:Key="ViewModel"/>
             <converter:BoolToHiddenConverter x:Key="BoolToHiddenConverter"></converter:BoolToHiddenConverter>
+            <converter:TypeOfPaymentsConverter x:Key="TypeOfPaymentsConverter"></converter:TypeOfPaymentsConverter>
         </ResourceDictionary>
     </Page.Resources>
     <Grid>
@@ -389,7 +393,7 @@
                                                                   DisplayMemberPath="Key" 
                                                                   SelectedValuePath="Value"
                                                                   ItemsSource="{StaticResource TransferList}"
-                                                                  SelectedItem="{Binding HEAHEA.TraModAtBorHEA76 , Mode=TwoWay}"/>
+                                                                  SelectedValue="{Binding HEAHEA.TraModAtBorHEA76 , Mode=TwoWay}"/>
                                                         <Label Content="Ενδειξη Εμπορ. :" Width="125"></Label>
                                                         <TextBox Text="{Binding Path=HEAHEA.ConIndHEA96, Mode=TwoWay}" Width="25" Background="LightGray"></TextBox>
                                                     </WrapPanel>
@@ -413,8 +417,14 @@
                                                         <ComboBox Width="50" 
                                                                   DisplayMemberPath="Key" 
                                                                   SelectedValuePath="Value"
-                                                                  ItemsSource="{StaticResource PaymentsList}"
-                                                                  SelectedItem="{Binding HEAHEA.MetOfPayHEA590 , Mode=TwoWay}"/>
+                                                                  ItemsSource="{Binding Source={StaticResource PaymentsList}}"
+                                                                  SelectedItem="{Binding HEAHEA.MetOfPayHEA590 , Mode=TwoWay}">
+                                                            <ComboBox.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <TextBlock Text="{Binding Converter={StaticResource TypeOfPaymentsConverter}}"/>
+                                                                </DataTemplate>
+                                                            </ComboBox.ItemTemplate>
+                                                        </ComboBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Είδη :" Width="130"></Label>

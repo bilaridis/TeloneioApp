@@ -4,26 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeloneioApp.Views"
-             xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+             xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
              xmlns:e="http://schemas.microsoft.com/expression/2010/interactivity" 
              xmlns:models="clr-namespace:TeloneioApp.ViewModels"
              xmlns:behaviors="clr-namespace:TeloneioApp.ViewModels.Behaviors"
+             xmlns:enums="clr-namespace:DomainModel.XmlModels.Enums;assembly=DomainModel"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:converters="clr-namespace:TeloneioApp.ViewModels.Converters"
+             xmlns:ext="clr-namespace:DomainModel.XmlModels.Enums;assembly=DomainModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="1000" >
     <UserControl.Resources>
         <ResourceDictionary>
-            <col:ArrayList x:Key="PaymentsList">
-                <col:DictionaryEntry Key="A" Value="A"/>
-                <col:DictionaryEntry Key="H" Value="H"/>
-            </col:ArrayList>
-
-            <col:ArrayList x:Key="PreferenceList">
-                <col:DictionaryEntry Key="100" Value="100"/>
-                <col:DictionaryEntry Key="200" Value="200"/>
-                <col:DictionaryEntry Key="300" Value="300"/>
-                <col:DictionaryEntry Key="400" Value="400"/>
-            </col:ArrayList>
-
+            <ObjectDataProvider x:Key="PaymentsList" MethodName="GetValues"
+                                ObjectType="{x:Type System:Enum}">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type TypeName="enums:TypeOfPayments"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
+            <collections:ArrayList x:Key="PreferenceList">
+                <collections:DictionaryEntry Key="100" Value="100"/>
+                <collections:DictionaryEntry Key="200" Value="200"/>
+                <collections:DictionaryEntry Key="300" Value="300"/>
+                <collections:DictionaryEntry Key="400" Value="400"/>
+            </collections:ArrayList>
+            <converters:TypeOfPaymentsConverter x:Key="TypeOfPaymentsConverter"></converters:TypeOfPaymentsConverter>
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Margin="0">
@@ -91,7 +96,7 @@
                                                                   DisplayMemberPath="Key" 
                                                                   SelectedValuePath="Value"
                                                                   ItemsSource="{StaticResource PreferenceList}"
-                                                                  SelectedItem="{Binding Pre4046 , Mode=TwoWay}"/>
+                                                                  SelectedValue="{Binding Pre4046 , Mode=TwoWay}"/>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Καθεστώς :" Width="110"></Label>
@@ -138,9 +143,7 @@
                                                                 <DataGridTextColumn Width="Auto" Header="Συντελεστης" Binding="{Binding RatOfTaxCTX1}"/>
                                                                 <DataGridTextColumn Width="Auto" Header="Ποσο" Binding="{Binding AmoOfTaxTCL1}"/>
                                                                 <DataGridComboBoxColumn Width="Auto" Header="Τρ. Πλ/μης"
-                                                                                        DisplayMemberPath="Key" 
-                                                                                        SelectedValuePath="Value"
-                                                                                        ItemsSource="{StaticResource PaymentsList}"
+                                                                                        ItemsSource="{x:Static ext:Core.GetTypeOfPayments}"
                                                                                         SelectedValueBinding="{Binding MetOfPayCTX1}"/>
                                                             </DataGrid.Columns>
                                                         </DataGrid>

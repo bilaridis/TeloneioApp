@@ -25,7 +25,7 @@ namespace TeloneioApp.ViewModels
         {
 
         }
-        public List<Chapter> Chapters { get; set; }
+        public Chapter Chapter { get; set; }
 
         public string XmlStringBuilder
         {
@@ -43,82 +43,15 @@ namespace TeloneioApp.ViewModels
             set
             {
                 _taricCode = value;
-                TariffCodesHelper tariffCodesHelper = new TariffCodesHelper();
-                Chapters = tariffCodesHelper.GetChapterDescriptions(value);
-                XmlStringBuilder = JsonConvert.SerializeObject(Chapters);
-                SearchTaricCode(value);
+                var tariffCodesHelper = new TariffCodesHelper();
+                Chapter = tariffCodesHelper.GetChapterDescriptions(value);
+                Chapter.GetDesciption(value, ref _returnTaricCode, ref _returnTaricLevel, ref _returnTaricDescr);
+                ReturnTaricCode = _returnTaricCode;
+                ReturnTaricLevel = _returnTaricLevel;
+                ReturnTaricDescr = _returnTaricDescr.Replace("<br>","").Replace("</br>","");
+                XmlStringBuilder = JsonConvert.SerializeObject(Chapter);
                 OnPropertyChanged("TaricCode");
             }
-        }
-
-        private void SearchTaricCode(string key)
-        {
-            int keyLength = key.Length;
-
-            while (key.Length < 10)
-            {
-                key = key + "0";
-            }
-
-            var trCode = "";
-            var trLevel = "";
-            var trDescr = "";
-            var HSChapter = Chapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 2)));
-            var HSHeading = new Chapter();
-            var HSSubHeading = new Chapter();
-            var CNSubHeading = new Chapter();
-            var TaricSubHeading = new Chapter();
-
-            if (HSChapter != null)
-            {
-                trCode = HSChapter.TariffKey;
-                trLevel = HSChapter.Level;
-                trDescr = HSChapter.Descr;
-
-                HSHeading = CheckSubHeading(key, keyLength, 4, HSChapter, ref trCode, ref trLevel, ref trDescr);
-                HSSubHeading = CheckSubHeading(key, keyLength, 6, HSHeading, ref trCode, ref trLevel, ref trDescr);
-                CNSubHeading = CheckSubHeading(key, keyLength, 8, HSSubHeading, ref trCode, ref trLevel, ref trDescr);
-                TaricSubHeading = CheckSubHeading(key, keyLength, 10, CNSubHeading, ref trCode, ref trLevel, ref trDescr);
-            }
-
-            ReturnTaricCode = trCode;
-            ReturnTaricLevel = trLevel;
-            ReturnTaricDescr = trDescr;
-        }
-
-        private static Chapter CheckSubHeading(string key, int keyLength, int lengthToCHeck, Chapter fatherChapter,
-            ref string trCode, ref string trLevel, ref string trDescr)
-        {
-            Chapter tempChapter;
-            if (keyLength < lengthToCHeck) return null;
-            if (fatherChapter == null) return null;
-            var tempLisr = fatherChapter.SubChapters.Where(x => x.TariffKey.Substring(0, lengthToCHeck).Equals(key.Substring(0, lengthToCHeck)))
-                .ToList();
-            var tempLisr2 = fatherChapter.SubChapters.Where(x => x.TariffKey.Substring(0, lengthToCHeck - 1).Equals(key.Substring(0, 5)))
-                .ToList();
-            if (tempLisr.Count > 0)
-            {
-                tempChapter = tempLisr.FirstOrDefault();
-            }
-            else if (tempLisr2.Count > 0)
-            {
-                var lastChapter = tempLisr2.FirstOrDefault();
-                var tempList = lastChapter?.SubChapters
-                    .Where(x => x.TariffKey.Substring(0, lengthToCHeck).Equals(key.Substring(0, lengthToCHeck))).ToList();
-                tempChapter = tempList?.FirstOrDefault();
-            }
-            else
-            {
-                var lastChapter = fatherChapter.SubChapters.LastOrDefault();
-                var tempList = lastChapter?.SubChapters
-                    .Where(x => x.TariffKey.Substring(0, lengthToCHeck).Equals(key.Substring(0, lengthToCHeck))).ToList();
-                tempChapter = tempList?.FirstOrDefault();
-            }
-            if (tempChapter == null) return null;
-            trCode = tempChapter.TariffKey;
-            trLevel = tempChapter.Level;
-            trDescr += tempChapter.Descr;
-            return tempChapter;
         }
 
         public string ReturnTaricCode

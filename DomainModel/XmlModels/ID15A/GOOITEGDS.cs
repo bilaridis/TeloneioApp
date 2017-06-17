@@ -83,7 +83,8 @@ namespace DomainModel.XmlModels.ID15A
                 {
                     msg4 += item.ConNumNR21.ToString() + ",";
                 }
-                GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + msg4.Substring(0, msg4.Length - 1) + " " + descrTest;
+                if (GooDesGDS23 == null) GooDesGDS23 = "";
+                GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + msg4.Substring(0, msg4.Length) + " " + descrTest;
             }
             OnPropertyChanged("Packets");
         }

@@ -38,7 +38,7 @@
                                   DataContext="{Binding Source={StaticResource ViewModel}}" 
                                   CanContentScroll="True"
                                   PreviewMouseWheel="UIElement_OnPreviewMouseWheel">
-                        <TextBlock Text="{Binding Path=ReturnTaricDescr, Source={StaticResource ViewModel}, Mode=TwoWay}" Width="500" Height="400" TextWrapping="Wrap"></TextBlock>
+                        <TextBox Text="{Binding Path=ReturnTaricDescr, Source={StaticResource ViewModel}, Mode=TwoWay}" Width="500" Height="400" TextWrapping="Wrap"></TextBox>
                     </ScrollViewer>
                 </StackPanel>
             </WrapPanel>
