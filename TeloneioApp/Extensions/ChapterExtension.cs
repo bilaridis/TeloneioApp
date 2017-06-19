@@ -24,14 +24,11 @@ namespace TeloneioApp.Extensions
 
             if (chapter != null)
             {
-                //trCode = HSChapter.TariffKey;
-                //trLevel = HSChapter.Level;
-                //trDescr = HSChapter.Descr;
 
                 var hsHeading = CheckSubHeading(key, keyLength, 4, chapter, ref trCode, ref trLevel, ref trDescr);
                 var hsSubHeading = hsHeading != null ? CheckSubHeading(key, keyLength, 6, hsHeading, ref trCode, ref trLevel, ref trDescr) : null;
                 var cnSubHeading = hsSubHeading != null ? CheckSubHeading(key, keyLength, 8, hsSubHeading, ref trCode, ref trLevel, ref trDescr) : null;
-                var internalChapter = cnSubHeading != null ? cnSubHeading.SubChapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 8))) : null;
+                var internalChapter = cnSubHeading?.SubChapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 8)));
                 var somathing = cnSubHeading != null ? CheckSubHeading(key, keyLength, 10, cnSubHeading, ref trCode, ref trLevel, ref trDescr) : null;
             }
 

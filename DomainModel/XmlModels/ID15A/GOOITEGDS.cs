@@ -62,14 +62,6 @@ namespace DomainModel.XmlModels.ID15A
 
         }
 
-        private void CONNR2_ListChanged()
-        {
-            foreach (var item in CONNR2)
-            {
-                GooDesGDS23 = item.ConNumNR21.ToString() + " " + descrTest;
-            }
-        }
-
 
         private void PACGS2_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -79,12 +71,8 @@ namespace DomainModel.XmlModels.ID15A
                 var msg2 = PACGS2.KinOfPacGS23 ?? "";
                 var msg3 = PACGS2.NumOfPacGS24.ToString();
                 var msg4 = "";
-                foreach (var item in CONNR2)
-                {
-                    msg4 += item.ConNumNR21.ToString() + ",";
-                }
                 if (GooDesGDS23 == null) GooDesGDS23 = "";
-                GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + msg4.Substring(0, msg4.Length) + " " + descrTest;
+                GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + ConcatenationOfContainers + " " + descrTest;
             }
             OnPropertyChanged("Packets");
         }
@@ -316,7 +304,7 @@ namespace DomainModel.XmlModels.ID15A
                 }
                 if (msg4.Length >= 0)
                 {
-                    GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + msg4.Substring(0, msg4.Length) + " " + descrTest;
+                    GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + value + " " + descrTest;
 
                     OnPropertyChanged("Packets");
                 }
