@@ -27,7 +27,7 @@ namespace TeloneioApp.HttpClients
         {
             //nomenclaturetree/nomenclaturetree_el_20170616_33_el.js
 
-            var response = _httpClient.GetAsync($"nomenclaturetree/nomenclaturetree_el_20170616_{taricCode.Substring(0,2)}_el.js").Result;
+            var response = _httpClient.GetAsync($"nomenclaturetree/nomenclaturetree_el_20170616_{taricCode.Substring(0, 2)}_el.js").Result;
             var content = response.Content.ReadAsStringAsync().Result;
             if (content.Contains("under maintenance"))
             {
@@ -36,8 +36,13 @@ namespace TeloneioApp.HttpClients
             }
             else
             {
-                var filteredContent = content.Split(';')[1];
-                var toDeserialiazed = filteredContent.Split('=')[1];
+                var filteredContent = "";
+                var splittedContents = content.Split(';');
+                for (int i = 1; i < splittedContents.Length; i++)
+                {
+                    filteredContent += splittedContents[i];
+                }
+                var toDeserialiazed = filteredContent.Replace("chaptertree = ", "");
                 var obj = JsonConvert.DeserializeObject<List<object>>(toDeserialiazed);//();
                 List<Chapter> chapters = new List<Chapter>();
                 foreach (JArray item in obj)

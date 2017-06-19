@@ -26,8 +26,29 @@ namespace TeloneioApp.Extensions
             {
 
                 var hsHeading = CheckSubHeading(key, keyLength, 4, chapter, ref trCode, ref trLevel, ref trDescr);
+                if (hsHeading == null && chapter.SubChapters.Count > 0)
+                {
+                    var tariffKey = FindWhichChaptersContainsNumber(key, 4, chapter.SubChapters);
+                    hsHeading = CheckSubHeading(key, keyLength, 4,
+                        chapter.SubChapters.FirstOrDefault(
+                            x => x.TariffKey == tariffKey), ref trCode, ref trLevel, ref trDescr);
+                }
                 var hsSubHeading = hsHeading != null ? CheckSubHeading(key, keyLength, 6, hsHeading, ref trCode, ref trLevel, ref trDescr) : null;
+                if (hsSubHeading == null && hsHeading?.SubChapters.Count > 0)
+                {
+                    var tariffKey = FindWhichChaptersContainsNumber(key, 6, hsHeading.SubChapters);
+                    hsSubHeading = CheckSubHeading(key, keyLength, 6,
+                        hsHeading.SubChapters.FirstOrDefault(
+                            x => x.TariffKey == tariffKey), ref trCode, ref trLevel, ref trDescr);
+                }
                 var cnSubHeading = hsSubHeading != null ? CheckSubHeading(key, keyLength, 8, hsSubHeading, ref trCode, ref trLevel, ref trDescr) : null;
+                if (cnSubHeading == null && hsSubHeading?.SubChapters.Count > 0)
+                {
+                    var tariffKey = FindWhichChaptersContainsNumber(key, 8, hsSubHeading.SubChapters);
+                    cnSubHeading = CheckSubHeading(key, keyLength, 8,
+                        hsSubHeading.SubChapters.FirstOrDefault(
+                            x => x.TariffKey == tariffKey), ref trCode, ref trLevel, ref trDescr);
+                }
                 var internalChapter = cnSubHeading?.SubChapters.FirstOrDefault(x => x.TariffKey.StartsWith(key.Substring(0, 8)));
                 var somathing = cnSubHeading != null ? CheckSubHeading(key, keyLength, 10, cnSubHeading, ref trCode, ref trLevel, ref trDescr) : null;
             }
@@ -35,6 +56,23 @@ namespace TeloneioApp.Extensions
             returnTaricCode = trCode;
             returnTaricLevel = trLevel;
             returnTaricDescr = trDescr;
+        }
+
+        private static string FindWhichChaptersContainsNumber(string key,int substring, List<Chapter> chapters)
+        {
+            string[] subchapters = chapters.Select(x => x.TariffKey).ToArray();
+            double[] numbers = chapters.Select(x => double.Parse(x.TariffKey.Substring(0,substring))).ToArray();
+            var returnNumber = subchapters[0];
+            var keyNumber = double.Parse(key.Substring(0, substring));
+            for (int index = 1; index < numbers.Length; index++)
+            {
+                if (keyNumber > numbers[index])
+                {
+                    returnNumber = subchapters[index];
+                }
+            }
+            return returnNumber;
+
         }
 
 
