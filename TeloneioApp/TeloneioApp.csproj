@@ -256,13 +256,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LocalDB.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LocalDB_log.ldf">
-      <DependentUpon>LocalDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\Entypo-license.txt" />
     <Resource Include="Resources\WindowsIcons-license.txt" />
   </ItemGroup>
