@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
 using Microsoft.Win32;
-using TeloneioApp.ViewModels;
 
-namespace TeloneioApp.Models.Commands
+namespace TeloneioApp.ViewModels.Commands
 {
     public class ImportCommand : ICommand
     {

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using TeloneioApp.ViewModels;
 
-namespace TeloneioApp.Models.Commands
+namespace TeloneioApp.ViewModels.Commands
 {
     public class AddNewClassCommand : ICommand
     {

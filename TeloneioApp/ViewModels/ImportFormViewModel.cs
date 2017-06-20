@@ -10,8 +10,8 @@ using System.Windows;
 using DomainModel.XmlModels.ID15A;
 using DomainModel;
 using TeloneioApp.Models;
-using TeloneioApp.Models.Commands;
 using TeloneioApp.StaticResources;
+using TeloneioApp.ViewModels.Commands;
 
 namespace TeloneioApp.ViewModels
 {

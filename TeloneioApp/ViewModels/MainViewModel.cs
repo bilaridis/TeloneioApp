@@ -13,7 +13,6 @@ using System.Windows.Controls;
 using DomainModel;
 using TeloneioApp.Annotations;
 using TeloneioApp.Models;
-using TeloneioApp.Models.Commands;
 using TeloneioApp.StaticResources;
 
 namespace TeloneioApp.ViewModels

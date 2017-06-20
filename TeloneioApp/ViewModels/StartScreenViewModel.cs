@@ -9,7 +9,6 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using TeloneioApp.Annotations;
-using TeloneioApp.Models.Commands;
 using TeloneioApp.Views;
 
 namespace TeloneioApp.ViewModels

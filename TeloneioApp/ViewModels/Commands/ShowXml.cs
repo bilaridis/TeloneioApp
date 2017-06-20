@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Input;
-using TeloneioApp.ViewModels;
 
-namespace TeloneioApp.Models.Commands
+namespace TeloneioApp.ViewModels.Commands
 {
     public class ShowXml : ICommand
     {
