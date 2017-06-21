@@ -42,20 +42,6 @@
                 <collections:DictionaryEntry Key="4" Value="4"/>
             </collections:ArrayList>
 
-            <Style x:Key="DataGridColumnHeaderDataGridCellStyle"
-                   TargetType="{x:Type DataGridCell}" 
-                   BasedOn="{StaticResource {x:Type DataGridCell}}">
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type DataGridCell}">
-                            <Grid Background="Transparent">
-                                <ContentPresenter HorizontalAlignment="Center" />
-                            </Grid>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <models:ImportFormModel x:Key="Model"/>
             <viewModel:ImportFormViewModel x:Key="ViewModel"/>
             <converter:BoolToHiddenConverter x:Key="BoolToHiddenConverter"></converter:BoolToHiddenConverter>
             <converter:TypeOfPaymentsConverter x:Key="TypeOfPaymentsConverter"></converter:TypeOfPaymentsConverter>
@@ -130,6 +116,13 @@
                             CommandParameter="{Binding}"
                             HorizontalAlignment="Left"
                             Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>
+                    <Button Content="Remove Class" 
+                            Grid.Column="0"
+                            Margin="105 5 5 5"
+                            Command="{Binding RemoveClassCommand, Source={StaticResource ViewModel}}"
+                            CommandParameter="{Binding}"
+                            HorizontalAlignment="Left"
+                            Visibility="{Binding IsVisibleForm, Source={StaticResource ViewModel}, Converter={StaticResource BoolToHiddenConverter}}"></Button>
                     <controls:DateTimePicker Orientation="Vertical" 
                                              SelectedDate="{Binding Path=CreatedDateTime, Source={StaticResource ViewModel}, Mode=TwoWay }"
                                              Grid.Column="1"/>
@@ -172,31 +165,6 @@
                                                                 </ComboBox.InputBindings>
                                                             </ComboBox>
                                                         </WrapPanel>
-
-                                                        <!--<WrapPanel>
-                                                        <Label Content="Διευθυνση :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCO1.StrAndNumCO122, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-
-                                                    <WrapPanel>
-                                                        <Label Content="Τ.Κ. :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCO1.PosCodCO123, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-
-                                                    <WrapPanel>
-                                                        <Label Content="Πόλη :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCO1.CitCO124, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-
-                                                    <WrapPanel>
-                                                        <Label Content="Χώρα :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCO1.CouCO125, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-
-                                                    <WrapPanel>
-                                                        <Label Content="Γλώσσα:" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCO1.NADLNGCO, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>-->
                                                     </StackPanel>
                                                 </WrapPanel>
                                             </GroupBox.Content>
@@ -222,30 +190,6 @@
                                                                 </ComboBox.InputBindings>
                                                             </ComboBox>
                                                         </WrapPanel>
-                                                        <!--<WrapPanel>
-                                                        <Label Content="Διευθυνση :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCE1.StrAndNumCE122, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="Τ.Κ. :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCE1.PosCodCE123, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="Πόλη :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCE1.CitCE124, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="Χώρα :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCE1.CouCE125, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="Γλωσσα :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCE1.NADLNGCE, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>
-                                                    <WrapPanel>
-                                                        <Label Content="EORI/TIN :" Width="100"></Label>
-                                                        <TextBox Text="{Binding Path=TRACONCE1.TINCE159, Mode=TwoWay}" Width="200" Background="LightGray"></TextBox>
-                                                    </WrapPanel>-->
                                                     </StackPanel>
                                                 </WrapPanel>
                                             </GroupBox.Content>
@@ -378,13 +322,11 @@
                                                     <WrapPanel>
                                                         <Label Content="Ταυ/τα για την αφιξη :" Width="150"></Label>
                                                         <TextBox Text="{Binding Path=HEAHEA.IdeOfMeaOfTraCroHEA85, Mode=TwoWay}" Width="175"></TextBox>
-                                                        <!--<TextBox Text="{Binding Path=HEAHEA.IdeOfMeaOfTraCroHEA85LNG, Mode=TwoWay}" Width="25"></TextBox>-->
                                                         <TextBox Text="{Binding Path=HEAHEA.NatOfMeaOfTraCroHEA87, Mode=TwoWay}" Width="25"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>
                                                         <Label Content="Ταυ/τα για τα συνορα :" Width="150"></Label>
                                                         <TextBox Text="{Binding Path=HEAHEA.IdeMeaTraArr4004, Mode=TwoWay}" Width="175"></TextBox>
-                                                        <!--<TextBox Text="{Binding Path=HEAHEA.IdeMeaTraArr4005LNG, Mode=TwoWay}" Width="25"></TextBox>-->
                                                         <TextBox Text="{Binding Path=HEAHEA.NatOfMeaOfTraAtArrHEA54, Mode=TwoWay}" Width="25"></TextBox>
                                                     </WrapPanel>
                                                     <WrapPanel>

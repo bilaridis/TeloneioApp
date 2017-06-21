@@ -37,7 +37,10 @@
                 <DataTemplate>
                     <GroupBox>
                         <GroupBox.Header>
-                            <Label Content="{Binding Path=IteNumGDS7, Mode=TwoWay}"></Label>
+                            <WrapPanel>
+                                <CheckBox Tag="{Binding Path=IteNumGDS7}" IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"></CheckBox>
+                                <Label Content="{Binding Path=IteNumGDS7, Mode=TwoWay}"></Label>
+                            </WrapPanel>
                         </GroupBox.Header>
                         <GroupBox.Content>
                             <StackPanel>

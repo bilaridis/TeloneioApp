@@ -109,6 +109,7 @@
     <Compile Include="ViewModels\Commands\AddNewFormCommand.cs" />
     <Compile Include="ViewModels\Commands\ImportCommand.cs" />
     <Compile Include="ViewModels\Commands\NotImplementedCommand.cs" />
+    <Compile Include="ViewModels\Commands\RemoveClassCommand.cs" />
     <Compile Include="ViewModels\Commands\SaveCommand.cs" />
     <Compile Include="ViewModels\Commands\SelectFileCommand.cs" />
     <Compile Include="ViewModels\Commands\ShowXml.cs" />
@@ -124,10 +125,9 @@
     <Compile Include="StaticResources\XmlExtension.cs" />
     <Compile Include="ViewModels\Converters\TypeOfPaymentsConverter.cs" />
     <Compile Include="ViewModels\FileInfoEDE.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ImportFormViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
-    <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="ViewModels\StartScreenViewModel.cs" />
     <Compile Include="ViewModels\TariffChapterViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBaseClass.cs" />
     <Compile Include="Views\Home.xaml.cs">

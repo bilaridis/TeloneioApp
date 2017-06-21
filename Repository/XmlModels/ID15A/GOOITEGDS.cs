@@ -32,6 +32,7 @@ namespace DomainModel.XmlModels.ID15A
         private PACGS2 _pacgs2;
         private TAXADDELE100 _taxaddele100;
         private string _concatenationOfContainers;
+        private bool _isSelected;
         private const string descrTest = "My descriprtion Test";
 
         public GOOITEGDS()
@@ -284,6 +285,16 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _caltaxgod = value;
                 OnPropertyChanged("CALTAXGOD");
+            }
+        }
+
+        public bool IsSelected
+        {
+            get { return _isSelected; }
+            set
+            {
+                _isSelected = value;
+                OnPropertyChanged("IsSelected");
             }
         }
 

@@ -24,10 +24,8 @@ namespace TeloneioApp.Views
         public StartScreen()
         {
             InitializeComponent();
-            NavigationFrame.NavigationService.Navigate(new Home());
             MainSettings.InitializeStaticData();
-
-           
+            NavigationFrame.NavigationService.Navigate(new Home());
         }
 
         private void CutomersPage_Click(object sender, RoutedEventArgs e)

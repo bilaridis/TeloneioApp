@@ -19,11 +19,38 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/teal.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <viewModels:StartScreenViewModel x:Key="ViewModel"/>
+            <viewModels:HomeViewModel x:Key="ViewModel"/>
         </ResourceDictionary>
-        
     </Page.Resources>
     <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}">
+        <Grid Background="DarkBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
 
+            <Label Grid.Row="0" Grid.Column="0" Margin="0" Content="Surname" ></Label>
+            <TextBox  Grid.Row="0" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Surname}"></TextBox>
+
+            <Label Grid.Row="1" Grid.Column="0" Margin="0" Content="Name"></Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Name}"></TextBox>
+
+            <Label Grid.Row="2" Grid.Column="0" Margin="0" Content="Country"></Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Country}"></TextBox>
+
+            <Label Grid.Row="3" Grid.Column="0" Margin="0" Content="Language"></Label>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Language}"></TextBox>
+
+            <Label Grid.Row="4" Grid.Column="0" Margin="0" Content="Eoritin"></Label>
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Eoritin}"></TextBox>
+
+        </Grid>
     </Grid>
 </Page>

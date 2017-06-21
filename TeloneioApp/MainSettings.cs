@@ -24,14 +24,5 @@ namespace TeloneioApp
                 Eoritin = "GR024372649"
             };
         }
-
-        //public static bool FoundGreekLetters(string text)
-        //{
-        //    string pattern = @"[\p{IsGreekandCoptic}]";
-
-        //    var result = Regex.IsMatch(text, pattern);
-        //    return result;
-        //    //0370 - 03FF
-        //}
     }
 }

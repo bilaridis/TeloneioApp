@@ -210,9 +210,18 @@ namespace TeloneioApp.Models
         {
             item.PropertyChanged += Item_PropertyChanged;
             _gooitegdss.Add(item);
-            HEAHEA.TotNumOfIteHEA305++;
+            HEAHEA.TotNumOfIteHEA305 = _gooitegdss.Count;
             XmlObjectId15A.GOOITEGDS = new List<GOOITEGDS>(_gooitegdss);
         }
+
+        public void RemoveFromGoods(GOOITEGDS item)
+        {
+            item.PropertyChanged -= Item_PropertyChanged;
+            _gooitegdss.Remove(item);
+            HEAHEA.TotNumOfIteHEA305 = _gooitegdss.Count;
+            XmlObjectId15A.GOOITEGDS = new List<GOOITEGDS>(_gooitegdss);
+        }
+
 
         private void Item_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {

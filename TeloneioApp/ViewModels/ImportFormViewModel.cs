@@ -38,6 +38,7 @@ namespace TeloneioApp.ViewModels
             NotImplementedCommand = new NotImplementedCommand();
             AddNewFormCommand = new AddNewFormCommand(this);
             AddNewClassCommand = new AddNewClassCommand(this);
+            RemoveClassCommand = new RemoveClassCommand(this);
 
 
             IsVisibleForm = true;
@@ -85,7 +86,7 @@ namespace TeloneioApp.ViewModels
             get { return _concatenationOfContainers; }
             set
             {
-                _concatenationOfContainers = value; 
+                _concatenationOfContainers = value;
 
             }
         }
@@ -159,6 +160,8 @@ namespace TeloneioApp.ViewModels
 
         public AddNewClassCommand AddNewClassCommand { get; set; }
 
+        public RemoveClassCommand RemoveClassCommand { get; set; }
+
         public bool IsVisibleOriginal
         {
             get => _showOriginal;
@@ -221,6 +224,17 @@ namespace TeloneioApp.ViewModels
                 importFormModel.AddToGoods(newClass);
             }
             //NotifyPropertyChanged("GOOITEGDS");
+        }
+
+        public void RemoveSelectedClasses()
+        {
+            foreach (var item in this.Items)
+            {
+                foreach (var gooitegds in item.GOOITEGDS.Where(x => x.IsSelected).ToList())
+                {
+                    item.RemoveFromGoods(gooitegds);
+                }
+            }
         }
 
         private void InitPredefinedEntries()
