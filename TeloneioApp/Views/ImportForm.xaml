@@ -194,6 +194,21 @@
                                                 </WrapPanel>
                                             </GroupBox.Content>
                                         </GroupBox>
+                                        <GroupBox>
+                                            <GroupBox.Header>Μηνυμα</GroupBox.Header>
+                                            <GroupBox.Content>
+                                                <WrapPanel>
+                                                    <StackPanel>
+                                                        <WrapPanel>
+                                                            <Label Content="Ταυτότητα :" Width="100"></Label>
+                                                            <TextBox Text="{Binding Path=MesIdeMES19, Mode=TwoWay}" Width="150"></TextBox>
+                                                        </WrapPanel>
+                                                    </StackPanel>
+                                                    <StackPanel HorizontalAlignment="Left">
+                                                    </StackPanel>
+                                                </WrapPanel>
+                                            </GroupBox.Content>
+                                        </GroupBox>
                                     </StackPanel>
                                     <GroupBox>
                                         <GroupBox.Header>Διασαφιστής/Αντιπροσωπος</GroupBox.Header>
@@ -245,42 +260,6 @@
                                                         </GroupBox.Content>
                                                     </GroupBox>
                                                 </StackPanel>
-                                                <GroupBox>
-                                                    <GroupBox.Header>Μηνυμα</GroupBox.Header>
-                                                    <GroupBox.Content>
-                                                        <WrapPanel>
-                                                            <StackPanel>
-                                                                <WrapPanel>
-                                                                    <Label Content="Αποστολεας :" Width="100"></Label>
-                                                                    <TextBox Text="{Binding Path=MesSenMES3, Mode=TwoWay}" Width="150"  Background="LightGray"></TextBox>
-                                                                </WrapPanel>
-
-                                                                <WrapPanel>
-                                                                    <Label Content="Ημ/νία προπαρ. :" Width="100"></Label>
-                                                                    <TextBox Text="{Binding Path=DatOfPreMES9, Mode=TwoWay}" Width="150" Background="Aquamarine"></TextBox>
-                                                                </WrapPanel>
-                                                                <WrapPanel>
-                                                                    <Label Content="Ώρα Προπαρ. :" Width="100"></Label>
-                                                                    <TextBox Text="{Binding Path=TimOfPreMES10, Mode=TwoWay}" Width="150" Background="Aquamarine"></TextBox>
-                                                                </WrapPanel>
-                                                                <WrapPanel>
-                                                                    <Label Content=" :" Width="100"></Label>
-                                                                    <TextBox Text="{Binding Path=TesIndMES18, Mode=TwoWay}" Width="150"  Background="LightGray"></TextBox>
-                                                                </WrapPanel>
-                                                                <WrapPanel>
-                                                                    <Label Content="Ταυτότητα :" Width="100"></Label>
-                                                                    <TextBox Text="{Binding Path=MesIdeMES19, Mode=TwoWay}" Width="150"></TextBox>
-                                                                </WrapPanel>
-                                                                <WrapPanel>
-                                                                    <Label Content="Τύπος :" Width="100"></Label>
-                                                                    <TextBox Text="{Binding Path=MesTypMES20, Mode=TwoWay}" Width="150"  Background="LightGray"></TextBox>
-                                                                </WrapPanel>
-                                                            </StackPanel>
-                                                            <StackPanel HorizontalAlignment="Left">
-                                                            </StackPanel>
-                                                        </WrapPanel>
-                                                    </GroupBox.Content>
-                                                </GroupBox>
                                             </WrapPanel>
                                         </GroupBox.Content>
                                     </GroupBox>
