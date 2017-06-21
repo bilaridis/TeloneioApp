@@ -19,7 +19,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _preDocTypAr21 = value;
                 var stringForCheck = value + PreDocRefAR26 + PreDocCatPREADMREF21;
-                PreDocRefLNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
+                PreDocRefLNG = MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
             }
         }
 
@@ -31,7 +31,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _preDocRefAr26 = value;
                 var stringForCheck = PreDocTypAR21 + value + PreDocCatPREADMREF21;
-                PreDocRefLNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
+                PreDocRefLNG = MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
             }
         }
 
@@ -43,7 +43,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _preDocCatPreadmref21 = value;
                 var stringForCheck = PreDocTypAR21 + PreDocRefAR26 + value;
-                PreDocRefLNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
+                PreDocRefLNG = MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
             }
         }
 

@@ -18,7 +18,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _docTypDc21 = value;
                 var stringForCheck = value + DocRefDC23;
-                DocRefDCLNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
+                DocRefDCLNG = MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
             }
         }
 
@@ -30,7 +30,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _docRefDc23 = value;
                 var stringForCheck = DocTypDC21 + value;
-                DocRefDCLNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
+                DocRefDCLNG = MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
             }
         }
 

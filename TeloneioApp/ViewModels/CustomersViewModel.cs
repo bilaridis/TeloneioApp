@@ -17,11 +17,11 @@ using TeloneioApp.StaticResources;
 
 namespace TeloneioApp.ViewModels
 {
-    public class MainViewModel : ViewModelBaseClass
+    public class CustomersViewModel : ViewModelBaseClass
     {
         private ObservableCollection<Customer> _customers;
         private Customer _selectedCustomer;
-        public MainModel Model { get; set; }
+        public CustomersModel Model { get; set; }
         
 
         public LocalModel LocalModel { get; set; }
@@ -54,9 +54,9 @@ namespace TeloneioApp.ViewModels
         private CommandMap _commands;
         public CommandMap Commands { get { return _commands; } }
 
-        public MainViewModel()
+        public CustomersViewModel()
         {
-            Model = new MainModel();
+            Model = new CustomersModel();
             Customers = new ObservableCollection<Customer>();
             LocalModel = new LocalModel();
             _commands = new CommandMap();

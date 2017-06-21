@@ -19,7 +19,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _marNumOfPacGs21 = value;
                 var stringForCheck = value;
-                MarNumOfPacGS21LNG = Repository.MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
+                MarNumOfPacGS21LNG = MainSettings.FoundGreekLetters(stringForCheck) ? "EL" : "EN";
                 OnPropertyChanged("MarNumOfPacGS21");
             }
         }

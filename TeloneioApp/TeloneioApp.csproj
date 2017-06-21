@@ -113,7 +113,7 @@
     <Compile Include="ViewModels\Commands\SelectFileCommand.cs" />
     <Compile Include="ViewModels\Commands\ShowXml.cs" />
     <Compile Include="Models\ImportFormModel.cs" />
-    <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\CustomersModel.cs" />
     <Compile Include="StaticResources\StaticResourcesPaymentsMethod.cs" />
     <Compile Include="ViewModels\Behaviors\BringIntoViewBehavior.cs" />
     <Compile Include="ViewModels\Behaviors\DigitsOnlyBehavior.cs" />
@@ -125,7 +125,7 @@
     <Compile Include="ViewModels\Converters\TypeOfPaymentsConverter.cs" />
     <Compile Include="ViewModels\FileInfoEDE.cs" />
     <Compile Include="ViewModels\ImportFormViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\CustomersViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\StartScreenViewModel.cs" />
     <Compile Include="ViewModels\TariffChapterViewModel.cs" />

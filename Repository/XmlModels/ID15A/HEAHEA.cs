@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using DomainModel.XmlModels.Enums;
-using Repository;
+using DomainModel;
 
 namespace DomainModel.XmlModels.ID15A
 {

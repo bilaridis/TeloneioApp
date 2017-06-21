@@ -60,7 +60,7 @@ namespace TeloneioApp.ViewModels
 
             CollectionChanged += TonnageListViewModel_CollectionChanged;
 
-            //Add(new MainModel());
+            //Add(new CustomersModel());
         }
 
         public DateTime CreatedDateTime

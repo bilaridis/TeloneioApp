@@ -6,11 +6,11 @@ using TeloneioApp.Annotations;
 
 namespace TeloneioApp.Models
 {
-    public class MainModel : INotifyPropertyChanged
+    public class CustomersModel : INotifyPropertyChanged
     {
         private List<Customer> _customers;
 
-        public MainModel()
+        public CustomersModel()
         {
             Customers = new List<Customer>();
 

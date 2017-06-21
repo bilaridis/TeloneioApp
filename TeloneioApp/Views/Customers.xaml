@@ -19,7 +19,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/baselight.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <viewModel:MainViewModel x:Key="ViewModel" />
+            <viewModel:CustomersViewModel x:Key="ViewModel" />
         </ResourceDictionary>
     </Page.Resources>
     <Grid>

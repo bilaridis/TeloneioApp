@@ -17,7 +17,7 @@ namespace TeloneioApp.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            //var mainViewModel = parameter as MainViewModel;
+            //var mainViewModel = parameter as CustomersViewModel;
             //if (mainViewModel != null)
             //{ 
             if (!MainViewModel.IsVisibleOriginal)
