@@ -11,17 +11,19 @@ namespace TeloneioApp
 {
     public static class MainSettings
     {
-        public static CustomerDetails CustomerDetails { get; set; }
+        public static LoginCustomerDetail CustomerDetails { get; set; }
 
         public static void InitializeStaticData()
         {
-            CustomerDetails = new CustomerDetails
+            CustomerDetails = new LoginCustomerDetail
             {
+                LoginUserName = "bilaridis",
+                LoginPassword = "bill020690",
                 Name = "ΘΕΟΔΟΣΙΟΣ",
                 Surname = "ΦΡΑΓΚΙΑΔΗΣ",
                 Country = "GR",
                 Language = "EL",
-                Eoritin = "GR024372649"
+                EORI_TIN = "GR024372649"
             };
         }
     }

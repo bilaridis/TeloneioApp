@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using TeloneioApp.Models;
 
 namespace TeloneioApp.ViewModels.Commands
 {

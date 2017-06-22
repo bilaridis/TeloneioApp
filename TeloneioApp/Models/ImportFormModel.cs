@@ -50,7 +50,7 @@ namespace TeloneioApp.Models
             TRAREP.NamTRE1 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
             TRAREP.CouCodTRE1 = MainSettings.CustomerDetails.Country;
             TRAREP.TRAREPLNG = MainSettings.CustomerDetails.Language;
-            TRAREP.TINTRE1 = MainSettings.CustomerDetails.Eoritin;
+            TRAREP.TINTRE1 = MainSettings.CustomerDetails.EORI_TIN;
             MesSenMES3 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
         }
 

@@ -49,7 +49,7 @@
             <TextBox Grid.Row="3" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Language}"></TextBox>
 
             <Label Grid.Row="4" Grid.Column="0" Margin="0" Content="Eoritin"></Label>
-            <TextBox Grid.Row="4" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Eoritin}"></TextBox>
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.EORI_TIN}"></TextBox>
 
         </Grid>
     </Grid>

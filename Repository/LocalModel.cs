@@ -19,6 +19,8 @@ namespace DomainModel
 
         public virtual DbSet<Class> Classes { get; set; }
 
+        public virtual DbSet<LoginCustomerDetail> LoginCustomerDetails { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

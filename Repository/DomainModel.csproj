@@ -69,6 +69,7 @@
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDetails.cs" />
     <Compile Include="LocalModel.cs" />
+    <Compile Include="LoginCustomerDetail.cs" />
     <Compile Include="MainSettings.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

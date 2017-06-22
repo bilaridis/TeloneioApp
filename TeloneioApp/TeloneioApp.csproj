@@ -124,7 +124,7 @@
     <Compile Include="StaticResources\MyStringWriter.cs" />
     <Compile Include="StaticResources\XmlExtension.cs" />
     <Compile Include="ViewModels\Converters\TypeOfPaymentsConverter.cs" />
-    <Compile Include="ViewModels\FileInfoEDE.cs" />
+    <Compile Include="Models\FileInfoEDE.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ImportFormViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
