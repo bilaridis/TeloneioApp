@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DomainModel.Extensions;
+using DomainModel.HttpClients;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,20 +62,39 @@ namespace DomainModel.XmlModels.ID15A
             TAXADDELE100 = new TAXADDELE100();
 
             PACGS2.PropertyChanged += PACGS2_PropertyChanged;
-
+            COMCODGODITM.PropertyChanged += COMCODGODITM_PropertyChanged;
         }
 
+        private void COMCODGODITM_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals("ComNomCMD1") || e.PropertyName.Equals("TARCodCMD1"))
+            {
+                createDescription();
+            }
+        }
+
+        private void createDescription()
+        {
+            string returnTaricCode = "";
+            string returnTaricLevel = "";
+            string returnTaricDescr = "";
+            var tariffCodesHelper = new TariffCodesHelper();
+            var chapter = tariffCodesHelper.GetChapterDescriptions(COMCODGODITM.ComNomCMD1.ToString("D2"));
+            chapter.GetDesciption(COMCODGODITM.ComNomCMD1.ToString() + COMCODGODITM.TARCodCMD1, ref returnTaricCode, ref returnTaricLevel, ref returnTaricDescr);
+            var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
+            var msg2 = PACGS2.KinOfPacGS23 ?? "";
+            var msg3 = PACGS2.NumOfPacGS24.ToString();
+            var msg4 = "";
+
+            if (GooDesGDS23 == null) GooDesGDS23 = "";
+            GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + ConcatenationOfContainers + " " + returnTaricDescr;
+        }
 
         private void PACGS2_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName.Equals("MarNumOfPacGS21") || e.PropertyName.Equals("KinOfPacGS23") || e.PropertyName.Equals("NumOfPacGS24"))
             {
-                var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
-                var msg2 = PACGS2.KinOfPacGS23 ?? "";
-                var msg3 = PACGS2.NumOfPacGS24.ToString();
-                var msg4 = "";
-                if (GooDesGDS23 == null) GooDesGDS23 = "";
-                GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + ConcatenationOfContainers + " " + descrTest;
+                createDescription();
             }
             OnPropertyChanged("Packets");
         }
@@ -305,20 +326,9 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _concatenationOfContainers = value;
 
-                var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
-                var msg2 = PACGS2.KinOfPacGS23 ?? "";
-                var msg3 = PACGS2.NumOfPacGS24.ToString();
-                var msg4 = "";
-                foreach (var item in CONNR2)
-                {
-                    msg4 += item.ConNumNR21 + ",";
-                }
-                if (msg4.Length >= 0)
-                {
-                    GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + value + " " + descrTest;
-
+                createDescription();
                     OnPropertyChanged("Packets");
-                }
+
 
             }
         }

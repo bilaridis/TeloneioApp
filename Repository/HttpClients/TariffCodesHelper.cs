@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace TeloneioApp.HttpClients
+namespace DomainModel.HttpClients
 {
     public class TariffCodesHelper
     {
@@ -26,7 +30,7 @@ namespace TeloneioApp.HttpClients
             var content = response.Content.ReadAsStringAsync().Result;
             if (content.Contains("under maintenance"))
             {
-                MessageBox.Show("The taric system is under construction");
+                //MessageBox.Show("The taric system is under construction");
                 return null;
             }
             else

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeloneioApp.HttpClients;
+using DomainModel.HttpClients;
 
-namespace TeloneioApp.Extensions
+namespace DomainModel.Extensions
 {
     public static class ChapterExtension
     {

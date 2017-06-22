@@ -48,7 +48,7 @@ namespace TeloneioApp.ViewModels
                 Chapter.GetDesciption(value, ref _returnTaricCode, ref _returnTaricLevel, ref _returnTaricDescr);
                 ReturnTaricCode = _returnTaricCode;
                 ReturnTaricLevel = _returnTaricLevel;
-                ReturnTaricDescr = _returnTaricDescr.Replace("<br>","").Replace("</br>","");
+                ReturnTaricDescr = _returnTaricDescr;
                 XmlStringBuilder = JsonConvert.SerializeObject(Chapter);
                 OnPropertyChanged("TaricCode");
             }

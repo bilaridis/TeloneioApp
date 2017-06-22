@@ -48,11 +48,11 @@
                                     <StackPanel>
                                         <WrapPanel>
                                             <Label Content="Class Code :" Width="75"></Label>
-                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay,StringFormat={}{0:0000000#} }" Width="70"></TextBox>
-                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:0#}}" Width="30" MaxLength="2"></TextBox>
-                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
-                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
-                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:000#}}" Width="40" MaxLength="4"></TextBox>
+                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.ComNomCMD1, Mode=TwoWay,StringFormat={}{0:#0000000} }" Width="70"></TextBox>
+                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.TARCodCMD1, Mode=TwoWay,StringFormat={}{0:#0}}" Width="30" MaxLength="2"></TextBox>
+                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.TARFirAddCodCMD1, Mode=TwoWay,StringFormat={}{0:#000}}" Width="40" MaxLength="4"></TextBox>
+                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.TARSecAddCodCMD1, Mode=TwoWay ,StringFormat={}{0:#000}}" Width="40" MaxLength="4"></TextBox>
+                                            <TextBox behaviors:DigitsOnlyBehavior.IsDigitOnly="True" Text="{Binding Path=COMCODGODITM.NAtAddCodCMD1, Mode=TwoWay,StringFormat={}{0:#000}}" Width="40" MaxLength="4"></TextBox>
                                             <Label Content="Γλ/σα: :" Width="60"></Label>
                                             <TextBox Text="{Binding Path=GooDesGDS23LNG, Mode=TwoWay}" Width="25"></TextBox>
                                         </WrapPanel>

@@ -51,6 +51,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -68,6 +71,12 @@
     <Compile Include="Class.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDetails.cs" />
+    <Compile Include="Extensions\ChapterExtension.cs" />
+    <Compile Include="Extensions\ID15AExtensions.cs" />
+    <Compile Include="HttpClients\Chapter.cs" />
+    <Compile Include="HttpClients\Rule.cs" />
+    <Compile Include="HttpClients\SubChapter.cs" />
+    <Compile Include="HttpClients\TariffCodesHelper.cs" />
     <Compile Include="LocalModel.cs" />
     <Compile Include="LoginCustomerDetail.cs" />
     <Compile Include="MainSettings.cs" />
