@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using DomainModel.XmlModels.ID15A;
 using DomainModel;
+using DomainModel.Models;
 using TeloneioApp.Models;
 using TeloneioApp.StaticResources;
 using TeloneioApp.ViewModels.Commands;

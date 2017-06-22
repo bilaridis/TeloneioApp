@@ -1,10 +1,7 @@
 ﻿using DomainModel.Extensions;
 using DomainModel.HttpClients;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 
@@ -69,11 +66,11 @@ namespace DomainModel.XmlModels.ID15A
         {
             if (e.PropertyName.Equals("ComNomCMD1") || e.PropertyName.Equals("TARCodCMD1"))
             {
-                createDescription();
+                CreateDescription();
             }
         }
 
-        private void createDescription()
+        private void CreateDescription()
         {
             string returnTaricCode = "";
             string returnTaricLevel = "";
@@ -84,7 +81,6 @@ namespace DomainModel.XmlModels.ID15A
             var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
             var msg2 = PACGS2.KinOfPacGS23 ?? "";
             var msg3 = PACGS2.NumOfPacGS24.ToString();
-            var msg4 = "";
 
             if (GooDesGDS23 == null) GooDesGDS23 = "";
             GooDesGDS23 = msg2 + " " + msg3 + " " + msg1 + " " + ConcatenationOfContainers + " " + returnTaricDescr;
@@ -94,7 +90,7 @@ namespace DomainModel.XmlModels.ID15A
         {
             if (e.PropertyName.Equals("MarNumOfPacGS21") || e.PropertyName.Equals("KinOfPacGS23") || e.PropertyName.Equals("NumOfPacGS24"))
             {
-                createDescription();
+                CreateDescription();
             }
             OnPropertyChanged("Packets");
         }
@@ -326,7 +322,7 @@ namespace DomainModel.XmlModels.ID15A
             {
                 _concatenationOfContainers = value;
 
-                createDescription();
+                CreateDescription();
                     OnPropertyChanged("Packets");
 
 

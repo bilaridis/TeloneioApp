@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Data;
 using DomainModel.XmlModels.ID15A;
 using TeloneioApp.Annotations;
-using TeloneioApp.Extensions;
+using DomainModel.Extensions;
 using TeloneioApp.StaticResources;
 
 namespace TeloneioApp.Models

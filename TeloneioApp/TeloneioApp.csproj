@@ -98,12 +98,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Extensions\ChapterExtension.cs" />
-    <Compile Include="Extensions\ID15AExtensions.cs" />
-    <Compile Include="HttpClients\Chapter.cs" />
-    <Compile Include="HttpClients\Rule.cs" />
-    <Compile Include="HttpClients\SubChapter.cs" />
-    <Compile Include="HttpClients\TariffCodesHelper.cs" />
     <Compile Include="MainSettings.cs" />
     <Compile Include="ViewModels\Commands\AddNewClassCommand.cs" />
     <Compile Include="ViewModels\Commands\AddNewFormCommand.cs" />

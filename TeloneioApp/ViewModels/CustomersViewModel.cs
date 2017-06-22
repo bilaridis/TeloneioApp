@@ -11,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using DomainModel;
+using DomainModel.Models;
 using TeloneioApp.Annotations;
 using TeloneioApp.Models;
 using TeloneioApp.StaticResources;

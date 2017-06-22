@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TeloneioApp.Annotations;
-using TeloneioApp.Extensions;
-using TeloneioApp.HttpClients;
+using DomainModel.Extensions;
+using DomainModel.HttpClients;
 using TeloneioApp.StaticResources;
 
 namespace TeloneioApp.ViewModels
