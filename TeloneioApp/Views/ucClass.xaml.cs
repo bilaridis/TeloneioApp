@@ -99,5 +99,32 @@ namespace TeloneioApp.Views
                 item.ConcatenationOfContainers = msg.Substring(0, msg.Length - 1);
             }
         }
+
+        private void CalTaxes_OnCurrentCellChanged(object sender, EventArgs e)
+        {
+
+            var obj =
+            ((FrameworkElement)((FrameworkElement)
+            ((FrameworkElement)((FrameworkElement)((FrameworkElement)((FrameworkElement)sender).Parent)
+                .Parent).Parent).Parent).Parent).DataContext as GOOITEGDS;
+
+            if (obj != null)
+            {
+                var listOfTaxes = obj.CALTAXGOD;
+                var additionalTaxes = obj.TAXADDELE100.SupUniCodTAXADDELE101 == "800"
+                ? decimal.Parse(obj.TAXADDELE100.AmoOfSupUniTAXADDELE100)
+                : 0;
+                decimal lastSum = 0;
+                foreach (var item in listOfTaxes)
+                {
+                    item.TaxBasCTX1 = lastSum > 0 ? lastSum + additionalTaxes : item.TaxBasCTX1 + additionalTaxes;
+                    var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100) + 1);
+                    item.AmoOfTaxTCL1 = calculationOfAmount;
+                    lastSum = calculationOfAmount;
+                    additionalTaxes = 0;
+                }
+                obj.CALTAXGOD = listOfTaxes;
+            }
+        }
     }
 }
