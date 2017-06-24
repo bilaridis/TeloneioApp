@@ -7,5 +7,7 @@ namespace DomainModel.Models
         public string PackageId { get; set; }
 
         public string PackageDescr { get; set; }
+
+        public string PackageDispalyDescr => $"{PackageId} - {PackageDescr}";
     }
 }

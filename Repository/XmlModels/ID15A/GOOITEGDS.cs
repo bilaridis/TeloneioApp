@@ -1,9 +1,13 @@
 ﻿using DomainModel.Extensions;
 using DomainModel.HttpClients;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Net.Configuration;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using DomainModel.Models;
 
 namespace DomainModel.XmlModels.ID15A
 {
@@ -57,10 +61,24 @@ namespace DomainModel.XmlModels.ID15A
             COMCODGODITM = new COMCODGODITM();
             PACGS2 = new PACGS2();
             TAXADDELE100 = new TAXADDELE100();
+            Packages = new ObservableCollection<Package>();
 
             PACGS2.PropertyChanged += PACGS2_PropertyChanged;
             COMCODGODITM.PropertyChanged += COMCODGODITM_PropertyChanged;
+
+            using (var model = new LocalModel())
+            {
+
+                foreach (var package in model.Packages)
+                {
+                    Packages.Add(package);
+                }
+            }
         }
+
+        public ObservableCollection<Package> Packages { get; set; }
+
+
 
         private void COMCODGODITM_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -79,7 +97,12 @@ namespace DomainModel.XmlModels.ID15A
             var chapter = tariffCodesHelper.GetChapterDescriptions(COMCODGODITM.ComNomCMD1.ToString("D2"));
             chapter.GetDesciption(COMCODGODITM.ComNomCMD1.ToString() + COMCODGODITM.TARCodCMD1, ref returnTaricCode, ref returnTaricLevel, ref returnTaricDescr);
             var msg1 = PACGS2.MarNumOfPacGS21 ?? "";
-            var msg2 = PACGS2.KinOfPacGS23 ?? "";
+            var msg2 = "";
+            using (var model = new LocalModel())
+            {
+                msg2 = model.Packages.FirstOrDefault(x => x.PackageId == PACGS2.KinOfPacGS23)?.PackageDispalyDescr ?? "";
+            }
+
             var msg3 = PACGS2.NumOfPacGS24.ToString();
 
             if (GooDesGDS23 == null) GooDesGDS23 = "";
@@ -323,7 +346,7 @@ namespace DomainModel.XmlModels.ID15A
                 _concatenationOfContainers = value;
 
                 CreateDescription();
-                    OnPropertyChanged("Packets");
+                OnPropertyChanged("Packets");
 
 
             }

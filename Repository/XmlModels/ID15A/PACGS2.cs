@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
+using DomainModel.Models;
 
 namespace DomainModel.XmlModels.ID15A
 {
@@ -41,6 +42,7 @@ namespace DomainModel.XmlModels.ID15A
             get { return _kinOfPacGs23; }
             set
             {
+                //var obj = value as Package;
                 _kinOfPacGs23 = value;
                 OnPropertyChanged("KinOfPacGS23");
             }

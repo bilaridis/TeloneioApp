@@ -137,7 +137,15 @@
                                                         </WrapPanel>
                                                         <WrapPanel>
                                                             <Label Content="Συσκευασια:" Width="100"></Label>
-                                                            <TextBox Text="{Binding Path=PACGS2.KinOfPacGS23, Mode=TwoWay}" Width="100"></TextBox>
+                                                            <ComboBox
+                                                                Width="200"
+                                                                IsEditable="True"
+                                                                IsTextSearchEnabled="True"
+                                                                IsSynchronizedWithCurrentItem="True"
+                                                                SelectedValue="{Binding PACGS2.KinOfPacGS23, Mode=TwoWay}"
+                                                                DisplayMemberPath="PackageDispalyDescr"
+                                                                SelectedValuePath="PackageId"
+                                                                ItemsSource="{Binding Packages}"/>
                                                         </WrapPanel>
                                                         <WrapPanel>
                                                             <Label Content="Αρ. Δεμάτων:" Width="100"></Label>

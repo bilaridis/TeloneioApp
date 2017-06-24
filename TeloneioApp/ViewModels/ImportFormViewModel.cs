@@ -104,6 +104,12 @@ namespace TeloneioApp.ViewModels
             set { _customers2 = value; }
         }
 
+        public ObservableCollection<Package> Packages
+        {
+            get; set;
+            
+        }
+
         public Customer Apostoleas
         {
             get { return _apostoleas; }
