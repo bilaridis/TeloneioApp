@@ -18,6 +18,8 @@ namespace TeloneioApp.ViewModels
         public HomeViewModel()
         {
             LoginCustomerDetails = MainSettings.CustomerDetails;
+
+
             byte[] array = GetBytes(LoginCustomerDetails.LoginPassword);
             SHA512 shaM = new SHA512Managed();
             var result = shaM.ComputeHash(array);
