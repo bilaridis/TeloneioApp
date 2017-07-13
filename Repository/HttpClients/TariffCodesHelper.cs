@@ -42,14 +42,23 @@ namespace DomainModel.HttpClients
                     filteredContent += splittedContents[i];
                 }
                 var toDeserialiazed = filteredContent.Replace("chaptertree = ", "");
-                var obj = JsonConvert.DeserializeObject<List<object>>(toDeserialiazed);//();
-                List<Chapter> chapters = new List<Chapter>();
-                foreach (JArray item in obj)
+                try
                 {
-                    Chapter ch = new Chapter(item);
-                    chapters.Add(ch);
+                    var obj = JsonConvert.DeserializeObject<List<object>>(toDeserialiazed);//();
+                    List<Chapter> chapters = new List<Chapter>();
+                    foreach (JArray item in obj)
+                    {
+                        Chapter ch = new Chapter(item);
+                        chapters.Add(ch);
+                    }
+                    return chapters.FirstOrDefault();
                 }
-                return chapters.FirstOrDefault();
+                catch (Exception e)
+                {
+                    //ignored
+                    return null;
+                }
+
             }
         }
     }

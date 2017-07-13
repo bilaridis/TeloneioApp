@@ -9,6 +9,7 @@ namespace DomainModel.Extensions
 {
     public static class ChapterExtension
     {
+
         public static void GetDesciption(this Chapter chapter, string key, ref string returnTaricCode, ref string returnTaricLevel, ref string returnTaricDescr)
         {
             int keyLength = key.Length;
@@ -21,7 +22,6 @@ namespace DomainModel.Extensions
             var trCode = "";
             var trLevel = "";
             var trDescr = "";
-
             if (chapter != null)
             {
 
