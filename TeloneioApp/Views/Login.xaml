@@ -1,0 +1,82 @@
+﻿<Page x:Class="TeloneioApp.Views.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeloneioApp.Views"
+      xmlns:viewModels="clr-namespace:TeloneioApp.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Login">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/teal.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <viewModels:LoginViewModel x:Key="ViewModel"/>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid DataContext="{Binding Source={StaticResource ViewModel}} ">
+        <Grid Background="DarkBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Margin="0" Content="Username" ></Label>
+            <TextBox x:Name="LogUser"  Grid.Row="0" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.LoginUserName}"></TextBox>
+
+
+            <Label Grid.Row="2" Grid.Column="0" Margin="0" Content="Password"></Label>
+            <TextBox x:Name="LogPass" Grid.Row="2" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.LoginPassword}"></TextBox>
+
+
+        </Grid>
+        
+        <Button x:Name="Log" Command="{Binding LoginCommand}" Content="Submit" Margin="100,100,91,169"/>
+        
+        <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}">
+            <Grid Background="DarkBlue" Visibility="Collapsed">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="200"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Margin="0" Content="Surname" ></Label>
+                <TextBox  Grid.Row="0" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Surname}"></TextBox>
+
+                <Label Grid.Row="1" Grid.Column="0" Margin="0" Content="Name"></Label>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Name}"></TextBox>
+
+                <Label Grid.Row="2" Grid.Column="0" Margin="0" Content="Country"></Label>
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Country}"></TextBox>
+
+                <Label Grid.Row="3" Grid.Column="0" Margin="0" Content="Language"></Label>
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.Language}"></TextBox>
+
+                <Label Grid.Row="4" Grid.Column="0" Margin="0" Content="Eoritin"></Label>
+                <TextBox Grid.Row="4" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=LoginCustomerDetails.EORI_TIN}"></TextBox>
+
+
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
