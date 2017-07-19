@@ -22,7 +22,7 @@
             <viewModels:LoginViewModel x:Key="ViewModel"/>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid DataContext="{Binding Source={StaticResource ViewModel}} ">
+    <Grid DataContext="{Binding Source={StaticResource ViewModel}}">
         <Grid Background="DarkBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>

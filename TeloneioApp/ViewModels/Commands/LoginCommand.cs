@@ -9,14 +9,12 @@ namespace TeloneioApp.ViewModels.Commands
 {
     class LoginCommand : ICommand
     {
-        public LoginViewModel MainViewModel { get; set; }
+        public LoginViewModel LoginViewModel { get; set; }
 
-        public LoginCommand(LoginViewModel mainViewModel)
+        public LoginCommand(LoginViewModel loginViewModel)
         {
-            MainViewModel = mainViewModel;
+            LoginViewModel = loginViewModel;
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -25,7 +23,9 @@ namespace TeloneioApp.ViewModels.Commands
 
         public void Execute(object parameter)
         {
-            
+            LoginViewModel.LoginClick();
         }
+
+        public event EventHandler CanExecuteChanged;
     }
 }
