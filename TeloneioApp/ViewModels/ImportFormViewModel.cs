@@ -46,7 +46,7 @@ namespace TeloneioApp.ViewModels
             IsVisibleOriginal = false;
 
             Files = new List<FileInfoEDE>();
-            ID15AFolder = "C:\\Repositories\\TeloneioApp\\TeloneioApp\\Examples\\";
+            ID15AFolder = "C:\\Repositories\\TeloneioApp\\TeloneioApp\\TeloneioApp\\Examples\\";
             //ID15AFolder = "C:\\Users\\billi\\Documents\\Visual Studio 2017\\Projects\\TeloneioApp\\TeloneioApp\\Examples\\"; //AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\", "\\") + "\\Examples\\";
             Selectfolders(ID15AFolder);
             Customers = new ObservableCollection<Customer>();

@@ -102,6 +102,7 @@
     <Compile Include="ViewModels\Commands\AddNewClassCommand.cs" />
     <Compile Include="ViewModels\Commands\AddNewFormCommand.cs" />
     <Compile Include="ViewModels\Commands\ImportCommand.cs" />
+    <Compile Include="ViewModels\Commands\LoginCommand.cs" />
     <Compile Include="ViewModels\Commands\NotImplementedCommand.cs" />
     <Compile Include="ViewModels\Commands\RemoveClassCommand.cs" />
     <Compile Include="ViewModels\Commands\SaveCommand.cs" />
@@ -119,11 +120,15 @@
     <Compile Include="StaticResources\XmlExtension.cs" />
     <Compile Include="ViewModels\Converters\TypeOfPaymentsConverter.cs" />
     <Compile Include="Models\FileInfoEDE.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ImportFormViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
     <Compile Include="ViewModels\TariffChapterViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBaseClass.cs" />
+    <Compile Include="Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
@@ -155,6 +160,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
