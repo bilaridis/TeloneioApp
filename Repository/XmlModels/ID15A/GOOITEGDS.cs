@@ -77,6 +77,10 @@ namespace DomainModel.XmlModels.ID15A
         }
 
         public ObservableCollection<Package> Packages { get; set; }
+        public bool ShouldSerializePackages()
+        {
+            return false;
+        }
 
 
 

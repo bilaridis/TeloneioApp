@@ -59,7 +59,7 @@ namespace TeloneioApp.ViewModels
                     byte[] array = GetBytes(Password);
                     SHA512 shaM = new SHA512Managed();
                     var result = shaM.ComputeHash(array);
-                    if (Password == model.LoginCustomerDetails.FirstOrDefault(x => x.LoginUserName == UserName).LoginPassword)
+                    if (GetString(result) == model.LoginCustomerDetails.FirstOrDefault(x => x.LoginUserName == UserName).LoginPassword)
                     {
                         MessageBox.Show("Success");
                     }

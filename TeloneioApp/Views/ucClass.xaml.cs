@@ -102,29 +102,50 @@ namespace TeloneioApp.Views
 
         private void CalTaxes_OnCurrentCellChanged(object sender, EventArgs e)
         {
-
-            var obj =
-            ((FrameworkElement)((FrameworkElement)
-            ((FrameworkElement)((FrameworkElement)((FrameworkElement)((FrameworkElement)sender).Parent)
-                .Parent).Parent).Parent).Parent).DataContext as GOOITEGDS;
-
-            if (obj != null)
+            var DataGridSender = (DataGrid)sender;
+            if (DataGridSender.CurrentCell.Column?.Header.ToString() == "Φορ/γικη Βάση")
             {
-                var listOfTaxes = obj.CALTAXGOD;
-                var additionalTaxes = obj.TAXADDELE100.SupUniCodTAXADDELE101 == "800"
-                ? decimal.Parse(obj.TAXADDELE100.AmoOfSupUniTAXADDELE100)
-                : 0;
-                decimal lastSum = 0;
-                foreach (var item in listOfTaxes)
+
+                var obj =
+                    ((FrameworkElement)((FrameworkElement)
+                    ((FrameworkElement)((FrameworkElement)((FrameworkElement)((FrameworkElement)sender).Parent)
+                        .Parent).Parent).Parent).Parent).DataContext as GOOITEGDS;
+
+                if (obj != null)
                 {
-                    item.TaxBasCTX1 = lastSum > 0 ? lastSum + additionalTaxes : item.TaxBasCTX1 + additionalTaxes;
-                    var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100) + 1);
-                    item.AmoOfTaxTCL1 = calculationOfAmount;
-                    lastSum = calculationOfAmount;
-                    additionalTaxes = 0;
+                    var listOfTaxes = obj.CALTAXGOD;
+                    decimal price = obj.StaValAmoGDI1;
+                    decimal additionalTaxes = 0 + price;
+                    additionalTaxes += obj.TAXADDELE100.SupUniCodTAXADDELE101 == "800"
+                    ? decimal.Parse(obj.TAXADDELE100.AmoOfSupUniTAXADDELE100)
+                    : 0;
+
+              
+                    decimal lastSum = 0;
+                    foreach (var item in listOfTaxes)
+                    {
+                        if (item.TypOfTaxCTX1 == "B00")
+                        {
+                            item.TaxBasCTX1 = lastSum + additionalTaxes;
+                        }
+                        else
+                        {
+                            item.TaxBasCTX1 = lastSum > 0 ? lastSum : item.TaxBasCTX1;
+                        }
+                        var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100) + 1);
+                        item.AmoOfTaxTCL1 = calculationOfAmount;
+                        lastSum = calculationOfAmount;
+                        additionalTaxes = 0;
+                    }
+                    obj.CALTAXGOD = listOfTaxes;
                 }
-                obj.CALTAXGOD = listOfTaxes;
+
             }
+
+        }
+
+        private void CalTaxes_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
         }
     }
 }

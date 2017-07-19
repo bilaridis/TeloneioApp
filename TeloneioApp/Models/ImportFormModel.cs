@@ -52,6 +52,21 @@ namespace TeloneioApp.Models
             TRAREP.TRAREPLNG = MainSettings.CustomerDetails.Language;
             TRAREP.TINTRE1 = MainSettings.CustomerDetails.EORI_TIN;
             MesSenMES3 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
+            HEAHEA.PropertyChanged += HEAHEA_PropertyChanged1;
+        }
+
+        private void HEAHEA_PropertyChanged1(object sender, PropertyChangedEventArgs e)
+        {
+          if(e.PropertyName == "MetOfPayHEA590")
+            {
+                foreach (var item in GOOITEGDS)
+                {
+                    foreach (var tax in item.CALTAXGOD)
+                    {
+                        tax.MetOfPayCTX1 = HEAHEA.MetOfPayHEA590;
+                    }
+                } 
+            }
         }
 
         private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -251,6 +266,16 @@ namespace TeloneioApp.Models
                 foreach (var item in _gooitegdss)
                 {
                     HEAHEA.TotNumOfPacHEA306 += item.PACGS2.NumOfPacGS24;
+                }
+            }
+            if(e.PropertyName == "CALTAXGOD")
+            {
+                foreach (var item in _gooitegdss)
+                {
+                    foreach (var tax in item.CALTAXGOD)
+                    {
+                        tax.MetOfPayCTX1 = HEAHEA.MetOfPayHEA590;
+                    }
                 }
             }
         }
