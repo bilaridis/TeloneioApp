@@ -25,6 +25,7 @@ namespace TeloneioApp.Views
         {
             InitializeComponent();
             MainSettings.InitializeStaticData();
+            MainSettings.CreateAppDataFiles();
             NavigationFrame.NavigationService.Navigate(new Home());
         }
 
