@@ -7,39 +7,33 @@ using System.Threading.Tasks;
 using System.Windows;
 using DomainModel;
 using DomainModel.Models;
+using TeloneioApp.ViewModels.Commands;
 
 namespace TeloneioApp.ViewModels
 {
-    public class LoginViewModel: ViewModelBaseClass
+    public class LoginViewModel : ViewModelBaseClass
     {
+        private string _userName;
+        private string _password;
+
+        public string UserName
+        {
+            get { return _userName; }
+            set { _userName = value; }
+        }
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+
         public LoginCustomerDetail LoginCustomerDetails { get; set; }
-        byte[] data = new byte[255];
-        byte[] result;
+        public LoginCommand LoginCommand { get; set;}
         public LoginViewModel()
         {
             LoginCustomerDetails = MainSettings.CustomerDetails;
-
-
-            byte[] array = GetBytes(LoginCustomerDetails.LoginPassword);
-            SHA512 shaM = new SHA512Managed();
-            var result = shaM.ComputeHash(array);
-
-            var ExtrString = GetString(result);
-
-            using (var model = new LocalModel())
-            {
-                if (!model.LoginCustomerDetails.Any(x => x.LoginUserName == LoginCustomerDetails.LoginUserName))
-                {
-                    var gg = Guid.NewGuid();
-                    LoginCustomerDetails.GUID = gg.ToString();
-                    LoginCustomerDetails.LoginUserName = "bilaridis";
-                    LoginCustomerDetails.LoginPassword = ExtrString;
-                    model.LoginCustomerDetails.Add(LoginCustomerDetails);
-
-                    model.SaveChanges();
-                }
-                
-            }
+            LoginCommand = new LoginCommand(this);
+            
         }
 
         static byte[] GetBytes(string str)
@@ -58,7 +52,20 @@ namespace TeloneioApp.ViewModels
         
         public void LoginClick()
         {
-            
+            using (var model = new LocalModel())
+            {
+                if (model.LoginCustomerDetails.Any(x => x.LoginUserName == UserName))
+                {
+                    byte[] array = GetBytes(Password);
+                    SHA512 shaM = new SHA512Managed();
+                    var result = shaM.ComputeHash(array);
+                    if (Password == model.LoginCustomerDetails.FirstOrDefault(x => x.LoginUserName == UserName).LoginPassword)
+                    {
+                        MessageBox.Show("Success");
+                    }
+                }
+
+            }
             
         }
     }

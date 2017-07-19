@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace TeloneioApp.ViewModels.Commands
 {
-    class LoginCommand : ICommand
+    public class LoginCommand : ICommand
     {
         public LoginViewModel LoginViewModel { get; set; }
 

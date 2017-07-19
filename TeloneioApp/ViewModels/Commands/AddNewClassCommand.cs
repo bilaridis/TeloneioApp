@@ -13,15 +13,15 @@ namespace TeloneioApp.ViewModels.Commands
         }
         public bool CanExecute(object parameter)
         {
-            if (ImportFormViewModel.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-          
+            //if (ImportFormViewModel.Count > 0)
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+            return true;
         }
 
         public void Execute(object parameter)

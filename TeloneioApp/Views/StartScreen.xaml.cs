@@ -26,7 +26,7 @@ namespace TeloneioApp.Views
             InitializeComponent();
             MainSettings.InitializeStaticData();
             MainSettings.CreateAppDataFiles();
-            NavigationFrame.NavigationService.Navigate(new Home());
+            NavigationFrame.NavigationService.Navigate(new Login());
         }
 
         private void CutomersPage_Click(object sender, RoutedEventArgs e)
