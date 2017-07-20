@@ -32,6 +32,28 @@ namespace TeloneioApp.ViewModels
         public LoginViewModel()
         {
             LoginCustomerDetails = MainSettings.CustomerDetails;
+
+            byte[] array = GetBytes(LoginCustomerDetails.LoginPassword);
+            SHA512 shaM = new SHA512Managed();
+            var result = shaM.ComputeHash(array);
+
+            var ExtrString = GetString(result);
+
+            using (var model = new LocalModel())
+            {
+                if (!model.LoginCustomerDetails.Any(x => x.LoginUserName == LoginCustomerDetails.LoginUserName))
+                {
+                    var gg = Guid.NewGuid();
+                    LoginCustomerDetails.GUID = gg.ToString();
+                    LoginCustomerDetails.LoginUserName = "bilaridis";
+                    LoginCustomerDetails.LoginPassword = ExtrString;
+                    model.LoginCustomerDetails.Add(LoginCustomerDetails);
+
+                    model.SaveChanges();
+                }
+
+            }
+
             LoginCommand = new LoginCommand(this);
             
         }
