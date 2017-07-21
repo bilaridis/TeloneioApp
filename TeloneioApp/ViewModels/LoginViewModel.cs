@@ -8,9 +8,13 @@ using System.Windows;
 using DomainModel;
 using DomainModel.Models;
 using TeloneioApp.ViewModels.Commands;
+using TeloneioApp.ViewModels.Converters;
+using TeloneioApp.Views;
+using System.Windows.Controls;
 
 namespace TeloneioApp.ViewModels
 {
+   
     public class LoginViewModel : ViewModelBaseClass
     {
         private string _userName;
@@ -83,6 +87,9 @@ namespace TeloneioApp.ViewModels
                     var result = shaM.ComputeHash(array);
                     if (GetString(result) == model.LoginCustomerDetails.FirstOrDefault(x => x.LoginUserName == UserName).LoginPassword)
                     {
+                        //this.Stats.Visibility = Visibility.Visible;
+                        //this.logrid.Visibility = Visibility.Hidden;
+                        
                         MessageBox.Show("Success");
                     }
                 }

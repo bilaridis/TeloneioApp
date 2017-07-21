@@ -120,6 +120,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="StaticResources\MyStringWriter.cs" />
     <Compile Include="StaticResources\XmlExtension.cs" />
+    <Compile Include="ViewModels\Converters\BoolToVisibleConverter.cs" />
     <Compile Include="ViewModels\Converters\TypeOfPaymentsConverter.cs" />
     <Compile Include="Models\FileInfoEDE.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

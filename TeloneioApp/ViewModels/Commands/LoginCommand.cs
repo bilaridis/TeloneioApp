@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace TeloneioApp.ViewModels.Commands
@@ -24,6 +25,7 @@ namespace TeloneioApp.ViewModels.Commands
         public void Execute(object parameter)
         {
             LoginViewModel.LoginClick();
+            
         }
 
         public event EventHandler CanExecuteChanged;

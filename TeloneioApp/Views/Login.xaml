@@ -22,13 +22,15 @@
             <viewModels:LoginViewModel x:Key="ViewModel"/>
         </ResourceDictionary>
     </Page.Resources>
-    <Grid DataContext="{Binding Source={StaticResource ViewModel}}">
+    <Grid x:Name="logrid" DataContext="{Binding Source={StaticResource ViewModel}}">
         <Grid Background="DarkBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"></ColumnDefinition>
                 <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
             </Grid.RowDefinitions>
@@ -40,17 +42,18 @@
             <Label Grid.Row="2" Grid.Column="0" Margin="0" Content="Password"></Label>
             <TextBox x:Name="LogPass" Grid.Row="2" Grid.Column="1" Margin="0" Text="{Binding Source={StaticResource ViewModel}, Path=Password}"></TextBox>
 
-
-        </Grid>
-        
-        <Button x:Name="Log" 
+            <Button x:Name="Log" 
                 Command="{Binding LoginCommand}"
                 CommandParameter="{Binding Password}"
                 Content="Submit" 
-                Margin="100,100,91,169"/>
-        
-        <Grid Margin="0" DataContext="{Binding Source={StaticResource ViewModel}}">
+                    Margin="95,66,0,-60" Grid.Row="2" Grid.Column="1"/>
+        </Grid>
+
+
+
+        <Grid Margin="0" x:Name="Stats" DataContext="{Binding Source={StaticResource ViewModel}}">
             <Grid Background="DarkBlue" Visibility="Collapsed">
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"></ColumnDefinition>
                     <ColumnDefinition Width="200"></ColumnDefinition>
