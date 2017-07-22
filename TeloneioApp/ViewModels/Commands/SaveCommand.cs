@@ -22,6 +22,8 @@ namespace TeloneioApp.ViewModels.Commands
         {
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.InitialDirectory = MainSettings.ImportFormXmlPath;
             saveFileDialog.Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*";
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -30,6 +32,7 @@ namespace TeloneioApp.ViewModels.Commands
                 {
                     firstOrDefault.RefreshXmlString();
                     File.WriteAllText(saveFileDialog.FileName, firstOrDefault.XmlStringBuilder);
+                    //File.Copy(Applicationpath.Replace("\\bin\\Debug", "") + @"\Examples\ED000988.xml", @"" + GetUserAppDataPath() + @"\Examples\ED000988.xml");
                 }
             }
         }

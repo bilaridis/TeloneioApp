@@ -16,6 +16,9 @@ namespace TeloneioApp
     {
         public static LoginCustomerDetail CustomerDetails { get; set; }
 
+        public static int CustomerNumber { get; set; }
+        public static int LastUsedNumber { get; set; }
+
         public static string Applicationpath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
         public static string GetUserAppDataPath()
@@ -42,8 +45,7 @@ namespace TeloneioApp
             // Build the User App Data Path
             path = Environment.GetFolderPath(
                         Environment.SpecialFolder.ApplicationData);
-            path += @"\" + ct.Company + @"\" + title.Title;
-            path += @"\" + assm.GetName().Version.ToString();
+            path += $@"{ct.Company}\{title.Title}\{assm.GetName().Version.ToString()}";
 
             return path;
         }
@@ -61,6 +63,10 @@ namespace TeloneioApp
                 EORI_TIN = "GR024372649"
             };
         }
+        public static string ImportFormXmlPath => @"" + GetUserAppDataPath() + $@"\ImportXml";
+        public static string ExamplesPath => @"" + GetUserAppDataPath() + $@"\Examples";
+        public static string TeloneioAppDataPath => @"" + GetUserAppDataPath() + $@"\TeloneioAppData";
+
 
         public static void CreateAppDataFiles()
         {
@@ -68,6 +74,10 @@ namespace TeloneioApp
                 Directory.CreateDirectory(@"" + GetUserAppDataPath());
             if (!Directory.Exists(@"" + GetUserAppDataPath() + $@"\Examples"))
                 Directory.CreateDirectory(@"" + GetUserAppDataPath() + $@"\Examples");
+            if (!Directory.Exists(@"" + GetUserAppDataPath() + $@"\ImportXml"))
+                Directory.CreateDirectory(@"" + GetUserAppDataPath() + $@"\ImportXml");
+            if (!Directory.Exists(@"" + GetUserAppDataPath() + $@"\TeloneioAppData"))
+                Directory.CreateDirectory(@"" + GetUserAppDataPath() + $@"\TeloneioAppData");
             if (File.Exists(@"" + GetUserAppDataPath() + $@"\Examples\ED000988.xml"))
             {
 

@@ -46,6 +46,8 @@ namespace TeloneioApp.Models
             HEAHEA.IdeOfMeaOfTraCroHEA85LNG = "EN";
             HEAHEA.IdeMeaTraArr4005LNG = "EN";
 
+            HEAHEA.RefNumHEA4 = $"{MainSettings.CustomerDetails.EORI_TIN.Substring(2,9)}/{createDateTime.Year.ToString().Substring(2, 2)}/{MainSettings.CustomerNumber.ToString("D5")}{(MainSettings.LastUsedNumber + 1).ToString("D4")}";
+
             //MainSettings.CustomerDetails
             TRAREP.NamTRE1 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
             TRAREP.CouCodTRE1 = MainSettings.CustomerDetails.Country;
