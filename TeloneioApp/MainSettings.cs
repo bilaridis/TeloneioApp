@@ -16,8 +16,7 @@ namespace TeloneioApp
     {
         public static LoginCustomerDetail CustomerDetails { get; set; }
 
-        public static int CustomerNumber { get; set; }
-        public static int LastUsedNumber { get; set; }
+        public static LoginCustomerExtension CustomerExtension { get; set; }
 
         public static string Applicationpath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
@@ -54,6 +53,7 @@ namespace TeloneioApp
         {
             CustomerDetails = new LoginCustomerDetail
             {
+                Id = 1,
                 LoginUserName = "bilaridis",
                 LoginPassword = "bill020690",
                 Name = "ΘΕΟΔΟΣΙΟΣ",
@@ -62,8 +62,17 @@ namespace TeloneioApp
                 Language = "EL",
                 EORI_TIN = "GR024372649"
             };
+
+            CustomerExtension = new LoginCustomerExtension
+            {
+                Id = 1,
+                CustomerID = 1,
+                CreatedYear = "17",
+                LRNCounter = 0,
+                MessageCounter = 0
+            };
         }
-        public static string ImportFormXmlPath => @"" + GetUserAppDataPath() + $@"\ImportXml";
+        public static string ImportFormXmlPath => @"" + GetUserAppDataPath() + $@"\Examples";
         public static string ExamplesPath => @"" + GetUserAppDataPath() + $@"\Examples";
         public static string TeloneioAppDataPath => @"" + GetUserAppDataPath() + $@"\TeloneioAppData";
 

@@ -78,9 +78,12 @@
     <Compile Include="HttpClients\SubChapter.cs" />
     <Compile Include="HttpClients\TariffCodesHelper.cs" />
     <Compile Include="LocalModel.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\LoginCustomerDetail.cs" />
     <Compile Include="MainSettings.cs" />
+    <Compile Include="Models\LoginCustomerExtension.cs" />
     <Compile Include="Models\Package.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Tax.cs" />
