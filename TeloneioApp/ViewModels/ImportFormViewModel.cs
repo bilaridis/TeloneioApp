@@ -19,7 +19,7 @@ namespace TeloneioApp.ViewModels
     public class ImportFormViewModel : ObservableCollection<ImportFormModel>
     {
         private readonly string ID15AFolder;
-        private List<FileInfoEDE> _files;
+        private ObservableCollection<FileInfoEDE> _files;
         private bool _showForm;
         private bool _showOriginal;
         private ObservableCollection<Customer> _customers;
@@ -45,7 +45,7 @@ namespace TeloneioApp.ViewModels
             IsVisibleForm = true;
             IsVisibleOriginal = false;
 
-            Files = new List<FileInfoEDE>();
+            Files = new ObservableCollection<FileInfoEDE>();
             ID15AFolder = MainSettings.ExamplesPath;
             //ID15AFolder = "C:\\Users\\billi\\Documents\\Visual Studio 2017\\Projects\\TeloneioApp\\TeloneioApp\\Examples\\"; //AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug\\", "\\") + "\\Examples\\";
             Selectfolders(ID15AFolder);
@@ -193,7 +193,7 @@ namespace TeloneioApp.ViewModels
             }
         }
 
-        public List<FileInfoEDE> Files
+        public ObservableCollection<FileInfoEDE> Files
         {
             get => _files;
             set

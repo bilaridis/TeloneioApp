@@ -115,7 +115,7 @@ namespace TeloneioApp.Views
                 {
                     var listOfTaxes = obj.CALTAXGOD;
                     decimal price = obj.StaValAmoGDI1;
-                    decimal additionalTaxes = 0 + price;
+                    decimal additionalTaxes = 0;
                     additionalTaxes += obj.TAXADDELE100.SupUniCodTAXADDELE101 == "800"
                     ? decimal.Parse(obj.TAXADDELE100.AmoOfSupUniTAXADDELE100)
                     : 0;
@@ -126,16 +126,17 @@ namespace TeloneioApp.Views
                     {
                         if (item.TypOfTaxCTX1 == "B00")
                         {
-                            item.TaxBasCTX1 = lastSum + additionalTaxes;
+                            item.TaxBasCTX1 = lastSum > 0 ? lastSum + additionalTaxes : price + additionalTaxes;
+                            additionalTaxes = 0;
                         }
                         else
                         {
-                            item.TaxBasCTX1 = lastSum > 0 ? lastSum : item.TaxBasCTX1;
+                            item.TaxBasCTX1 = lastSum > 0 ? lastSum : price;
                         }
-                        var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100) + 1);
+                        var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100));
                         item.AmoOfTaxTCL1 = calculationOfAmount;
-                        lastSum = calculationOfAmount;
-                        additionalTaxes = 0;
+                        lastSum = item.TaxBasCTX1 + calculationOfAmount;
+                        
                     }
                     obj.CALTAXGOD = listOfTaxes;
                 }
