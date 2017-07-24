@@ -48,18 +48,35 @@ namespace TeloneioApp.Models
 
             HEAHEA.RefNumHEA4 = $"{MainSettings.CustomerDetails.EORI_TIN.Substring(2,9)}/{createDateTime.Year.ToString().Substring(2, 2)}/{MainSettings.CustomerNumber.ToString("D5")}{(MainSettings.LastUsedNumber + 1).ToString("D4")}";
 
+            STATREP385.RepStatCodSTATREP386 = "2";
+            ENTCUSOFF.PropertyChanged += ENTCUSOFF_PropertyChanged;
+            if (ENTCUSOFF.EnCusOffRefNum01?.Length > 2)
+            {
+                MesRecMES6 = ENTCUSOFF.EnCusOffRefNum01.Substring(2, ENTCUSOFF.EnCusOffRefNum01.Length - 2);
+            }
+            
+
             //MainSettings.CustomerDetails
             TRAREP.NamTRE1 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
             TRAREP.CouCodTRE1 = MainSettings.CustomerDetails.Country;
             TRAREP.TRAREPLNG = MainSettings.CustomerDetails.Language;
             TRAREP.TINTRE1 = MainSettings.CustomerDetails.EORI_TIN;
             MesSenMES3 = $"{MainSettings.CustomerDetails.Surname} {MainSettings.CustomerDetails.Name}";
-            HEAHEA.PropertyChanged += HEAHEA_PropertyChanged1;
         }
 
-        private void HEAHEA_PropertyChanged1(object sender, PropertyChangedEventArgs e)
+        private void ENTCUSOFF_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-          if(e.PropertyName == "MetOfPayHEA590")
+            if(e.PropertyName == "EnCusOffRefNum01")
+            {
+                int outParsedNumber = -1;
+                int.TryParse(ENTCUSOFF.EnCusOffRefNum01.Substring(2, ENTCUSOFF.EnCusOffRefNum01.Length - 2), out outParsedNumber);
+                MesRecMES6 = outParsedNumber.ToString();
+            }
+        }
+
+        private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "MetOfPayHEA590")
             {
                 foreach (var item in GOOITEGDS)
                 {
@@ -67,20 +84,8 @@ namespace TeloneioApp.Models
                     {
                         tax.MetOfPayCTX1 = HEAHEA.MetOfPayHEA590;
                     }
-                } 
+                }
             }
-        }
-
-        private void HEAHEA_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            //if (e.PropertyName == "TotNumOfPacHEA306")
-            //{
-
-            //}
-            //if (e.PropertyName == "TotGroMasHEA307")
-            //{
-
-            //}
         }
 
         public ImportFormModel(ID15A modelId15A)
@@ -264,10 +269,19 @@ namespace TeloneioApp.Models
             if (e.PropertyName == "Packets")
             {
                 HEAHEA.TotNumOfPacHEA306 = 0;
+                
 
                 foreach (var item in _gooitegdss)
                 {
                     HEAHEA.TotNumOfPacHEA306 += item.PACGS2.NumOfPacGS24;
+                    if(item.CONNR2.Count > 0)
+                    {
+                        HEAHEA.ConIndHEA96 = 1;
+                    }
+                    else
+                    {
+                        HEAHEA.ConIndHEA96 = 0;
+                    }
                 }
             }
             if(e.PropertyName == "CALTAXGOD")
@@ -279,6 +293,10 @@ namespace TeloneioApp.Models
                         tax.MetOfPayCTX1 = HEAHEA.MetOfPayHEA590;
                     }
                 }
+            }
+            if(e.PropertyName == "ConNumNR21" || e.PropertyName == "CONNR2")
+            {
+                HEAHEA.ConIndHEA96 = 1;
             }
         }
 

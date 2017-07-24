@@ -103,45 +103,41 @@ namespace TeloneioApp.Views
         private void CalTaxes_OnCurrentCellChanged(object sender, EventArgs e)
         {
             var DataGridSender = (DataGrid)sender;
-            if (DataGridSender.CurrentCell.Column?.Header.ToString() == "Φορ/γικη Βάση")
+
+            var obj =
+                ((FrameworkElement)((FrameworkElement)((FrameworkElement)((FrameworkElement)
+                ((FrameworkElement)DataGridSender.Parent).Parent).Parent).Parent).Parent).DataContext as GOOITEGDS;
+
+            if (obj != null)
             {
+                var listOfTaxes = obj.CALTAXGOD;
+                decimal price = obj.StaValAmoGDI1;
+                decimal additionalTaxes = 0;
+                additionalTaxes += obj.TAXADDELE100.SupUniCodTAXADDELE101 == "800"
+                ? decimal.Parse(obj.TAXADDELE100.AmoOfSupUniTAXADDELE100)
+                : 0;
 
-                var obj =
-                    ((FrameworkElement)((FrameworkElement)
-                    ((FrameworkElement)((FrameworkElement)((FrameworkElement)((FrameworkElement)sender).Parent)
-                        .Parent).Parent).Parent).Parent).DataContext as GOOITEGDS;
 
-                if (obj != null)
+                decimal lastSum = 0;
+                foreach (var item in listOfTaxes)
                 {
-                    var listOfTaxes = obj.CALTAXGOD;
-                    decimal price = obj.StaValAmoGDI1;
-                    decimal additionalTaxes = 0;
-                    additionalTaxes += obj.TAXADDELE100.SupUniCodTAXADDELE101 == "800"
-                    ? decimal.Parse(obj.TAXADDELE100.AmoOfSupUniTAXADDELE100)
-                    : 0;
-
-              
-                    decimal lastSum = 0;
-                    foreach (var item in listOfTaxes)
+                    if (item.TypOfTaxCTX1 == "B00")
                     {
-                        if (item.TypOfTaxCTX1 == "B00")
-                        {
-                            item.TaxBasCTX1 = lastSum > 0 ? lastSum + additionalTaxes : price + additionalTaxes;
-                            additionalTaxes = 0;
-                        }
-                        else
-                        {
-                            item.TaxBasCTX1 = lastSum > 0 ? lastSum : price;
-                        }
-                        var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100));
-                        item.AmoOfTaxTCL1 = calculationOfAmount;
-                        lastSum = item.TaxBasCTX1 + calculationOfAmount;
-                        
+                        item.TaxBasCTX1 = lastSum > 0 ? lastSum + additionalTaxes : price + additionalTaxes;
+                        additionalTaxes = 0;
                     }
-                    obj.CALTAXGOD = listOfTaxes;
-                }
+                    else
+                    {
+                        item.TaxBasCTX1 = lastSum > 0 ? lastSum : price;
+                    }
+                    var calculationOfAmount = (item.TaxBasCTX1) * ((item.RatOfTaxCTX1 / 100));
+                    item.AmoOfTaxTCL1 = calculationOfAmount;
+                    lastSum = item.TaxBasCTX1 + calculationOfAmount;
 
+                }
+                obj.CALTAXGOD = listOfTaxes;
             }
+
 
         }
 

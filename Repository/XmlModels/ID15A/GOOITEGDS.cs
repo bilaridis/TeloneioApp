@@ -31,7 +31,7 @@ namespace DomainModel.XmlModels.ID15A
         private List<PRODOCDC2> _prodocdc2;
         private COMCODGODITM _comcodgoditm;
         private List<CALTAXGOD> _caltaxgod;
-        private List<CONNR2> _connr2;
+        private ObservableCollection<CONNR2> _connr2;
         private PACGS2 _pacgs2;
         private TAXADDELE100 _taxaddele100;
         private string _concatenationOfContainers;
@@ -43,7 +43,7 @@ namespace DomainModel.XmlModels.ID15A
             CALTAXGOD = new List<CALTAXGOD>();
             PREADMREFAR2 = new List<PREADMREFAR2>();
             PRODOCDC2 = new List<PRODOCDC2>();
-            CONNR2 = new List<CONNR2>();
+            CONNR2 = new ObservableCollection<XmlModels.ID15A.CONNR2>();
             COMCODGODITM = new COMCODGODITM();
             PACGS2 = new PACGS2();
             TAXADDELE100 = new TAXADDELE100();
@@ -57,7 +57,7 @@ namespace DomainModel.XmlModels.ID15A
             CALTAXGOD = new List<CALTAXGOD>();
             PREADMREFAR2 = new List<PREADMREFAR2>();
             PRODOCDC2 = new List<PRODOCDC2>();
-            CONNR2 = new List<CONNR2>();
+            CONNR2 = new ObservableCollection<XmlModels.ID15A.CONNR2>();
             COMCODGODITM = new COMCODGODITM();
             PACGS2 = new PACGS2();
             TAXADDELE100 = new TAXADDELE100();
@@ -363,7 +363,7 @@ namespace DomainModel.XmlModels.ID15A
         }
 
         [XmlElement("CONNR2")]
-        public List<CONNR2> CONNR2
+        public ObservableCollection<CONNR2> CONNR2
         {
             get { return _connr2; }
             set
