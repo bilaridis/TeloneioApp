@@ -13,12 +13,13 @@ namespace TeloneioApp.ViewModels
     public class HomeViewModel: ViewModelBaseClass
     {
         public LoginCustomerDetail LoginCustomerDetails { get; set; }
+        public LoginCustomerExtension CustomerExtension { get; set; }
         byte[] data = new byte[255];
         byte[] result;
         public HomeViewModel()
         {
             LoginCustomerDetails = MainSettings.CustomerDetails;
-
+            CustomerExtension = MainSettings.CustomerExtension;
 
             byte[] array = GetBytes(LoginCustomerDetails.LoginPassword);
             SHA512 shaM = new SHA512Managed();
@@ -38,7 +39,13 @@ namespace TeloneioApp.ViewModels
 
                     model.SaveChanges();
                 }
-                
+                if (!model.LoginCustomerExtensions.Any(x => x.CustomerID == LoginCustomerDetails.Id && x.CreatedYear == "17"))
+                {
+                    model.LoginCustomerExtensions.Add(CustomerExtension);
+
+                    model.SaveChanges();
+                }
+
             }
         }
 

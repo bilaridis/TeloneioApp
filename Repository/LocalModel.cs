@@ -21,6 +21,9 @@ namespace DomainModel
         public virtual DbSet<Class> Classes { get; set; }
 
         public virtual DbSet<LoginCustomerDetail> LoginCustomerDetails { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<LoginCustomerExtension> LoginCustomerExtensions { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -57,6 +60,10 @@ namespace DomainModel
                 .HasMany(e => e.CalculatedTaxes)
                 .WithRequired(e => e.Class)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<LoginCustomerExtension>()
+                .Property(e => e.CreatedYear)
+                .IsFixedLength();
         }
     }
 }
