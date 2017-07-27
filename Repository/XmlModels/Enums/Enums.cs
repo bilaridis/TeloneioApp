@@ -28,7 +28,7 @@ namespace DomainModel.XmlModels.Enums
         Four = 4
     }
 
-    public class Core
+    public static class Core
     {
         public static IEnumerable<TypeOfPayments> GetTypeOfPayments => Enum.GetValues(typeof(TypeOfPayments)).Cast<TypeOfPayments>();
         public static IEnumerable<Preference> GetPreference => Enum.GetValues(typeof(Preference)).Cast<Preference>();
