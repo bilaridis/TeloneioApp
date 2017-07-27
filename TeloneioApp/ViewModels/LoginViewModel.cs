@@ -15,24 +15,21 @@ using System.Windows.Navigation;
 
 namespace TeloneioApp.ViewModels
 {
-   
+
     public class LoginViewModel : ViewModelBaseClass
     {
         private string _userName;
         private string _password;
         private bool _logrid;
-        private Visibility _Stats;
-
+ 
         public bool logrid
         {
             get { return _logrid; }
-            set { _logrid = value; }
-        }
-
-        public Visibility Stats
-        {
-            get { return _Stats; }
-            set { _Stats = value; }
+            set
+            {
+                _logrid = value;
+                RaisePropertyChanged("logrid");
+            }
         }
 
         public string UserName
@@ -47,10 +44,10 @@ namespace TeloneioApp.ViewModels
         }
 
         public LoginCustomerDetail LoginCustomerDetails { get; set; }
-        public LoginCommand LoginCommand { get; set;}
+        public LoginCommand LoginCommand { get; set; }
         public LoginViewModel()
         {
-            
+
             LoginCustomerDetails = MainSettings.CustomerDetails;
 
             byte[] array = GetBytes(LoginCustomerDetails.LoginPassword);
@@ -71,11 +68,8 @@ namespace TeloneioApp.ViewModels
 
                     model.SaveChanges();
                 }
-
             }
-
-            
-            
+            logrid = true;
         }
 
         static byte[] GetBytes(string str)
@@ -91,7 +85,7 @@ namespace TeloneioApp.ViewModels
             System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
         }
-        
+
         public void LoginClick()
         {
             using (var model = new LocalModel())
@@ -113,7 +107,7 @@ namespace TeloneioApp.ViewModels
         }
         private void OnSuccess()
         {
-            logrid = true;
+            logrid = false;
         }
     }
 }
