@@ -11,6 +11,7 @@ using TeloneioApp.ViewModels.Commands;
 using TeloneioApp.ViewModels.Converters;
 using TeloneioApp.Views;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 
 namespace TeloneioApp.ViewModels
 {
@@ -19,6 +20,20 @@ namespace TeloneioApp.ViewModels
     {
         private string _userName;
         private string _password;
+        private bool _logrid;
+        private Visibility _Stats;
+
+        public bool logrid
+        {
+            get { return _logrid; }
+            set { _logrid = value; }
+        }
+
+        public Visibility Stats
+        {
+            get { return _Stats; }
+            set { _Stats = value; }
+        }
 
         public string UserName
         {
@@ -35,6 +50,7 @@ namespace TeloneioApp.ViewModels
         public LoginCommand LoginCommand { get; set;}
         public LoginViewModel()
         {
+            
             LoginCustomerDetails = MainSettings.CustomerDetails;
 
             byte[] array = GetBytes(LoginCustomerDetails.LoginPassword);
@@ -42,7 +58,7 @@ namespace TeloneioApp.ViewModels
             var result = shaM.ComputeHash(array);
 
             var ExtrString = GetString(result);
-
+            LoginCommand = new LoginCommand(this);
             using (var model = new LocalModel())
             {
                 if (!model.LoginCustomerDetails.Any(x => x.LoginUserName == LoginCustomerDetails.LoginUserName))
@@ -58,7 +74,7 @@ namespace TeloneioApp.ViewModels
 
             }
 
-            LoginCommand = new LoginCommand(this);
+            
             
         }
 
@@ -87,15 +103,17 @@ namespace TeloneioApp.ViewModels
                     var result = shaM.ComputeHash(array);
                     if (GetString(result) == model.LoginCustomerDetails.FirstOrDefault(x => x.LoginUserName == UserName).LoginPassword)
                     {
-                        //this.Stats.Visibility = Visibility.Visible;
-                        //this.logrid.Visibility = Visibility.Hidden;
-                        
+                        OnSuccess();
                         MessageBox.Show("Success");
                     }
                 }
 
             }
-            
+
+        }
+        private void OnSuccess()
+        {
+            logrid = true;
         }
     }
 }
